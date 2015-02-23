@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>fishing-upgrade</artifactId>
+    <artifactId>adventure-core</artifactId>
     
     <build>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
@@ -71,12 +71,6 @@
             <artifactId>commons</artifactId>
             <version>1.8.2</version>
         </dependency>
-        <dependency>
-            <groupId>com.caved_in</groupId>
-            <artifactId>shards</artifactId>
-            <version>1.2-SNAPSHOT</version>
-        </dependency>
     </dependencies>
-
 
 </project>

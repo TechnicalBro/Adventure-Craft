@@ -1,10 +1,8 @@
-package com.caved_in.adventurecraft.fishingupgrade.config;
+package com.caved_in.adventurecraft.fishing.config;
 
 import com.caved_in.commons.config.XmlItemStack;
 import com.caved_in.commons.item.ItemBuilder;
-import com.caved_in.commons.item.Items;
 import com.caved_in.commons.utilities.NumberUtil;
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 public class FishingLoot {

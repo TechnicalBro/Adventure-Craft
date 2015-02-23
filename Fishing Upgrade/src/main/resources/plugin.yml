@@ -1,0 +1,10 @@
+name: Adventure-Fishing
+main: com.caved_in.adventurecraft.fishing.AdventureFishing
+version: ${project.version}
+description: Taking minecraft fishing to a whole new level!
+author: Brandon Curtis
+depend: [Commons,Shards]
+commands:
+   adventurefishing:
+      description: The adventure fishing command helps admins expand the loot and tweak config for the fishing events.
+      usage: /<command>

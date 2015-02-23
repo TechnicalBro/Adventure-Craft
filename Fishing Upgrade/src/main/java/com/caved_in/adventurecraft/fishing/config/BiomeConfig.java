@@ -1,4 +1,4 @@
-package com.caved_in.adventurecraft.fishingupgrade.config;
+package com.caved_in.adventurecraft.fishing.config;
 
 import org.bukkit.block.Biome;
 import org.simpleframework.xml.Root;
@@ -16,9 +16,5 @@ public class BiomeConfig {
     public BiomeConfig() {
 
     }
-    
-    public BiomeConfig addLoot(FishingLoot loot) {
-        
-        
-    }
+
 }

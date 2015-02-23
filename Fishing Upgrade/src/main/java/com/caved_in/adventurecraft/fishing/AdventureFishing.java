@@ -1,14 +1,13 @@
-package com.caved_in.adventurecraft.fishingupgrade;
+package com.caved_in.adventurecraft.fishing;
 
-import com.caved_in.adventurecraft.fishingupgrade.listeners.FishingListener;
+import com.caved_in.adventurecraft.fishing.listeners.FishingListener;
 import com.caved_in.commons.plugin.BukkitPlugin;
 
-public class FishingUpgrade extends BukkitPlugin {
+public class AdventureFishing extends BukkitPlugin {
     @Override
     public void startup() {
         
         registerListeners(new FishingListener());
-
     }
 
     @Override

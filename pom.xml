@@ -12,6 +12,8 @@
     <modules>
 
         <module>Fishing Upgrade</module>
+        <module>Adventure Core</module>
+        <module>Loot Generator</module>
     </modules>
 
 

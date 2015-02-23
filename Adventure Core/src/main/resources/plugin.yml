@@ -1,0 +1,10 @@
+name: Adventure-Core
+main: com.caved_in.adventurecraft.core.AdventureCore
+version: ${project.version}
+description: The mother-ship to all the custom plugins and features for adventure craft!
+author: Brandon Curtis
+depend: [Commons]
+commands:
+   adventure:
+      description: The adventure command is used by admins to help build and make adventures around the world!
+      usage: /<command>

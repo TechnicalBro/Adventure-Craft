@@ -1,13 +1,12 @@
-package com.caved_in.adventurecraft.fishingupgrade.listeners;
+package com.caved_in.adventurecraft.fishing.listeners;
 
-import com.caved_in.adventurecraft.fishingupgrade.config.GlobalFishingConfig;
-import com.caved_in.adventurecraft.fishingupgrade.config.PluginConfig;
-import com.caved_in.commons.chat.Chat;
-import com.caved_in.commons.chat.Title;
+import com.caved_in.adventurecraft.fishing.config.AdventureFishingConfig;
+import com.caved_in.adventurecraft.fishing.config.PluginConfig;
 import com.caved_in.commons.chat.TitleBuilder;
 import com.caved_in.commons.item.Items;
 import com.caved_in.commons.player.Players;
 import com.caved_in.commons.utilities.NumberUtil;
+import com.caved_in.shards.Shards;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerFishEvent;
@@ -28,11 +27,13 @@ public class FishingListener implements Listener {
                     return;
                 }
 
-                ItemStack fishingLoot = GlobalFishingConfig.getRandomLoot();
+                ItemStack fishingLoot = AdventureFishingConfig.getRandomLoot();
 
                 Players.giveItem(e.getPlayer(), fishingLoot, true);
 //                Chat.actionMessage(e.getPlayer(), String.format("&9You've found a(n) %s&9 while fishing!"));
                 lootFoundTitle.title("&eFishing Catch!").subtitle(Items.getName(fishingLoot)).build().send(e.getPlayer());
+
+                Shards.chanceSpawn(e.getPlayer().getLocation(),PluginConfig.SHARDS_ON_LOOT_CHANCE,NumberUtil.getRandomInRange(1,2));
                 break;
             default:
                 break;
