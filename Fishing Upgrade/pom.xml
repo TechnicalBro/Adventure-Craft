@@ -69,7 +69,7 @@
         <dependency>
             <groupId>com.caved_in</groupId>
             <artifactId>commons</artifactId>
-            <version>1.8.2</version>
+            <version>1.8.3</version>
         </dependency>
         <dependency>
             <groupId>com.caved_in</groupId>

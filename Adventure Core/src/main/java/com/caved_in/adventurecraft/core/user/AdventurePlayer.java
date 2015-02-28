@@ -6,6 +6,8 @@ import org.simpleframework.xml.Element;
 
 public class AdventurePlayer extends User {
     
+    //TODO implement effect on teleport
+    
     @Element(name = "has-received-start-book")
     private boolean hasReceivedStartBook = false;
 

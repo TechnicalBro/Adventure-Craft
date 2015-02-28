@@ -1,22 +1,21 @@
-package com.caved_in.adventurecraft.core.user;
+package com.caved_in.adventurecraft.homes.users;
 
-import com.caved_in.adventurecraft.core.AdventureCore;
+import com.caved_in.adventurecraft.homes.AdventureHomes;
 import com.caved_in.commons.game.players.UserManager;
-import com.caved_in.commons.player.User;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
 import java.util.UUID;
 
-public class AdventurerPlayerManager extends UserManager<AdventurePlayer> {
-    private AdventureCore core = null;
+public class HomePlayerManager extends UserManager<HomePlayer> {
+    private AdventureHomes core = null;
     
     private Serializer serializer = new Persister();
 
-    public AdventurerPlayerManager() {
-        super(AdventurePlayer.class);
-        core = AdventureCore.getInstance();
+    public HomePlayerManager() {
+        super(HomePlayer.class);
+        core = AdventureHomes.getInstance();
     }
     
     public boolean hasOfflineData(UUID id) {
@@ -33,10 +32,9 @@ public class AdventurerPlayerManager extends UserManager<AdventurePlayer> {
         boolean loaded = false;
 
         try {
-            AdventurePlayer adventurer = serializer.read(AdventurePlayer.class,userFile);
-            if (adventurer != null) {
-                addUser(adventurer);
-                core.debug("");
+            HomePlayer player = serializer.read(HomePlayer.class,userFile);
+            if (player != null) {
+                addUser(player);
                 loaded = true;
             }
         } catch (Exception e) {
@@ -53,7 +51,7 @@ public class AdventurerPlayerManager extends UserManager<AdventurePlayer> {
         }
         File userFile = getUserFile(id);
         
-        AdventurePlayer player = getUser(id);
+        HomePlayer player = getUser(id);
         boolean saved = false;
         try {
             serializer.write(player,userFile);
@@ -62,6 +60,14 @@ public class AdventurerPlayerManager extends UserManager<AdventurePlayer> {
             e.printStackTrace();
         }
         return saved;
+    }
+    
+    public void saveAll() {
+        for(HomePlayer user : allUsers()) {
+            if (!save(user.getId())) {
+                core.debug("ERROR SAVING DATA FOR " + user.getName());
+            }
+        }
     }
     
     private File getUserFile(UUID id) {

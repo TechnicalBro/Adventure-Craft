@@ -1,0 +1,13 @@
+name: Adventure-Homes
+main: com.caved_in.adventurecraft.homes.AdventureHomes
+version: ${project.version}
+description: This world is yours to own, make a home a build a life!
+author: Brandon Curtis
+depend: [Commons]
+commands:
+   home:
+      description: Open the home selection menu, and choose what to do with your homes!
+      usage: /<command>
+   sethome:
+      description: Set yourself a home and start building a life!
+      usage: /<command> <name-with-spaces>
