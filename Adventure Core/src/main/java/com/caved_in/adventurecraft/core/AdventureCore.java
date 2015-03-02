@@ -4,12 +4,15 @@ import com.caved_in.adventurecraft.core.command.ExchangeCommand;
 import com.caved_in.adventurecraft.core.listener.PlayerConnectionListener;
 import com.caved_in.adventurecraft.core.listener.PlayerGivePlayerFlowerListener;
 import com.caved_in.adventurecraft.core.listener.PlayerHandleBunnyListener;
+import com.caved_in.adventurecraft.core.user.AdventurePlayer;
 import com.caved_in.adventurecraft.core.user.AdventurerPlayerManager;
+import com.caved_in.adventurecraft.core.user.upgrades.PlayerUpgrade;
 import com.caved_in.commons.game.CraftGame;
 import com.caved_in.commons.item.ItemBuilder;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Material;
 import org.bukkit.Server;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
@@ -127,8 +130,37 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
     public Economy getEconomy() {
         return economy;
     }
+    
+    public static class API {
+        public static int getUpgradeLevel(Player player, PlayerUpgrade.Type upgrade) {
+            return getUserData(player).getUpgradeData(upgrade).getLevel();
+        }
+        
+        public static AdventurePlayer getUserData(Player player) {
+            return instance.getUserManager().getUser(player);
+        }
+        
+        public static boolean hasEconomy() {
+            return getEconomy() != null;
+            
+        }
+        
+        public static Economy getEconomy() {
+            return instance.getEconomy();
+        }
+    }
 
     public static class Properties {
         public static final int GOLD_PER_EXP = 3;
+        
+        /*
+        The hard cap on how much players can upgrade their skills, how many times.
+         */
+        public static final int MAX_UPGRADE_LEVEL = 30;
+    
+        /*
+        How much each individual level will cost to upgrade
+         */
+        public static final int BASE_PRICE_PER_LEVEL = 1500;
     }
 }
