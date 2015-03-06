@@ -22,8 +22,5 @@ public class LootGenerator {
         LootSettings.ItemNameSettings suffixes = settings.suffixes();
 
         WeaponProperties weaponProperties = settings.weaponProperties();
-        
-        
-        
     }
 }
