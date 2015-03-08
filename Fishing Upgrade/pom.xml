@@ -69,12 +69,17 @@
         <dependency>
             <groupId>com.caved_in</groupId>
             <artifactId>commons</artifactId>
-            <version>1.8.3</version>
+            <version>1.8.4</version>
         </dependency>
         <dependency>
             <groupId>com.caved_in</groupId>
             <artifactId>shards</artifactId>
             <version>1.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.caved_in.adventurecraft</groupId>
+            <artifactId>lootgenerator</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

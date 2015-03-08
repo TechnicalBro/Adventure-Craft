@@ -28,7 +28,11 @@ public class AxeOfTimbers extends ItemGadget {
         //TODO hook into towny and check if block that player is pointing at is protected
         //todo hook into worldguard and see if the block they're trying to break is protected
 
-        if (Blocks.isOfAnyType(blockAtCursor, Material.CHEST,Material.FURNACE,Material.STORAGE_MINECART,Material.))
+        Blocks.breakTree(blockAtCursor,true,true);
+
+        if (Blocks.isOfAnyType(blockAtCursor, Material.CHEST,Material.FURNACE,Material.STORAGE_MINECART)) {
+
+        }
         //todo hook into LWC and see if the block they're breaking is protected
     }
 

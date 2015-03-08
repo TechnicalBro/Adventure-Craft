@@ -1,6 +1,6 @@
 package com.caved_in.adventurecraft.fishing.listeners;
 
-import com.caved_in.adventurecraft.fishing.config.AdventureFishingConfig;
+import com.caved_in.adventurecraft.fishing.AdventureFishing;
 import com.caved_in.adventurecraft.fishing.config.PluginConfig;
 import com.caved_in.commons.chat.TitleBuilder;
 import com.caved_in.commons.item.Items;
@@ -27,7 +27,7 @@ public class FishingListener implements Listener {
                     return;
                 }
 
-                ItemStack fishingLoot = AdventureFishingConfig.getRandomLoot();
+                ItemStack fishingLoot = AdventureFishing.Config.getRandomLoot();
 
                 Players.giveItem(e.getPlayer(), fishingLoot, true);
 //                Chat.actionMessage(e.getPlayer(), String.format("&9You've found a(n) %s&9 while fishing!"));
