@@ -14,10 +14,8 @@ public class PlayerWoodcuttingEvent extends PlayerEvent {
     private Block block;
     private ItemStack axe;
     
-    public PlayerWoodcuttingEvent(Player who) {
+    public PlayerWoodcuttingEvent(Player who, Block block) {
         super(who);
-        
-        
     }
 
     @Override

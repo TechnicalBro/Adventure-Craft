@@ -25,6 +25,8 @@ public class ItemLoreSettings {
 	@ElementList(name = "lines", entry = "line", required = false)
 	private List<String> lore = new ArrayList<>();
 
+	private LootSettings parent = null;
+
 	public ItemLoreSettings(
 			@Element(name = "display-damage") boolean damageDisplay,
 			@Element(name = "damage-format", required = false) String damageFormat,
@@ -75,5 +77,14 @@ public class ItemLoreSettings {
 
 	public boolean hasRarityDisplayed() {
 		return displayRarity;
+	}
+
+	public ItemLoreSettings parent(LootSettings parent) {
+		this.parent = parent;
+		return this;
+	}
+
+	public LootSettings parent() {
+		return parent;
 	}
 }

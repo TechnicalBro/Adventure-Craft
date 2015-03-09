@@ -9,10 +9,12 @@ import com.caved_in.adventurecraft.loot.generator.settings.LootSettings;
 import com.caved_in.commons.game.item.WeaponProperties;
 import com.caved_in.commons.item.Attributes;
 import com.caved_in.commons.item.ItemBuilder;
+import com.caved_in.commons.item.Items;
 import com.caved_in.commons.plugin.Plugins;
 import com.caved_in.commons.utilities.NumberUtil;
 import com.caved_in.commons.utilities.Str;
 import com.google.common.collect.Lists;
+import com.mysql.jdbc.StringUtils;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.MaterialData;
 
@@ -25,6 +27,10 @@ public class LootGenerator {
 
 	public LootGenerator(AdventureLoot plugin) {
 		this.plugin = plugin;
+	}
+
+	public ItemStack createItem(LootTable table) {
+		return createItem(table.getRandom());
 	}
 
 	/**
@@ -186,9 +192,18 @@ public class LootGenerator {
 
 		} else {
 			generatedName = settings.getLootName();
+
+			if (StringUtils.isNullOrEmpty(generatedName)) {
+				generatedName = Items.getFormattedMaterialName(material.isPresent() ? material.get().getItemType() : data.getDefaultMaterial().getItemType());
+			}
 		}
 
-		item.name(generatedName);
+		if (generatedName != null) {
+			item.name(generatedName);
+		} else {
+			item.name(Items.getFormattedMaterialName(material.isPresent() ? material.get().getItemType() : data.getDefaultMaterial().getItemType()));
+		}
+
 		plugin.debug("Assigned Item Name: " + generatedName);
 
 		//TODO Implement a custom listener for itemTable damages and apply weaponProperties to the itemTable itself.

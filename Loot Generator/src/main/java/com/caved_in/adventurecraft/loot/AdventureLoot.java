@@ -3,6 +3,7 @@ package com.caved_in.adventurecraft.loot;
 import com.caved_in.adventurecraft.loot.command.LootCommand;
 import com.caved_in.adventurecraft.loot.debug.DebugLootGenerator;
 import com.caved_in.adventurecraft.loot.generator.LootGenerator;
+import com.caved_in.adventurecraft.loot.generator.data.LootTable;
 import com.caved_in.adventurecraft.loot.generator.settings.LootSettings;
 import com.caved_in.adventurecraft.loot.generator.settings.LootSettingsBuilder;
 import com.caved_in.adventurecraft.loot.listener.LootGenerateListener;
@@ -53,6 +54,10 @@ public class AdventureLoot extends BukkitPlugin {
     }
 
     public static class API {
+
+        public static ItemStack generateItem(LootTable table) {
+            return generator.createItem(table);
+        }
 
         public static ItemStack generateItem(LootSettings settings) {
             return generator.createItem(settings);

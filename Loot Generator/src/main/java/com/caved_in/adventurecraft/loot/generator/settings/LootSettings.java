@@ -22,7 +22,7 @@ public class LootSettings {
     private WeaponProperties weaponProperties = new WeaponProperties(0,true,true,2,5);
     
     @Element(name = "random-name")
-    private boolean randomName = true;
+    private boolean randomName = false;
     
     @Element(name = "itemTable-name",required = false)
     private String name;
@@ -107,7 +107,7 @@ public class LootSettings {
 
     //todo implement checks for non-random-names
     public boolean hasRandomName() {
-        return true;
+        return randomName;
     }
     
     public String getLootName() {
@@ -115,7 +115,7 @@ public class LootSettings {
     }
 
     public ItemLoreSettings lore() {
-        return loreSettings;
+        return loreSettings.parent(this);
     }
 
     public LootSettings randomName(boolean randomName) {

@@ -1,5 +1,6 @@
 package com.caved_in.adventurecraft.loot.generator.data;
 
+import com.caved_in.commons.item.Attributes;
 import com.caved_in.commons.item.Items;
 import com.caved_in.commons.utilities.NumberUtil;
 import org.bukkit.Material;

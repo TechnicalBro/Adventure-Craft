@@ -14,7 +14,8 @@ import java.util.Map;
 
 public class AdventurePlayer extends User {
     private static AdventureCore core = AdventureCore.getInstance();
-    
+
+    @Element(name = "has-received-start-book")
     private boolean hasReceivedStartBook = false;
     
     @ElementMap(key = "type",keyType = PlayerUpgrade.Type.class,entry = "upgrade",value = "data",valueType = UserUpgrade.class,required = false)

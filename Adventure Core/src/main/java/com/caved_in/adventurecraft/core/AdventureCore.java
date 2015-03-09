@@ -1,6 +1,7 @@
 package com.caved_in.adventurecraft.core;
 
 import com.caved_in.adventurecraft.core.command.ExchangeCommand;
+import com.caved_in.adventurecraft.core.listener.MobSlayListener;
 import com.caved_in.adventurecraft.core.listener.PlayerConnectionListener;
 import com.caved_in.adventurecraft.core.listener.PlayerGivePlayerFlowerListener;
 import com.caved_in.adventurecraft.core.listener.PlayerHandleBunnyListener;
@@ -57,7 +58,8 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
         registerListeners(
                 new PlayerConnectionListener(this, userManager),
                 new PlayerHandleBunnyListener(),
-                new PlayerGivePlayerFlowerListener()
+                new PlayerGivePlayerFlowerListener(),
+                new MobSlayListener()
         );
 
         registerCommands(

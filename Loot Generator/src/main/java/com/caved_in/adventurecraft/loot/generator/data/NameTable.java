@@ -72,7 +72,9 @@ public class NameTable {
 	}
 
 	public ChancedName getRandomName() {
-		Validate.notEmpty(names,"You must add some names to be selected!");
+		if (names.isEmpty()) {
+			return null;
+		}
 
 		return ListUtils.getRandom(names);
 	}

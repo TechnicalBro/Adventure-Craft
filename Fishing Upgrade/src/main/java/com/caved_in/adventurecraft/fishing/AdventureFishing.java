@@ -5,6 +5,7 @@ import com.caved_in.adventurecraft.fishing.config.FishingLoot;
 import com.caved_in.adventurecraft.fishing.listeners.FishingListener;
 import com.caved_in.adventurecraft.fishing.loot.LootGeneratorSettings;
 import com.caved_in.adventurecraft.loot.AdventureLoot;
+import com.caved_in.adventurecraft.loot.generator.LootGenerator;
 import com.caved_in.commons.item.ItemBuilder;
 import com.caved_in.commons.item.Items;
 import com.caved_in.commons.plugin.BukkitPlugin;
@@ -69,24 +70,12 @@ public class AdventureFishing extends BukkitPlugin {
 					FishingLoot.create().chance(5).item(ItemBuilder.of(Items.makeItem(Material.getMaterial(383), 100)).name("&eHorse Egg").lore("&7Yes, horses come from eggs &a:)").item()),
 					FishingLoot.create().chance(5).item(ItemBuilder.of(Items.makeItem(Material.getMaterial(383), 65)).name("&eBat Egg").lore("&7Flightly little flyer, he's all yours!").item())
 			);
-        /*
-        Generate 10 random swords to be added to the itemTable list
-         */
-			for (int i = 0; i < 10; i++) {
-				fishingLoot.add(FishingLoot.create().chance(NumberUtil.getRandomInRange(3,8)).item(AdventureLoot.API.generateItem(LootGeneratorSettings.getCheapSword())));
-				fishingLoot.add(FishingLoot.create().chance(NumberUtil.getRandomInRange(3,8)).item(AdventureLoot.API.generateItem(LootGeneratorSettings.getBrokenAxeSettings())));
-			}
-
 		}
 
 		public static ItemStack getRandomLoot() {
 			ItemStack loot = null;
 			if (NumberUtil.percentCheck(AdventureFishing.Settings.GENERATED_LOOT_CHANCE)) {
-				if (NumberUtil.percentCheck(50)) {
-					loot = AdventureLoot.API.generateItem(LootGeneratorSettings.getCheapSword());
-				} else {
-					loot = AdventureLoot.API.generateItem(LootGeneratorSettings.getBrokenAxeSettings());
-				}
+				loot = AdventureLoot.API.generateItem(LootGeneratorSettings.getLootTable());
 			} else {
 				while (loot == null) {
 					loot = ListUtils.getRandom(fishingLoot).spawn();
