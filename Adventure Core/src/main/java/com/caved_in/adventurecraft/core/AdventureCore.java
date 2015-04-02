@@ -1,15 +1,16 @@
 package com.caved_in.adventurecraft.core;
 
 import com.caved_in.adventurecraft.core.command.ExchangeCommand;
-import com.caved_in.adventurecraft.core.listener.MobSlayListener;
-import com.caved_in.adventurecraft.core.listener.PlayerConnectionListener;
-import com.caved_in.adventurecraft.core.listener.PlayerGivePlayerFlowerListener;
-import com.caved_in.adventurecraft.core.listener.PlayerHandleBunnyListener;
+import com.caved_in.adventurecraft.core.debug.DebugMobSlayLoot;
+import com.caved_in.adventurecraft.core.debug.DebugProtoFinder;
+import com.caved_in.adventurecraft.core.gadget.ProtoOreFinder;
+import com.caved_in.adventurecraft.core.listener.*;
 import com.caved_in.adventurecraft.core.user.AdventurePlayer;
 import com.caved_in.adventurecraft.core.user.AdventurerPlayerManager;
-import com.caved_in.adventurecraft.core.user.upgrades.PlayerUpgrade;
 import com.caved_in.commons.game.CraftGame;
 import com.caved_in.commons.item.ItemBuilder;
+import com.caved_in.commons.time.TimeHandler;
+import com.caved_in.commons.time.TimeType;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Material;
 import org.bukkit.Server;
@@ -39,6 +40,8 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
     private static Economy economy = null;
 
     private static final String USER_DATA_FOLDER = "plugins/Adventure-Core/users/";
+    
+    private MobSlayListener mobSlayListener;
 
     public static AdventureCore getInstance() {
         return instance;
@@ -54,19 +57,34 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
             debug("Unable to setup economy!");
             onDisable();
         }
+        
+        mobSlayListener = new MobSlayListener();
 
         registerListeners(
                 new PlayerConnectionListener(this, userManager),
                 new PlayerHandleBunnyListener(),
                 new PlayerGivePlayerFlowerListener(),
-                new MobSlayListener()
+                mobSlayListener
+//                new PlayerBreakTreeListener()
         );
 
         registerCommands(
                 new ExchangeCommand()
         );
         
+        registerGadgets(
+                //Prototype for the ore finder!
+                ProtoOreFinder.getInstance()
+        );
+
+        registerDebugActions(
+                new DebugMobSlayLoot(),
+                new DebugProtoFinder()
+        );
+        
         registerRecipes();
+        
+        getThreadManager().registerSyncRepeatTask("Regenerate gem loot",mobSlayListener::regenerateGems, TimeHandler.getTimeInTicks(5, TimeType.MINUTE),TimeHandler.getTimeInTicks(5,TimeType.MINUTE));
     }
 
     @Override
@@ -134,9 +152,6 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
     }
     
     public static class API {
-        public static int getUpgradeLevel(Player player, PlayerUpgrade.Type upgrade) {
-            return getUserData(player).getUpgradeData(upgrade).getLevel();
-        }
         
         public static AdventurePlayer getUserData(Player player) {
             return instance.getUserManager().getUser(player);

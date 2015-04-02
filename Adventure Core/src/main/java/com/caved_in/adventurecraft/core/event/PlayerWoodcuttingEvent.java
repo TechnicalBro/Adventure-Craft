@@ -1,6 +1,5 @@
 package com.caved_in.adventurecraft.core.event;
 
-import com.caved_in.adventurecraft.core.user.upgrades.UserUpgrade;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;

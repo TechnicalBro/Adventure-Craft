@@ -1,0 +1,5 @@
+
+March 12'th, 2014 (Build 1.0.1)
+	+ Implemented the ChancedItemStack to add ItemStacks with chances on the LootTables
+	+ Moved all code to use Optionals
+	+ Implemented the createItem(*) method inside LootGenerator and the API to create optional and mandatory items.

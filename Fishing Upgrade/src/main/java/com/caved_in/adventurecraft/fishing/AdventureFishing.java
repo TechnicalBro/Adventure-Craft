@@ -18,6 +18,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Biome;
 import org.bukkit.inventory.ItemStack;
 
+import javax.swing.text.html.Option;
 import java.util.*;
 
 public class AdventureFishing extends BukkitPlugin {
@@ -72,13 +73,13 @@ public class AdventureFishing extends BukkitPlugin {
 			);
 		}
 
-		public static ItemStack getRandomLoot() {
-			ItemStack loot = null;
+		public static Optional<ItemStack> getRandomLoot() {
+			Optional<ItemStack> loot = null;
 			if (NumberUtil.percentCheck(AdventureFishing.Settings.GENERATED_LOOT_CHANCE)) {
 				loot = AdventureLoot.API.generateItem(LootGeneratorSettings.getLootTable());
 			} else {
 				while (loot == null) {
-					loot = ListUtils.getRandom(fishingLoot).spawn();
+					loot = Optional.of(ListUtils.getRandom(fishingLoot).spawn());
 				}
 			}
 			return loot;

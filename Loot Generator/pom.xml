@@ -7,6 +7,8 @@
         <groupId>com.caved_in.adventurecraft</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
+    <version>1.0.2</version>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>lootgenerator</artifactId>
@@ -69,7 +71,7 @@
         <dependency>
             <groupId>com.caved_in</groupId>
             <artifactId>commons</artifactId>
-            <version>1.8.4</version>
+            <version>1.8.5</version>
         </dependency>
         <dependency>
             <groupId>com.caved_in</groupId>

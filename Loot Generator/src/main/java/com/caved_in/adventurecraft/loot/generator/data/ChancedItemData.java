@@ -3,6 +3,7 @@ package com.caved_in.adventurecraft.loot.generator.data;
 import com.caved_in.commons.item.Attributes;
 import com.caved_in.commons.item.Items;
 import com.caved_in.commons.utilities.NumberUtil;
+import com.google.common.base.Preconditions;
 import org.bukkit.Material;
 import org.bukkit.material.MaterialData;
 import org.simpleframework.xml.Attribute;
@@ -65,7 +66,12 @@ public class ChancedItemData {
 	}
 
 	public MaterialData getMaterialData() {
-		return Items.getMaterialData(getMaterial(),dataValue);
+		Preconditions.checkNotNull(getMaterial(),"Unable to create item as material is null");
+		if (dataValue > 0) {
+			return new MaterialData(getMaterial(),(byte)dataValue);
+		} else {
+			return new MaterialData(getMaterial());
+		}
 	}
 
 	public Material getMaterial() {

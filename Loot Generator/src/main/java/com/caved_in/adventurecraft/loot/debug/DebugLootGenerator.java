@@ -9,6 +9,9 @@ import com.caved_in.commons.player.Players;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Optional;
 
 
 public class DebugLootGenerator implements DebugAction {
@@ -24,7 +27,7 @@ public class DebugLootGenerator implements DebugAction {
 											.type(Attributes.AttributeType.GENERIC_ATTACK_DAMAGE)
 											.amountRange(1.0, 3.8)
 							)
-			).addLoot(new ChancedItemData(5, Material.DIAMOND_SWORD)
+			).addLoot(new ChancedItemData(1, Material.DIAMOND_SWORD)
 					.attribute(new RandomizedAttribute()
 									.name("Attack").addOperation(30, Attributes.Operation.ADD_NUMBER)
 									.type(Attributes.AttributeType.GENERIC_ATTACK_DAMAGE)
@@ -32,15 +35,7 @@ public class DebugLootGenerator implements DebugAction {
 			)
 			.addLoot(new ChancedItemData(20,Material.IRON_SWORD))
 			.addLoot(new ChancedItemData(15,Material.GOLD_SWORD))
-			.defaultLoot(new ChancedItemData(100, Material.WOOD_SWORD).attribute(
-							new RandomizedAttribute().name("Attack")
-									.addOperation(10, Attributes.Operation.ADD_PERCENTAGE)
-									.addOperation(40, Attributes.Operation.ADD_NUMBER)
-									.addOperation(10, Attributes.Operation.MULTIPLY_PERCENTAGE)
-									.type(Attributes.AttributeType.GENERIC_ATTACK_DAMAGE)
-									.amountRange(1.0, 2.0)
-					)
-			).addNames(NameSlot.BASE,
+			.defaultLoot(Material.WOOD_SWORD).addNames(NameSlot.BASE,
 							ChancedName.of(50, "Sword"),
 							ChancedName.of(10, "Long Sword"),
 							ChancedName.of(60, "Short Sword"),
@@ -75,7 +70,12 @@ public class DebugLootGenerator implements DebugAction {
 
 
 	public void doAction(Player player, String... strings) {
-		Players.giveItem(player,AdventureLoot.API.generateItem(CHEAP_SWORD_SETTINGS));
+
+		Optional<ItemStack> generatedItem = AdventureLoot.API.generateItem(CHEAP_SWORD_SETTINGS);
+
+		if (generatedItem.isPresent()) {
+			Players.giveItem(player, generatedItem.get());
+		}
 	}
 
 	@Override

@@ -40,20 +40,6 @@ public class LootGeneratorSettings {
 							.lore().addLore("&bFound while Fishing!")
 							.displayDamage(false)
 							.parent()
-			).add(
-					LootSettings.createBuilder()
-							.addLoot(new ChancedItemData(5, Material.LEATHER_BOOTS).attribute(
-									new RandomizedAttribute().type(Attributes.AttributeType.GENERIC_MOVEMENT_SPEED).name("Speed").addOperation(100, Attributes.Operation.ADD_NUMBER).amountRange(1, 2).chance(100)
-							))
-							.addLoot(new ChancedItemData(10, Material.LEATHER_HELMET).attribute(
-									new RandomizedAttribute().type(Attributes.AttributeType.GENERIC_MAX_HEALTH).amountRange(1, 2).chance(40).addOperation(100, Attributes.Operation.ADD_NUMBER)
-							))
-							.addLoot(new ChancedItemData(5, Material.LEATHER_CHESTPLATE))
-							.addLoot(new ChancedItemData(5, Material.LEATHER_LEGGINGS))
-							.addEnchantment(new ChancedEnchantment(5, Enchantment.DURABILITY, 1))
-							.addEnchantment(new ChancedEnchantment(5, Enchantment.PROTECTION_ENVIRONMENTAL, 1))
-							.addEnchantment(new ChancedEnchantment(2,Enchantment.THORNS,1))
-							.build().randomName(false)
 			);
 
 	public static LootTable getLootTable() {

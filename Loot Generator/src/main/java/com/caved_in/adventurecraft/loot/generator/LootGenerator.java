@@ -12,7 +12,6 @@ import com.caved_in.commons.item.ItemBuilder;
 import com.caved_in.commons.item.Items;
 import com.caved_in.commons.plugin.Plugins;
 import com.caved_in.commons.utilities.NumberUtil;
-import com.caved_in.commons.utilities.Str;
 import com.google.common.collect.Lists;
 import com.mysql.jdbc.StringUtils;
 import org.bukkit.inventory.ItemStack;
@@ -29,8 +28,32 @@ public class LootGenerator {
 		this.plugin = plugin;
 	}
 
+	public ItemStack createItem(LootSettings settings) {
+		Optional<ItemStack> optItem = generateItem(settings);
+		while (!optItem.isPresent()) {
+			optItem = generateItem(settings);
+		}
+		return optItem.get();
+	}
+
 	public ItemStack createItem(LootTable table) {
-		return createItem(table.getRandom());
+		Optional<ItemStack> item = generateItem(table);
+
+		while (!item.isPresent()) {
+			item = generateItem(table);
+		}
+		return item.get();
+	}
+
+
+	public Optional<ItemStack> generateItem(LootTable table) {
+		if (table.hasItems()) {
+			ChancedItemStack chanceItem = table.getChancedItem();
+			if (NumberUtil.percentCheck(chanceItem.chance())) {
+				return Optional.of(chanceItem.item());
+			}
+		}
+		return generateItem(table.getRandom());
 	}
 
 	/**
@@ -38,20 +61,15 @@ public class LootGenerator {
 	 *
 	 * @param settings settings used to create the itemTable.
 	 */
-	public ItemStack createItem(LootSettings settings) {
+	public Optional<ItemStack> generateItem(LootSettings settings) {
 		double rarity = 0;
 
 		//Whether or not the itemTable has a random name
 		boolean hasRandomName = settings.hasRandomName();
-
-		plugin.debug("Item hasRandomName: " + String.valueOf(hasRandomName));
-
         /*
         Data relating to the itemTable type
          */
 		MaterialTable data = settings.itemTable();
-
-		plugin.debug("Item Type Settings: " + data.toString());
 
         /*
         The NameSettings for the basenames, prefixes, and suffixes.
@@ -62,27 +80,26 @@ public class LootGenerator {
 		NameTable prefixes = settings.prefixes();
 		NameTable suffixes = settings.suffixes();
 
-		plugin.debug("Base Names: " + baseNames.toString(), "Prefixes : " + prefixes.toString(), "Suffixes: " + suffixes.toString());
-
 		ItemLoreSettings lore = settings.lore();
-
-		plugin.debug("Lore: " + lore.toString());
 
 		WeaponProperties weaponProperties = settings.weaponProperties();
 
-		plugin.debug("Weapon Properties: " + weaponProperties.toString());
-
 		ItemEnchantmentSettings enchants = settings.enchantments();
 
-		plugin.debug(enchants.toString());
-
 		ChancedItemData itemData = data.getRandomData();
+
 
 		Optional<MaterialData> material = itemData.getChancedMaterialData();
 
 		Optional<RandomizedAttribute> attribute = itemData.getAttribute();
 
-		ItemBuilder item = ItemBuilder.of(material.isPresent() ? material.get() : data.getDefaultMaterial());
+		ItemBuilder item = null;
+
+		if (material.isPresent()) {
+			item = ItemBuilder.of(material.get());
+		} else {
+			return Optional.empty();
+		}
 
 		String generatedName = null;
 
@@ -145,7 +162,6 @@ public class LootGenerator {
 					int suffixChance = suffixName.getChance();
 					int prefixChance = prefixName.getChance();
 
-					plugin.debug("==== PREFIX CHANCES ===", "Base Chance: " + baseChance, "Suffix Chance: " + suffixChance, "Prefix Chance: " + prefixChance);
 
                     /*
                     Take precidence of what's to be generated
@@ -174,8 +190,6 @@ public class LootGenerator {
 					int suffixChance = suffixName.getChance();
 					int prefixChance = prefixName.getChance();
 
-					plugin.debug("==== SUFFIX CHANCES ===", "Base Chance: " + baseChance, "Suffix Chance: " + suffixChance, "Prefix Chance: " + prefixChance);
-
 					if ((suffixChance < baseChance && baseChance < prefixChance) || (suffixChance < prefixChance && prefixChance < baseChance)) {
 						nameBuilder.append(nameSuffix);
 						rarity += 1;
@@ -187,8 +201,6 @@ public class LootGenerator {
 
 
 			generatedName = nameBuilder.toString();
-
-			plugin.debug("GENERATED NAME == " + generatedName);
 
 		} else {
 			generatedName = settings.getLootName();
@@ -203,8 +215,6 @@ public class LootGenerator {
 		} else {
 			item.name(Items.getFormattedMaterialName(material.isPresent() ? material.get().getItemType() : data.getDefaultMaterial().getItemType()));
 		}
-
-		plugin.debug("Assigned Item Name: " + generatedName);
 
 		//TODO Implement a custom listener for itemTable damages and apply weaponProperties to the itemTable itself.
 
@@ -244,7 +254,6 @@ public class LootGenerator {
 			if (itemAttr.isPresent()) {
 				rarity += 1;
 				item.addAttribute(itemAttr.get());
-				plugin.debug("ADDED ATTRIBUTE TO ITEM!!" + itemAttr.get().toString());
 			}
 		}
 
@@ -267,7 +276,7 @@ public class LootGenerator {
 			if (lore.hasRarityDisplayed() && rarity > 0) {
 				loreLines.add("");
 				StringBuilder rarityDisplay = new StringBuilder();
-				for (int i = 0; i < rarity; i++) {
+				for (int i = 0; i <= rarity; i++) {
 					rarityDisplay.append("*");
 				}
 
@@ -276,10 +285,16 @@ public class LootGenerator {
 			item.lore(loreLines);
 		}
 
+
 		ItemStack generatedLoot = item.item();
+
+		if (generatedLoot == null) {
+			return Optional.empty();
+		}
+
 		LootGenerateEvent event = new LootGenerateEvent(settings, generatedLoot);
 		Plugins.callEvent(event);
 
-		return generatedLoot;
+		return Optional.of(generatedLoot);
 	}
 }

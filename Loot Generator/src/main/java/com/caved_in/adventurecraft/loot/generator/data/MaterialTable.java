@@ -1,9 +1,7 @@
 package com.caved_in.adventurecraft.loot.generator.data;
 
 import com.caved_in.adventurecraft.loot.generator.settings.LootSettings;
-import com.caved_in.commons.item.Attributes;
 import com.caved_in.commons.utilities.ListUtils;
-import org.apache.commons.lang3.tuple.Pair;
 import org.bukkit.Material;
 import org.bukkit.material.MaterialData;
 import org.simpleframework.xml.Element;
@@ -16,7 +14,7 @@ import java.util.stream.Collectors;
 @Root(name = "material-table")
 public class MaterialTable {
 	@Element(name = "default-material",type = ChancedItemData.class)
-	private ChancedItemData defaultMaterial = new ChancedItemData(100,Material.AIR,0);
+	private MaterialData defaultData = new MaterialData(Material.LEATHER);
 
 	@Element(name = "allow-duplicate-entries")
 	private boolean duplicates = false;
@@ -28,16 +26,8 @@ public class MaterialTable {
 
 	private ChancedItemData lastGenerated = null;
 
-	public MaterialTable(@Element(name = "default-material",type = ChancedItemData.class)ChancedItemData defaultMaterial, @Element(name = "allow-duplicate-entries")boolean duplicates,@ElementList(name = "materials",entry = "m",inline = true,required = false,type = ChancedItemData.class)List<ChancedItemData> materials) {
-		this.defaultMaterial = defaultMaterial;
-		this.duplicates = duplicates;
-		if (materials != null) {
-			this.materials = materials;
-		}
-	}
-
 	public MaterialTable(MaterialData defaultData) {
-		this.defaultMaterial = new ChancedItemData(100, defaultData);
+		this.defaultData = defaultData;
 	}
 
 	public MaterialTable parent(LootSettings parent) {
@@ -63,8 +53,8 @@ public class MaterialTable {
 		return this;
 	}
 
-	public MaterialTable defaultMaterial(ChancedItemData data) {
-		this.defaultMaterial = data;
+	public MaterialTable defaultMaterial(MaterialData data) {
+		this.defaultData = data;
 		return this;
 	}
 
@@ -86,7 +76,7 @@ public class MaterialTable {
 
 	public ChancedItemData getRandomData() {
 		if (materials.isEmpty()) {
-			return defaultMaterial;
+			return null;
 		}
 
 		ChancedItemData data = ListUtils.getRandom(materials);
@@ -100,7 +90,7 @@ public class MaterialTable {
 	}
 
 	public MaterialData getDefaultMaterial() {
-		return defaultMaterial.getMaterialData();
+		return defaultData;
 	}
 
 	public List<ChancedItemData> getMaterials() {

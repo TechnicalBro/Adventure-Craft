@@ -82,7 +82,7 @@ public class HomeMenu extends ItemMenu {
 
 			switch (action) {
 				case DELETE:
-
+					switchMenu(player, new HomeDeletionConfirmationMenu(warp));
 					break;
 				case TELEPORT:
 					close(player);
@@ -127,10 +127,10 @@ public class HomeMenu extends ItemMenu {
 
 			if (option == DeletionOption.CONFIRM) {
 				setIcon(Wool.GREEN_WOOL);
-				setText("&aYes. Delete this Home.");
+				setText("&aYes. Delete this home.");
 			} else {
 				setIcon(Wool.RED_WOOL);
-				setText("&cNo. Don't delete this Home.");
+				setText("&cNo. Do not delete this home.");
 			}
 		}
 
@@ -144,25 +144,27 @@ public class HomeMenu extends ItemMenu {
 					switch (action) {
 						case HOME_DELETED:
 							Chat.message(player, HomeMessages.homeDeleted(warp));
+							returnMenus(user);
 							break;
 						case ERROR:
 						case FAILED_TO_DELETE:
 							String failedDeleteMessage = HomeMessages.homeDeletedError(warp);
 							Chat.messageOps(Messages.playerError(player, failedDeleteMessage));
 							Chat.message(player, HomeMessages.homeDeletedError(warp));
+							returnMenus(user);
 							break;
 						case HOME_NONEXISTANT:
 							Chat.message(player, HomeMessages.homeNonExistant(warp));
+							returnMenus(user);
 							break;
 						case NO_HOMES_AVAILABLE:
 							Chat.message(player, HomeMessages.NO_HOMES_SET);
+							returnMenus(user);
 							break;
 						default:
 							break;
 					}
-                    returnMenus(user);
 					break;
-
 				case DENY:
 					Chat.message(player,"&aYour home remains untouched!");
 					returnMenus(user);

@@ -10,6 +10,8 @@ import com.caved_in.adventurecraft.loot.listener.LootGenerateListener;
 import com.caved_in.commons.plugin.BukkitPlugin;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Optional;
+
 public class AdventureLoot extends BukkitPlugin {
     private static AdventureLoot instance;
 
@@ -55,12 +57,20 @@ public class AdventureLoot extends BukkitPlugin {
 
     public static class API {
 
-        public static ItemStack generateItem(LootTable table) {
+        public static ItemStack createItem(LootTable table) {
             return generator.createItem(table);
         }
 
-        public static ItemStack generateItem(LootSettings settings) {
+        public static ItemStack createItem(LootSettings settings) {
             return generator.createItem(settings);
+        }
+
+        public static Optional<ItemStack> generateItem(LootTable table) {
+            return generator.generateItem(table);
+        }
+
+        public static Optional<ItemStack> generateItem(LootSettings settings) {
+            return generator.generateItem(settings);
         }
 
         public static LootSettingsBuilder getSettingsBuilder() {

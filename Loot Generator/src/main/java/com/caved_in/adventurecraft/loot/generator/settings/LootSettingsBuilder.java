@@ -1,12 +1,10 @@
 package com.caved_in.adventurecraft.loot.generator.settings;
 
-import com.caved_in.adventurecraft.loot.generator.data.ChancedEnchantment;
-import com.caved_in.adventurecraft.loot.generator.data.ChancedItemData;
-import com.caved_in.adventurecraft.loot.generator.data.ChancedName;
-import com.caved_in.adventurecraft.loot.generator.data.NameSlot;
+import com.caved_in.adventurecraft.loot.generator.data.*;
 import org.bukkit.Material;
 import org.bukkit.material.MaterialData;
 
+import java.util.Random;
 import java.util.stream.Stream;
 
 public class LootSettingsBuilder {
@@ -17,9 +15,13 @@ public class LootSettingsBuilder {
 		settings = new LootSettings();
 	}
 
-	public LootSettingsBuilder defaultLoot(ChancedItemData data) {
+	public LootSettingsBuilder defaultLoot(MaterialData data) {
 		settings.itemTable().defaultMaterial(data);
 		return this;
+	}
+
+	public LootSettingsBuilder defaultLoot(Material material) {
+		return defaultLoot(new MaterialData(material));
 	}
 
 	public LootSettingsBuilder addLoot(ChancedItemData itemData) {
