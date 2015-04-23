@@ -27,8 +27,7 @@ public class PlayerInteractListener implements Listener {
         
         Action action = e.getAction();
         
-        Chat.debug("Action for " + p.getDisplayName() + " is " + action.name());
-        
+
         switch (action) {
             case LEFT_CLICK_BLOCK:
             case LEFT_CLICK_AIR:
@@ -37,31 +36,27 @@ public class PlayerInteractListener implements Listener {
             case RIGHT_CLICK_AIR:
             case RIGHT_CLICK_BLOCK:
                 if (Players.handIsEmpty(p)) {
-                    Chat.debug("Empty hand for " + p.getName());
                     return;
                 }
 
                 ItemStack hand = e.getItem();
                 if (!AdventureGems.API.isGem(hand)) {
                     if (gemHandler.hasGemSelected(p)) {
-                        Chat.debug(p.getName() + " has gem selected! Assigning item to " + Items.getName(hand));
                         gemHandler.setItem(p, hand);
-
-                        Chat.debug("Performing craft!");
                         gemHandler.performCraft(p);
                     }
                     return;
                 } else {
-                    if (gemHandler.hasGemSelected(p)) {
-                        Chat.debug(p.getName() + " has gem selected! Assigning item to " + Items.getName(hand));
-                        gemHandler.setItem(p, hand);
-
-                        Chat.debug("Performing craft!");
-                        gemHandler.performCraft(p);
-                        return;
-                    }
+                    //todo fix gem's being combined
+//                    if (gemHandler.hasGemSelected(p)) {
+//                        Chat.debug(p.getName() + " has gem selected! Assigning item to " + Items.getName(hand));
+//                        gemHandler.setItem(p, hand);
+//
+//                        Chat.debug("Performing craft!");
+//                        gemHandler.performCraft(p);
+//                        return;
+//                    }
                     gemHandler.startCraft(p,hand);
-                    Chat.debug("Started Crafting with the gem " + Items.getName(hand));
                 }
                 break;
             default:

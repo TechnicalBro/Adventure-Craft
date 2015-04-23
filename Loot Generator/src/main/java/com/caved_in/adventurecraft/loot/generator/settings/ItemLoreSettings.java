@@ -49,6 +49,16 @@ public class ItemLoreSettings {
 		this.damageFormat = s;
 		return this;
 	}
+	
+	public ItemLoreSettings displayRarity(boolean val) {
+		this.displayRarity = val;
+		return this;
+	}
+	
+	public ItemLoreSettings rarityFormat(String s) {
+		this.rarityFormat = s;
+		return this;
+	}
 
 	public ItemLoreSettings addLore(String... lines) {
 		Collections.addAll(lore, lines);

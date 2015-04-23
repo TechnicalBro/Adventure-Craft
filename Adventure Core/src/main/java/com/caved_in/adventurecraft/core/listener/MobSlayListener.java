@@ -41,9 +41,9 @@ public class MobSlayListener implements Listener {
 									)
 					).addLoot(new ChancedItemData(5, Material.DIAMOND_SWORD)
 									.attribute(new RandomizedAttribute()
-											.name("Attack").addOperation(30, Attributes.Operation.ADD_NUMBER)
+											.name("Attack").addOperation(100, Attributes.Operation.ADD_NUMBER)
 											.type(Attributes.AttributeType.GENERIC_ATTACK_DAMAGE)
-											.amountRange(2, 5))
+											.amountRange(8, 15))
 					)
 							.addLoot(new ChancedItemData(20, Material.IRON_SWORD))
 							.addLoot(new ChancedItemData(15, Material.GOLD_SWORD))
@@ -191,7 +191,7 @@ public class MobSlayListener implements Listener {
 
 		ItemStack drop = null;
 		if (!item.isPresent()) {
-			if (!NumberUtil.percentCheck(2)) {
+			if (!NumberUtil.percentCheck(chance)) {
 				return;
 			} else {
 				drop = ListUtils.getRandom(generatedGems);

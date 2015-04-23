@@ -14,6 +14,10 @@ public class ChancedItemStack {
 
 	@Attribute(name = "chance")
 	private int chance = 100;
+	
+	public static ChancedItemStack of(ItemStack item, int chance) {
+		return new ChancedItemStack(item,chance);
+	}
 
 	public ChancedItemStack(@Element(name = "item",type = XmlItemStack.class)XmlItemStack item, @Attribute(name= "chance") int chance) {
 		this.item = item;

@@ -80,17 +80,37 @@ public class LootGenerator {
 		NameTable prefixes = settings.prefixes();
 		NameTable suffixes = settings.suffixes();
 
+		/*
+		Retrieve the lore settings to be used when generating items.
+		 */
 		ItemLoreSettings lore = settings.lore();
 
+		/*
+		Retrieve the weapon properties used to control damage range, whether or not
+		it's breakable, droppable, etc!
+		 */
 		WeaponProperties weaponProperties = settings.weaponProperties();
 
+		/*
+		Retrieve the enchantment settings, used to apply enchantments (with a chance)
+		to the generated items.
+		 */
 		ItemEnchantmentSettings enchants = settings.enchantments();
 
+		/*
+		Get a random material to create the item with.
+		 */
 		ChancedItemData itemData = data.getRandomData();
-
-
+		
+		/*
+		Retrieve the optional material data; If It's present then we'll create the item
+		though if not, we'll return an empty optional.
+		 */
 		Optional<MaterialData> material = itemData.getChancedMaterialData();
 
+		/*
+		Retrieve a random attribute to apply to this item.
+		 */
 		Optional<RandomizedAttribute> attribute = itemData.getAttribute();
 
 		ItemBuilder item = null;

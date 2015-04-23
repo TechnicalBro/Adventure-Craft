@@ -1,14 +1,16 @@
 package com.caved_in.adventurecraft.core;
 
 import com.caved_in.adventurecraft.core.command.ExchangeCommand;
+import com.caved_in.adventurecraft.core.debug.DebugCustomArrows;
 import com.caved_in.adventurecraft.core.debug.DebugMobSlayLoot;
 import com.caved_in.adventurecraft.core.debug.DebugProtoFinder;
-import com.caved_in.adventurecraft.core.gadget.ProtoOreFinder;
+import com.caved_in.adventurecraft.core.gadget.*;
 import com.caved_in.adventurecraft.core.listener.*;
 import com.caved_in.adventurecraft.core.user.AdventurePlayer;
 import com.caved_in.adventurecraft.core.user.AdventurerPlayerManager;
 import com.caved_in.commons.game.CraftGame;
 import com.caved_in.commons.item.ItemBuilder;
+import com.caved_in.commons.plugin.Plugins;
 import com.caved_in.commons.time.TimeHandler;
 import com.caved_in.commons.time.TimeType;
 import net.milkbowl.vault.economy.Economy;
@@ -53,9 +55,16 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
 
         userManager = new AdventurerPlayerManager();
         
-        if (!setupEconomy()) {
-            debug("Unable to setup economy!");
-            onDisable();
+        try {
+            if (setupEconomy()) {
+                debug("Economy has been setup!", "Registering exchange command");
+                registerCommands(
+                        new ExchangeCommand()
+                );
+                debug("Economy options setup");
+            }
+        } catch (NoClassDefFoundError e) {
+            
         }
         
         mobSlayListener = new MobSlayListener();
@@ -64,7 +73,8 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
                 new PlayerConnectionListener(this, userManager),
                 new PlayerHandleBunnyListener(),
                 new PlayerGivePlayerFlowerListener(),
-                mobSlayListener
+                mobSlayListener,
+                new PlayerShootSelfListener()
 //                new PlayerBreakTreeListener()
         );
 
@@ -74,12 +84,21 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
         
         registerGadgets(
                 //Prototype for the ore finder!
-                ProtoOreFinder.getInstance()
+                IronOreFinder.getInstance(),
+                CoalFinder.getInstance(),
+                GoldFinder.getInstance(),
+                DocileArrowGadget.getInstance(),
+                ExplosiveArrowGadget.getInstance(),
+                GrapplingArrowGadget.getInstance(),
+                KinArrowGadget.getInstance(),
+                SlowingArrowGadget.getInstance(),
+                EnderArrowGadget.getInstance()
         );
 
         registerDebugActions(
                 new DebugMobSlayLoot(),
-                new DebugProtoFinder()
+                new DebugProtoFinder(),
+                new DebugCustomArrows()
         );
         
         registerRecipes();
@@ -132,6 +151,81 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
 
         ShapelessRecipe saddleRecipe = new ShapelessRecipe(ItemBuilder.of(Material.SADDLE).item()).addIngredient(4, Material.LEATHER);
 
+        ShapelessRecipe docileArrowRecipe = new ShapelessRecipe(DocileArrowGadget.getInstance().getItem())
+                .addIngredient(1,Material.ARROW)
+                .addIngredient(Material.SPIDER_EYE)
+                .addIngredient(Material.BLAZE_ROD)
+                .addIngredient(Material.GLOWSTONE_DUST);
+        
+        ShapelessRecipe explosiveArrowRecipe = new ShapelessRecipe(ExplosiveArrowGadget.getInstance().getItem())
+                .addIngredient(Material.ARROW)
+                .addIngredient(Material.TNT)
+                .addIngredient(Material.REDSTONE);
+        
+        ShapelessRecipe grapplingArrowRecipe = new ShapelessRecipe(GrapplingArrowGadget.getInstance().getItem())
+                .addIngredient(Material.ARROW)
+                .addIngredient(Material.SLIME_BALL);
+        
+        ShapelessRecipe kinArrowRecipe = new ShapelessRecipe(KinArrowGadget.getInstance().getItem())
+                .addIngredient(Material.ARROW)
+                .addIngredient(Material.EMERALD)
+                .addIngredient(Material.EGG);
+        
+        ShapelessRecipe slowingArrowRecipe = new ShapelessRecipe(SlowingArrowGadget.getInstance().getItem())
+                .addIngredient(Material.ARROW)
+                .addIngredient(Material.SPIDER_EYE)
+                .addIngredient(Material.BLAZE_ROD)
+                .addIngredient(Material.REDSTONE);
+        
+        ShapelessRecipe enderArrowRecipe = new ShapelessRecipe(EnderArrowGadget.getInstance().getItem()).addIngredient(Material.ARROW).addIngredient(Material.ENDER_PEARL);
+        
+        ShapelessRecipe ironOreFinder = new ShapelessRecipe(IronOreFinder.getInstance().getItem())
+                .addIngredient(Material.COMPASS)
+                .addIngredient(Material.IRON_BLOCK);
+        
+        ShapelessRecipe goldOreFinder = new ShapelessRecipe(GoldFinder.getInstance().getItem())
+                .addIngredient(Material.COMPASS)
+                .addIngredient(Material.GOLD_BLOCK);
+
+        ShapelessRecipe coalFinder = new ShapelessRecipe(CoalFinder.getInstance().getItem())
+                .addIngredient(Material.COMPASS)
+                .addIngredient(Material.COAL_BLOCK);
+        
+        if (server.addRecipe(goldOreFinder)) {
+            debug("Registered the gold ore finder");
+        }
+        
+        if (server.addRecipe(coalFinder)) {
+            debug("Registered the coal finder!");
+        }
+        
+        if (server.addRecipe(enderArrowRecipe)) {
+            debug("Registered the ender arrow recipe!");
+        }
+        
+        if (server.addRecipe(ironOreFinder)) {
+            debug("Registered the iron ore finder recipe!");
+        }
+        
+        if (server.addRecipe(slowingArrowRecipe)) {
+            debug("Registered the slowing arrow recipe");
+        }
+        
+        if (server.addRecipe(kinArrowRecipe)) {
+            debug("Registered the kin arrow recipe");
+        }
+        
+        if (server.addRecipe(grapplingArrowRecipe)) {
+            debug("Registered the grappling arrow");
+        }
+        
+        if (server.addRecipe(explosiveArrowRecipe)) {
+            debug("Registered the explosive-arrow recipe");
+        }
+        
+        if (server.addRecipe(docileArrowRecipe)) {
+            debug("Registered the docile arrow recipe");
+        }
         if (server.addRecipe(saddleRecipe)) {
             debug("The recipe for saddles has been registered; 4 LEATHER SHAPELESS");
         }
@@ -139,6 +233,10 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
     }
 
     private boolean setupEconomy() {
+        if (!Plugins.isEnabled("Vault")) {
+            return false;
+        }
+        
         RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
         if (economyProvider != null) {
             economy = economyProvider.getProvider();

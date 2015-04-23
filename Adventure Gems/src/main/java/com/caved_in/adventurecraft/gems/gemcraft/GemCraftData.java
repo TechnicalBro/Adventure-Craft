@@ -92,8 +92,12 @@ public class GemCraftData {
                 Chat.message(p, "&7<> &c&lThis gem cannot be enhanced any more.");
                 return false; //max enhancements reached for dis.
             }
+            
+            for(EnchantWrapper wrapper : gemEnchantments) {
+                Items.addUnsafeEnchantment(itemStack,wrapper.getEnchantment(),wrapper.getLevel());
+            }
 
-            Items.addEnchantments(itemStack, gemEnchantments);
+//            Items.addEnchantments(itemStack, gemEnchantments);
 
             modified = itemStack.clone();
         } else {

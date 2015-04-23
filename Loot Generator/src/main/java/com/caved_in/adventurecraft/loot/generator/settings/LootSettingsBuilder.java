@@ -8,9 +8,12 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 public class LootSettingsBuilder {
-
 	private LootSettings settings;
 
+	public static LootSettingsBuilder create() {
+		return new LootSettingsBuilder();
+	}
+	
 	public LootSettingsBuilder() {
 		settings = new LootSettings();
 	}
@@ -64,6 +67,41 @@ public class LootSettingsBuilder {
 
 	public LootSettingsBuilder addEnchantment(ChancedEnchantment enchantment) {
 		settings.enchantments().add(enchantment);
+		return this;
+	}
+	
+	public LootSettingsBuilder damageRange(double min, double max) {
+		settings.weaponProperties().damage(min,max);
+		return this;
+	}
+	
+	public LootSettingsBuilder breakable(boolean val) {
+		settings.weaponProperties().breakable(val);
+		return this;
+	}
+	
+	public LootSettingsBuilder droppable(boolean val) {
+		settings.weaponProperties().droppable(val);
+		return this;
+	}
+	
+	public LootSettingsBuilder displayDamage(boolean val) {
+		settings.lore().displayDamage(val);
+		return this;
+	}
+	
+	public LootSettingsBuilder displayRarity(boolean val) {
+		settings.lore().displayRarity(val);
+		return this;
+	}
+	
+	public LootSettingsBuilder rarityFormat(String s) {
+		settings.lore().rarityFormat(s);
+		return this;
+	}
+	
+	public LootSettingsBuilder damageFormat(String s) {
+		settings.lore().displayDamageFormat(s);
 		return this;
 	}
 

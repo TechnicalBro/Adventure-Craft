@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>adventure-core</artifactId>
-    
+
     <build>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <resources>
@@ -83,7 +83,7 @@
         <dependency>
             <groupId>com.caved_in.adventurecraft</groupId>
             <artifactId>lootgenerator</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.3</version>
         </dependency>
         <dependency>
             <groupId>com.caved_in.adventurecraft</groupId>

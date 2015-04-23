@@ -12,9 +12,16 @@ public class LootTable {
 	private List<LootSettings> lootSettings = new ArrayList<>();
 
 	private List<ChancedItemStack> chancedItems = new ArrayList<>();
+	
+	private List<LootTable> childTables = new ArrayList<>();
 
 	public LootTable() {
 
+	}
+	
+	public LootTable add(LootTable child) {
+		childTables.add(child);
+		return this;
 	}
 
 	public LootTable add(LootSettings settings) {
@@ -36,18 +43,48 @@ public class LootTable {
 		if (lootSettings.size() <= 1) {
 			return lootSettings.get(0);
 		}
+		
+		if (childTables.size() > 3) {
+			return ListUtils.getRandom(childTables).getRandom();
+		}
 
 		return ListUtils.getRandom(lootSettings);
 	}
 
 	public boolean hasItems() {
-		return !chancedItems.isEmpty();
+		return getChancedItem() != null;
 	}
 
 	public ChancedItemStack getChancedItem() {
-		if (hasItems()) {
-			return ListUtils.getRandom(chancedItems);
+		List<ChancedItemStack> allChancedItems = new ArrayList<>();
+		
+		/*
+		If the current loot table has child tables under it,
+		then we'll need to add all the child items it contains to the list
+		of all potential items.
+		 */
+		if (childTables.size() > 0) {
+			for(LootTable table : childTables) {
+				if (!table.hasItems()) {
+					continue;
+				}
+				
+				allChancedItems.addAll(table.getChancedItems());
+			}
 		}
+		
+		if (!chancedItems.isEmpty()) {
+			allChancedItems.addAll(chancedItems);
+		}
+		
+		if (allChancedItems.size() > 2) {
+			return ListUtils.getRandom(allChancedItems);
+		}
+		
 		return null;
+	}
+	
+	public List<ChancedItemStack> getChancedItems() {
+		return chancedItems;
 	}
 }

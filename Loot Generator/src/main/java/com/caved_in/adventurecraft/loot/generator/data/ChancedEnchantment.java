@@ -10,6 +10,10 @@ public class ChancedEnchantment extends XmlEnchantment {
 	@Attribute(name = "chance")
 	private int chance = 10;
 
+	public static ChancedEnchantment of(int chance, Enchantment enchant, int level) {
+		return new ChancedEnchantment(chance,enchant,level);
+	}
+	
 	public ChancedEnchantment(@Attribute(name = "name") String enchantName, @Attribute(name = "level") int level, @Attribute(name = "glow", required = false) boolean glow, @Attribute(name = "chance") int chance) {
 		super(enchantName, level, glow);
 		this.chance = chance;

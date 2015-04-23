@@ -7,25 +7,25 @@ import com.caved_in.commons.item.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
-public class ProtoOreFinder extends LimitedGadget {
+public class IronOreFinder extends LimitedGadget {
     
-    private static ProtoOreFinder instance = null;
+    private static IronOreFinder instance = null;
 
-    public static ProtoOreFinder getInstance() {
+    public static IronOreFinder getInstance() {
         if (instance == null) {
-            instance = new ProtoOreFinder();
+            instance = new IronOreFinder();
         }
         return instance;
     }
 
-    protected ProtoOreFinder() {
-        super(ItemBuilder.of(Material.POTATO_ITEM).name("&9Ore Finder: &eIRON"), 20);
+    protected IronOreFinder() {
+        super(ItemBuilder.of(Material.GOLDEN_CARROT).name("&eIron Ore Finder"), 50);
     }
 
     @Override
     public void use(Player player) {
         int depthLevel = Blocks.getBlockTypeDistance(player.getLocation(), Material.IRON_ORE, 20);
-        Chat.actionMessage(player, String.format("&c&lYou're &e%s&c block away from the nearest &6IRON ORE",depthLevel));
+        Chat.actionMessage(player, String.format("&c&lYou're &e%s&c block away from the nearest &6Iron Ore",depthLevel));
     }
 
     @Override

@@ -27,6 +27,14 @@ public class ChancedItemData {
 
 	//todo implement serialization
 	private RandomizedAttribute attribute = null;
+	
+	public static ChancedItemData of(int chance, Material material) {
+		return new ChancedItemData(chance,material);
+	}
+	
+	public static ChancedItemData of(int chance, MaterialData data) {
+		return new ChancedItemData(chance, data);
+	}
 
 	public ChancedItemData(@Attribute(name = "chance") int chance, @Attribute(name = "material") Material material, @Attribute(name = "data-value", required = false) int dataValue) {
 		this.chance = chance;
