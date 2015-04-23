@@ -67,9 +67,9 @@ public class GemCraftHandler {
             Chat.actionMessage(player, "&c&lGem / Item Combination has been cancelled");
             menu.closeMenu(player);
         }).onClose((menu, player) -> {
-            Chat.debug("Clearing data for " + player.getName());
+//            Chat.debug("Clearing data for " + player.getName());
             data.remove(p.getUniqueId());
-            Chat.debug("Cleared the data for " + player.getName());
+//            Chat.debug("Cleared the data for " + player.getName());
         }).openMenu(p);
     }
 }

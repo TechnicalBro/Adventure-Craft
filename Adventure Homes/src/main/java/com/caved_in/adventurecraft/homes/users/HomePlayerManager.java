@@ -46,7 +46,7 @@ public class HomePlayerManager extends UserManager<HomePlayer> {
     
     public boolean save(UUID id) {
         if (!hasData(id)) {
-            core.debug("There's no data loaded for the id: " + id.toString());
+//            core.debug("There's no data loaded for the id: " + id.toString());
             return false;
         }
         File userFile = getUserFile(id);
@@ -65,7 +65,7 @@ public class HomePlayerManager extends UserManager<HomePlayer> {
     public void saveAll() {
         for(HomePlayer user : allUsers()) {
             if (!save(user.getId())) {
-                core.debug("ERROR SAVING DATA FOR " + user.getName());
+//                core.debug("ERROR SAVING DATA FOR " + user.getName());
             }
         }
     }

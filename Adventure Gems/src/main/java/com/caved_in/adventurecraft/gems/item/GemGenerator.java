@@ -39,7 +39,7 @@ public class GemGenerator {
         ChancedEnchantment chanceEnchant = settings.getRandomEnchantment();
         
         if (chanceEnchant == null) {
-            Chat.debug("NULL CHANCED ENCHANTMENT");
+//            Chat.debug("NULL CHANCED ENCHANTMENT");
             return null;
         }
         
@@ -50,7 +50,7 @@ public class GemGenerator {
         String suffix = settings.getSuffixFor(enchant,level);
         String name = String.format(GEM_NAME_BASE,prefix,suffix);
         
-        Chat.debug(String.format("Creating Gem '%s' with enchantment [%s] @ lvl (%s)",name,enchant.getName(),level));
+//        Chat.debug(String.format("Creating Gem '%s' with enchantment [%s] @ lvl (%s)",name,enchant.getName(),level));
         return ItemBuilder.of(material).name(name).enchantment(enchant,level).item();
     }
 }

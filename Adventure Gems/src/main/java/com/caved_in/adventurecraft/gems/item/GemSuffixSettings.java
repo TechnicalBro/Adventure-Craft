@@ -105,13 +105,13 @@ public class GemSuffixSettings {
 
     public boolean inRange(Enchantment enchant, int lvl) {
         boolean inRange = this.enchant.equals(enchant) && lvl >= minimumLevel && lvl <= maximumLevel;
-        if (!inRange) {
-            try {
-                Chat.debug(String.format("Enchantment %s @ [%s] not in range {%s : %s}", enchant.getName(), lvl, minimumLevel, maximumLevel));
-            } catch (NullPointerException e) {
-
-            }
-        }
+//        if (!inRange) {
+//            try {
+////                Chat.debug(String.format("Enchantment %s @ [%s] not in range {%s : %s}", enchant.getName(), lvl, minimumLevel, maximumLevel));
+//            } catch (NullPointerException e) {
+//
+//            }
+//        }
         return inRange;
     }
 

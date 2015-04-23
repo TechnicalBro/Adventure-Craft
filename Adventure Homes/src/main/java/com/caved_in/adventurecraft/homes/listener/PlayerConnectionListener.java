@@ -31,14 +31,14 @@ public class PlayerConnectionListener implements Listener {
             boolean loaded = users.loadData(id);
             if (!loaded) {
                 //todo player has no homes loaded, no need to continue.
-                plugin.debug("Unable to load data for the player");
+//                plugin.debug("Unable to load data for the player");
                 return;
             } else {
-                plugin.debug("Loaded in data for " + p.getName());
+//                plugin.debug("Loaded in data for " + p.getName());
             }
         } else {
             users.addUser(p);
-            plugin.debug("Created default homes data for " + p.getName());
+//            plugin.debug("Created default homes data for " + p.getName());
         }
     }
     
@@ -48,10 +48,9 @@ public class PlayerConnectionListener implements Listener {
         
         String name = player.getName();
         boolean saved = users.save(player.getUniqueId());
-        if (saved) {
-            plugin.debug("Saved data for " + name);
-        } else {
+        if (!saved) {
             plugin.debug("Failed to save data for " + name);
+//            plugin.debug("Saved data for " + name);
         }
     }
     
@@ -60,9 +59,7 @@ public class PlayerConnectionListener implements Listener {
         Player player = e.getPlayer();
 
         boolean saved = users.save(player.getUniqueId());
-        if (saved) {
-            plugin.debug("Saved data for " + player.getName());
-        } else {
+        if (!saved) {
             plugin.debug("Failed to save data for " + player.getName());
         }
     }

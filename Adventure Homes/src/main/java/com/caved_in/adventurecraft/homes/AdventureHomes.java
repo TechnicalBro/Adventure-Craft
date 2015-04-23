@@ -48,7 +48,6 @@ public class AdventureHomes extends BukkitPlugin {
         
         getThreadManager().registerSyncRepeatTask("Auto Save",() -> {
             users.saveAll();
-            debug("Info: User data has been auto saved");
         },20, TimeHandler.getTimeInTicks(30, TimeType.SECOND));
     }
 

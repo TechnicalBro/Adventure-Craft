@@ -135,12 +135,12 @@ public class GemSettings {
     public String getSuffixFor(Enchantment enchantment, int level) {
         GemSuffixSettings settings = getSuffixSettings(enchantment,level);
         if (settings == null) {
-            Chat.debug("SETTINGS FOR SUFFIX " + enchantment.getName() + " @ lvl " + level + " is null!");
+//            Chat.debug("SETTINGS FOR SUFFIX " + enchantment.getName() + " @ lvl " + level + " is null!");
             settings = GemSuffixSettings.getDefaultFor(enchantment);
         }
         
         if (settings == null) {
-            Chat.debug("DEFAULT SETTINGS FOR SUFFIX " + enchantment.getName() + " @ lvl " + level + " is null!");
+            Chat.messageOps("DEFAULT SETTINGS FOR SUFFIX " + enchantment.getName() + " @ lvl " + level + " is null! Get brandon to fix pls");
             return "Forgotten Features";
         }
         

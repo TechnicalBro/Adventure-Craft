@@ -64,7 +64,7 @@ public class GemCraftData {
     public boolean performCombination() {
 
         if (!canCraft() || !integrityPreserved()) {
-            Chat.debug("No integrity / unable to craft items");
+//            Chat.debug("No integrity / unable to craft items");
             return false;
         }
 
@@ -75,7 +75,7 @@ public class GemCraftData {
 
         boolean itemEnhanced = AdventureGems.API.isEnhanced(itemStack);
         
-        Chat.debug("Item Enhanced? : " + String.valueOf(itemEnhanced));
+//        Chat.debug("Item Enhanced? : " + String.valueOf(itemEnhanced));
 
         ItemStack modified = null;
 
@@ -84,7 +84,7 @@ public class GemCraftData {
         if (itemEnhanced) {
             enhancedAmount = AdventureGems.API.getEnhancementsCount(itemStack);
         }
-        Chat.debug("Item has " + enhancedAmount + " enhancements");
+//        Chat.debug("Item has " + enhancedAmount + " enhancements");
 
         if (AdventureGems.API.isGem(itemStack)) {
 
@@ -146,7 +146,7 @@ public class GemCraftData {
                 case DIAMOND_SPADE:
                 case BOW:
                 case FISHING_ROD:
-                    Chat.debug("Valid type!! --> " + type.name());
+//                    Chat.debug("Valid type!! --> " + type.name());
                     break;
                 default:
                     return false;
@@ -166,7 +166,7 @@ public class GemCraftData {
         enhancedAmount += 1;
         String modReplace = "[+" + enhancedAmount + "]";
         
-        Chat.debug("Searching for " + modSearch,"Replacing with " + modReplace);
+//        Chat.debug("Searching for " + modSearch,"Replacing with " + modReplace);
         
         String itemName = Items.getName(itemStack);
         
