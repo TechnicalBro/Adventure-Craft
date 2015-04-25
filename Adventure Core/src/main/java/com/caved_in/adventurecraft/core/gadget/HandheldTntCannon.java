@@ -54,10 +54,12 @@ public class HandheldTntCannon extends ItemGadget {
         
         ItemStack ammoStack = inv.getItem(slotTnt);
 
-        Items.removeFromStack(ammoStack,1);
+        ammoStack = Items.removeFromStack(ammoStack,1);
+
+		inv.setItem(slotTnt,ammoStack);
 
         TNTPrimed primedTnt = Entities.spawnPrimedTnt(player.getLocation());
-        primedTnt.getVelocity().multiply(20);
+		primedTnt.getVelocity().multiply(20);
          
         shootCooldown.put(playerId, Long.sum(System.currentTimeMillis(),COOLDOWN_TIME));
     }

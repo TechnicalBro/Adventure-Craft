@@ -2,6 +2,7 @@ package com.caved_in.adventurecraft.core;
 
 import com.caved_in.adventurecraft.core.command.ExchangeCommand;
 import com.caved_in.adventurecraft.core.debug.DebugCustomArrows;
+import com.caved_in.adventurecraft.core.debug.DebugHandCannon;
 import com.caved_in.adventurecraft.core.debug.DebugMobSlayLoot;
 import com.caved_in.adventurecraft.core.debug.DebugProtoFinder;
 import com.caved_in.adventurecraft.core.gadget.*;
@@ -13,6 +14,7 @@ import com.caved_in.commons.item.ItemBuilder;
 import com.caved_in.commons.plugin.Plugins;
 import com.caved_in.commons.time.TimeHandler;
 import com.caved_in.commons.time.TimeType;
+import com.palmergames.bukkit.towny.Towny;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Material;
 import org.bukkit.Server;
@@ -92,13 +94,15 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
                 GrapplingArrowGadget.getInstance(),
                 KinArrowGadget.getInstance(),
                 SlowingArrowGadget.getInstance(),
-                EnderArrowGadget.getInstance()
+                EnderArrowGadget.getInstance(),
+				new HandheldTntCannon()
         );
 
         registerDebugActions(
                 new DebugMobSlayLoot(),
                 new DebugProtoFinder(),
-                new DebugCustomArrows()
+                new DebugCustomArrows(),
+				new DebugHandCannon()
         );
         
         registerRecipes();
@@ -263,6 +267,14 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
         public static Economy getEconomy() {
             return instance.getEconomy();
         }
+
+		public static boolean hasTowny() {
+			return Plugins.getPlugin("Towny") != null;
+		}
+
+		public static Towny getTowny() {
+			return (Towny)Plugins.getPlugin("Towny");
+		}
     }
 
     public static class Properties {

@@ -12,6 +12,7 @@ import com.caved_in.commons.plugin.Plugins;
 import com.google.common.base.Strings;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -94,6 +95,15 @@ public class GemCraftData {
             }
             
             for(EnchantWrapper wrapper : gemEnchantments) {
+				Enchantment e = wrapper.getEnchantment();
+				/*
+				Check if any of the existing enchantments conflict with the enchantment being added!
+				 */
+				for(EnchantWrapper currentEnchant : Items.getEnchantments(itemStack)) {
+					if (currentEnchant.getEnchantment().conflictsWith(e)) {
+						return false;
+					}
+				}
                 Items.addUnsafeEnchantment(itemStack,wrapper.getEnchantment(),wrapper.getLevel());
             }
 

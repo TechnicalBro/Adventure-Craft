@@ -12,7 +12,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-public class DocileArrowGadget extends BaseArrow {
+public class DocileArrowGadget extends AdventureArrow {
     private static DocileArrowGadget instance = null;
 
     private static EntityType[] DOCILE_TYPES = {
@@ -38,24 +38,24 @@ public class DocileArrowGadget extends BaseArrow {
     }
 
     protected DocileArrowGadget() {
-        super(ItemBuilder.of(Material.ARROW).name("&aDocile Arrow").lore("&eShoot any hostile monster","&e and be amazed!"));
-    }
+		super(ItemBuilder.of(Material.ARROW).name("&aDocile Arrow").lore("&eShoot any hostile monster", "&e and be amazed!"));
+	}
 
-    @Override
-    public boolean onDamage(LivingEntity entity, Player player) {
-        if (!Entities.isHostile(entity)) {
-            Chat.actionMessage(player,"&cA &aDocile Arrow&c will only work on hostile mobs!");
-            return false;
-        }
-        
-        EntityType randomDocile = ArrayUtils.getRandom(DOCILE_TYPES);
-        ParticleEffects.sendToLocation(ParticleEffects.HEART,entity.getLocation(), NumberUtil.getRandomInRange(10,15));
-        Entities.spawnLivingEntity(randomDocile,entity.getLocation());
-        entity.remove();
-        return true;
-    }
+	@Override
+	public boolean doDamage(LivingEntity entity, Player player) {
+		if (!Entities.isHostile(entity)) {
+			Chat.actionMessage(player,"&cA &aDocile Arrow&c will only work on hostile mobs!");
+			return false;
+		}
 
-    @Override
+		EntityType randomDocile = ArrayUtils.getRandom(DOCILE_TYPES);
+		ParticleEffects.sendToLocation(ParticleEffects.HEART,entity.getLocation(), NumberUtil.getRandomInRange(10,15));
+		Entities.spawnLivingEntity(randomDocile,entity.getLocation());
+		entity.remove();
+		return true;
+	}
+
+	@Override
     public int id() {
         return 133004;
     }

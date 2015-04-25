@@ -10,7 +10,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-public class EnderArrowGadget extends BaseArrow {
+public class EnderArrowGadget extends AdventureArrow {
     private static EnderArrowGadget instance = null;
     
     public static EnderArrowGadget getInstance() {
@@ -25,17 +25,17 @@ public class EnderArrowGadget extends BaseArrow {
         super(ItemBuilder.of(Material.ARROW).name("&aEnder Arrows").lore("&eShoot any foe to launch them straight up!").item());
     }
 
-    @Override
-    public boolean onDamage(LivingEntity livingEntity, Player player) {
-        if (player.getVelocity().length() >= 0) {
-            Entities.teleport(livingEntity,livingEntity.getLocation().add(0,NumberUtil.getRandomInRange(15,25),0));
-            return true;
-        }
-        Entities.launchUpwards(livingEntity, NumberUtil.getRandomInRange(15,25),200);
-        return true;
-    }
+	@Override
+	public boolean doDamage(LivingEntity livingEntity, Player player) {
+		if (player.getVelocity().length() >= 0) {
+			Entities.teleport(livingEntity,livingEntity.getLocation().add(0,NumberUtil.getRandomInRange(15,25),0));
+			return true;
+		}
+		Entities.launchUpwards(livingEntity, NumberUtil.getRandomInRange(15,25),200);
+		return true;
+	}
 
-    @Override
+	@Override
     public int id() {
         return 133007;
     }

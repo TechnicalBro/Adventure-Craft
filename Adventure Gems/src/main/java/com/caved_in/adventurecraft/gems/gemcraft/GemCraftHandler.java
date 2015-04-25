@@ -56,6 +56,7 @@ public class GemCraftHandler {
         ConfirmationMenu.of("Combine your gem(s) & item(s)?")
             .exitOnClickOutside(false)
             .onConfirm((menu, player) -> {
+						Chat.debug("Confirmed! " + player.getName());
                         if (gemData.performCombination()) {
                             TitleBuilder.create().title("&aSuccess!").subtitle("&eYour items have been combined!").fadeIn(1).stay(2).fadeOut(1).build().send(player);
                         } else {

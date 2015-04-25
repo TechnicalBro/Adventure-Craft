@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class SlowingArrowGadget extends BaseArrow {
+public class SlowingArrowGadget extends AdventureArrow {
     private static SlowingArrowGadget instance = null;
 
     private PotionEffect effect;
@@ -28,13 +28,14 @@ public class SlowingArrowGadget extends BaseArrow {
         effect = Potions.getPotionEffect(PotionEffectType.SLOW,2, (int) TimeHandler.getTimeInTicks(5, TimeType.SECOND));
     }
 
-    @Override
-    public boolean onDamage(LivingEntity livingEntity, Player player) {
-        Entities.addPotionEffect(livingEntity,effect);
-        return true;
-    }
+	@Override
+	public boolean doDamage(LivingEntity target, Player shooter) {
+		Entities.addPotionEffect(target	,effect);
 
-    @Override
+		return true;
+	}
+
+	@Override
     public int id() {
         return 133002;
     }

@@ -74,7 +74,7 @@
         <dependency>
             <groupId>com.caved_in</groupId>
             <artifactId>commons</artifactId>
-            <version>1.8.5</version>
+            <version>1.8.6</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

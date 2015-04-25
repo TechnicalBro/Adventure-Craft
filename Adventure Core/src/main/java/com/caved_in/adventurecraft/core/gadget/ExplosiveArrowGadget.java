@@ -12,7 +12,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-public class ExplosiveArrowGadget extends BaseArrow {
+public class ExplosiveArrowGadget extends AdventureArrow {
     private static ExplosiveArrowGadget instance = null;
 
     public static ExplosiveArrowGadget getInstance() {
@@ -26,23 +26,23 @@ public class ExplosiveArrowGadget extends BaseArrow {
         super(ItemBuilder.of(Material.ARROW).name("&eExplosive Arrow").lore("&c&lKABOOM","&eUse with any bow and wreak havoc!").item());
     }
 
-    @Override
-    public boolean onDamage(LivingEntity livingEntity, Player player) {
-        EntityType type = livingEntity.getType();
-        
-        if (type == EntityType.CREEPER) {
-            Creeper creeper = (Creeper)livingEntity;
-            creeper.setPowered(true);
-            Chat.actionMessage(player,"&cCareful, that's dangerous!");
-            return true;
-        }
+	@Override
+	public boolean doDamage(LivingEntity damaged, Player shooter) {
+		EntityType type = damaged.getType();
 
-        Effects.explode(livingEntity.getLocation(),2f,false,false);
-        Sounds.playSound(player, Sound.EXPLODE,0.7f,0.9f);
-        return true;
-    }
+		if (type == EntityType.CREEPER) {
+			Creeper creeper = (Creeper)damaged;
+			creeper.setPowered(true);
+			Chat.actionMessage(shooter,"&cCareful, that's dangerous!");
+			return true;
+		}
 
-    @Override
+		Effects.explode(damaged.getLocation(),2f,false,false);
+		Sounds.playSound(shooter, Sound.EXPLODE,0.7f,0.9f);
+		return true;
+	}
+
+	@Override
     public int id() {
         return 133001;
     }

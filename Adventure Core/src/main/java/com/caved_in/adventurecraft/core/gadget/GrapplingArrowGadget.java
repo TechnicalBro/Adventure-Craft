@@ -7,7 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-public class GrapplingArrowGadget extends BaseArrow {
+public class GrapplingArrowGadget extends AdventureArrow {
     private static GrapplingArrowGadget instance = null;
 
     public static GrapplingArrowGadget getInstance() {
@@ -21,13 +21,13 @@ public class GrapplingArrowGadget extends BaseArrow {
         super(ItemBuilder.of(Material.ARROW).name("&6Grappling Arrow").lore("&eGrapple your foe and bring","&eyourself to them!"));
     }
 
-    @Override
-    public boolean onDamage(LivingEntity livingEntity, Player player) {
-        Players.teleport(player,livingEntity);
-        return true;
-    }
+	@Override
+	public boolean doDamage(LivingEntity target, Player shooter) {
+			Players.teleport(shooter,target);
+		return true;
+	}
 
-    @Override
+	@Override
     public int id() {
         return 133005;
     }

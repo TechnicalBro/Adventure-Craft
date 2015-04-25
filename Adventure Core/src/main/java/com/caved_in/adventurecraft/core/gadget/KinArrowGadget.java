@@ -15,7 +15,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-public class KinArrowGadget extends BaseArrow {
+public class KinArrowGadget extends AdventureArrow {
     private static KinArrowGadget instance = null;
 
     public static KinArrowGadget getInstance() {
@@ -29,19 +29,20 @@ public class KinArrowGadget extends BaseArrow {
         super(ItemBuilder.of(Material.ARROW).name("&eArrow of Kin").lore("&eFire at any foe to force","&etheir kin to their aid!").item());
     }
 
-    @Override
-    public boolean onDamage(LivingEntity livingEntity, Player player) {
-        if (!MobType.isMob(livingEntity.getType()) || livingEntity.hasMetadata("NPC")) {
-            Chat.actionMessage(player, "&c&lOnly mobs can be forced to call kin");
-            return false;
-        }
 
-        CreatureBuilder.of(livingEntity.getType()).asBaby(true).spawn(Locations.getRandomLocation(livingEntity.getLocation(),2));
-        ParticleEffects.sendToLocation(ParticleEffects.EXPLOSION_HUGE,livingEntity.getEyeLocation(), NumberUtil.getRandomInRange(2,5));
-        return true;
-    }
+	@Override
+	public boolean doDamage(LivingEntity damaged, Player shooter) {
+		if (!MobType.isMob(damaged.getType()) || damaged.hasMetadata("NPC")) {
+			Chat.actionMessage(shooter, "&c&lOnly mobs can be forced to call kin");
+			return false;
+		}
 
-    @Override
+		CreatureBuilder.of(damaged.getType()).asBaby(true).spawn(Locations.getRandomLocation(damaged.getLocation(), 2));
+		ParticleEffects.sendToLocation(ParticleEffects.EXPLOSION_HUGE,damaged.getEyeLocation(), NumberUtil.getRandomInRange(2,5));
+		return true;
+	}
+
+	@Override
     public int id() {
         return 133003;
     }
