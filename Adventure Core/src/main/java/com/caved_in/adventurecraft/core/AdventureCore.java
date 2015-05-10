@@ -95,6 +95,7 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
                 KinArrowGadget.getInstance(),
                 SlowingArrowGadget.getInstance(),
                 EnderArrowGadget.getInstance(),
+				HealingArrow.getInstance(),
 				new HandheldTntCannon()
         );
 
@@ -194,7 +195,11 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
         ShapelessRecipe coalFinder = new ShapelessRecipe(CoalFinder.getInstance().getItem())
                 .addIngredient(Material.COMPASS)
                 .addIngredient(Material.COAL_BLOCK);
-        
+
+		ShapelessRecipe healingArrow = new ShapelessRecipe(HealingArrow.getInstance().getItem())
+				.addIngredient(Material.ARROW)
+				.addIngredient(Material.COOKIE);
+
         if (server.addRecipe(goldOreFinder)) {
             debug("Registered the gold ore finder");
         }
@@ -233,6 +238,10 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
         if (server.addRecipe(saddleRecipe)) {
             debug("The recipe for saddles has been registered; 4 LEATHER SHAPELESS");
         }
+
+		if (server.addRecipe(healingArrow)) {
+			debug("The recipe for healing arrows has been registered; 1 ARROW 1 COOKIE");
+		}
 
     }
 

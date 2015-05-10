@@ -20,6 +20,7 @@ public class DebugCustomArrows implements DebugAction {
         ItemStack kinArrow = KinArrowGadget.getInstance().getItem();
         ItemStack slowingArrow = SlowingArrowGadget.getInstance().getItem();
         ItemStack enderArrow = EnderArrowGadget.getInstance().getItem();
+		ItemStack healingArrow = HealingArrow.getInstance().getItem();
 
         docileArrow.setAmount(amount);
         explosiveArrow.setAmount(amount);
@@ -27,9 +28,10 @@ public class DebugCustomArrows implements DebugAction {
         kinArrow.setAmount(amount);
         slowingArrow.setAmount(amount);
         enderArrow.setAmount(amount);
+		healingArrow.setAmount(amount);
 
         Players.giveItem(player, Items.makeItem(Material.BOW),docileArrow,explosiveArrow,grapplingArrow,
-                kinArrow,slowingArrow,enderArrow);
+                kinArrow,slowingArrow,enderArrow,healingArrow);
         
     }
 

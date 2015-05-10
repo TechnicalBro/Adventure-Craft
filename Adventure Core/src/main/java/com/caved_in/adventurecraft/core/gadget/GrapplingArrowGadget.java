@@ -23,7 +23,7 @@ public class GrapplingArrowGadget extends AdventureArrow {
 
 	@Override
 	public boolean doDamage(LivingEntity target, Player shooter) {
-			Players.teleport(shooter,target);
+		Players.teleport(shooter,target);
 		return true;
 	}
 
