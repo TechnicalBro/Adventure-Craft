@@ -31,7 +31,6 @@ public class SlowingArrowGadget extends AdventureArrow {
 	@Override
 	public boolean doDamage(LivingEntity target, Player shooter) {
 		Entities.addPotionEffect(target	,effect);
-
 		return true;
 	}
 
