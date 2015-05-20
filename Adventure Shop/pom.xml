@@ -107,6 +107,13 @@
             <version>${powermock.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>me.local</groupId>
+            <artifactId>guishop</artifactId>
+            <scope>system</scope>
+            <version>1.0.0</version>
+            <systemPath>${basedir}/lib/GUIShop_2.1.jar</systemPath>
+        </dependency>
     </dependencies>
 
 

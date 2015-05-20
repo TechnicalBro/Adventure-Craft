@@ -41,6 +41,15 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.javassist:javassist:3.18.2-GA" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.powermock:powermock-api-mockito:1.6.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.powermock:powermock-api-support:1.6.1" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: me.local:guishop:1.0.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/GUIShop_2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
 

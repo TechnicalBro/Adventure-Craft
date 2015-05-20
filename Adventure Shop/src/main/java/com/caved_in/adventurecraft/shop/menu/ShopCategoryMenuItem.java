@@ -1,4 +1,4 @@
-package com.caved_in.adventurecraft.shop.shop;
+package com.caved_in.adventurecraft.shop.menu;
 
 import com.caved_in.commons.menu.MenuItem;
 import org.bukkit.entity.Player;

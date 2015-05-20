@@ -4,6 +4,7 @@ import com.caved_in.commons.config.XmlItemStack;
 import com.google.common.collect.Lists;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Collections;
 import java.util.List;
 
 //todo implement drag & drop shop arrangement
@@ -23,8 +24,8 @@ public class ShopCategory {
 		return this;
 	}
 
-	public ShopCategory addItem(ShopItem item) {
-		categoryItems.add(item);
+	public ShopCategory addItems(ShopItem... items) {
+		Collections.addAll(categoryItems,items);
 		return this;
 	}
 
