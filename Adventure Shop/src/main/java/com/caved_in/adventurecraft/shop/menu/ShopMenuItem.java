@@ -15,6 +15,6 @@ public class ShopMenuItem extends MenuItem {
 
 	@Override
 	public void onClick(Player player) {
-
+		//todo implement purchase logic!!
 	}
 }

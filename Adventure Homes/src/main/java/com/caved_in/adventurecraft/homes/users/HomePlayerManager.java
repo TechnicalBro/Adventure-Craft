@@ -1,11 +1,13 @@
 package com.caved_in.adventurecraft.homes.users;
 
 import com.caved_in.adventurecraft.homes.AdventureHomes;
+import com.caved_in.commons.chat.Chat;
 import com.caved_in.commons.game.players.UserManager;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.UUID;
 
 public class HomePlayerManager extends UserManager<HomePlayer> {
@@ -50,14 +52,47 @@ public class HomePlayerManager extends UserManager<HomePlayer> {
             return false;
         }
         File userFile = getUserFile(id);
-        
-        HomePlayer player = getUser(id);
         boolean saved = false;
-        try {
-            serializer.write(player,userFile);
-            saved = true;
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        if (!userFile.exists()) {
+            Chat.debug("User file for " + id.toString() + " doesn't exist!");
+            Chat.debug("Attempting to create file " + id.toString());
+            boolean created = false;
+            try {
+                created = userFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if (!created) {
+                Chat.messageOps("&cUnable to create data folder for user id[" + id.toString() + "]","&l&7Contact brandon and he'll fix this <3");
+                return false;
+            }
+            HomePlayer player = getUser(id);
+
+            if (player == null) {
+                Chat.messageOps("&c&lPlayer with id " + id.toString() + " DOES NOT have a user object; Contact brandon IMMEDIATELY.");
+                return false;
+            }
+
+            try {
+                serializer.write(player, userFile);
+                saved = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            HomePlayer player = getUser(id);
+            try {
+                serializer.write(player, userFile);
+                saved = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (!saved)
+                    Chat.messageOps("&cTHE SAME FUCKING FILE SAVE ERROR KEEPS HAPPENING- ERMAHGERHD");
+            }
         }
         return saved;
     }

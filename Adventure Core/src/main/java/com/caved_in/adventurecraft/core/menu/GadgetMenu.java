@@ -9,6 +9,7 @@ import com.caved_in.commons.menu.MenuItem;
 import com.caved_in.commons.menu.Menus;
 import com.caved_in.commons.player.Players;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
 
 import java.util.Collection;
 import java.util.Set;
@@ -34,7 +35,7 @@ public class GadgetMenu extends ItemMenu {
         }
 
         @Override
-        public void onClick(Player player) {
+        public void onClick(Player player, ClickType type) {
             Players.giveItem(player, Gadgets.getGadget(id).getItem());
             Chat.actionMessage(player,"&cBam! New Gadgets added!");
             close(player);

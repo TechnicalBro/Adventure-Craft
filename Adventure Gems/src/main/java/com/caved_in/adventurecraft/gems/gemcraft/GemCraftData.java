@@ -98,12 +98,13 @@ public class GemCraftData {
 				Enchantment e = wrapper.getEnchantment();
 				/*
 				Check if any of the existing enchantments conflict with the enchantment being added!
-				 */
+
 				for(EnchantWrapper currentEnchant : Items.getEnchantments(itemStack)) {
 					if (currentEnchant.getEnchantment().conflictsWith(e)) {
 						return false;
 					}
 				}
+				*/
                 Items.addUnsafeEnchantment(itemStack,wrapper.getEnchantment(),wrapper.getLevel());
             }
 

@@ -19,6 +19,7 @@ import com.caved_in.commons.warp.Warp;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
 
 import java.util.List;
 
@@ -77,7 +78,7 @@ public class HomeMenu extends ItemMenu {
 		}
 
 		@Override
-		public void onClick(Player player) {
+		public void onClick(Player player, ClickType type) {
 			HomePlayer user = users.getUser(player);
 
 			switch (action) {
@@ -135,7 +136,7 @@ public class HomeMenu extends ItemMenu {
 		}
 
 		@Override
-		public void onClick(Player player) {
+		public void onClick(Player player, ClickType type) {
 			HomePlayer user = users.getUser(player);
 
 			switch (option) {

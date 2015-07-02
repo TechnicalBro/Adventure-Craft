@@ -68,17 +68,19 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>1.8.3-R0.1-SNAPSHOT</version>
+            <version>1.8.7-R0.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/spigot-1.8.7.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.caved_in</groupId>
             <artifactId>commons</artifactId>
-            <version>1.8.6</version>
+            <version>1.8.7</version>
         </dependency>
         <dependency>
             <groupId>com.caved_in.adventurecraft</groupId>
             <artifactId>adventure-homes</artifactId>
-            <version>1.0.1-RELEASE</version>
+            <version>1.0.2-TEST</version>
         </dependency>
         <dependency>
             <groupId>com.caved_in.adventurecraft</groupId>

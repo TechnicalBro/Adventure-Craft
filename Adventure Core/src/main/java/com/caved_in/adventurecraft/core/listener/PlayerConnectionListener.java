@@ -42,7 +42,7 @@ public class PlayerConnectionListener implements Listener {
             users.addUser(p);
             core.debug("Player " + p.getName() + " has joined adventure craft for the first time!");
             welcomeTitleBuilder.subtitle(String.format("%sWelcome %s to %sAdventure Craft",ChatColor.YELLOW.toString(),p.getName(),ChatColor.GOLD.toString())).build().broadcast();
-            Players.giveItem(p, Items.makeItem(Material.WOOD_PICKAXE),Items.makeItem(Material.WOOD_SWORD), ItemBuilder.of(Material.FISHING_ROD).durability((short)10).name("&eWorn Fishing Rod").item(),Items.makeItemAmount(Material.APPLE,3));
+            Players.giveItem(p, Items.makeItem(Material.WOOD_PICKAXE),Items.makeItem(Material.WOOD_SWORD), ItemBuilder.of(Material.FISHING_ROD).durability((short)10).name("&eWorn Fishing Rod").item(),ItemBuilder.of(Material.APPLE).amount(3).item());
         }
     }
     

@@ -16,7 +16,7 @@
         <module>Loot Generator</module>
         <module>Adventure Homes</module>
         <module>Adventure Gems</module>
-        <module>Adventure Shop</module>
+        <!--<module>Adventure Shop</module>-->
     </modules>
 
 
