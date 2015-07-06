@@ -20,6 +20,7 @@ public class PlayerCraftListener implements Listener {
 		ClickType clickType = e.getClick();
 		Recipe recipe = e.getRecipe();
 
+		//todo implement loot generation / custom items for crafting
 		
 	}
 

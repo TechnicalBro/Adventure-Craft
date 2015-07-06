@@ -40,8 +40,20 @@ public class PlayerInteractListener implements Listener {
                 }
 
                 ItemStack hand = e.getItem();
+                //If the player doesn't have a gem in their hand, check for crafting!
                 if (!AdventureGems.API.isGem(hand)) {
                     if (gemHandler.hasGemSelected(p)) {
+                        e.setCancelled(true);
+
+                        /*
+                        Simple debug to check if the player is combining armor
+                         */
+                        if (Items.isArmor(hand)) {
+                            if (Players.isDebugging(p)) {
+                                Chat.message(p, "&cYou es crafting armor");
+                            }
+                        }
+
                         gemHandler.setItem(p, hand);
                         gemHandler.performCraft(p);
                     }

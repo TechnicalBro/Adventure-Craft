@@ -6,12 +6,10 @@ import com.caved_in.adventurecraft.gems.item.GemGenerator;
 import com.caved_in.adventurecraft.gems.item.GemSettings;
 import com.caved_in.adventurecraft.gems.item.GemType;
 import com.caved_in.adventurecraft.gems.listener.GemCraftListener;
-import com.caved_in.adventurecraft.gems.listener.MobDeathListener;
 import com.caved_in.adventurecraft.gems.listener.PlayerInteractListener;
 import com.caved_in.commons.chat.Chat;
 import com.caved_in.commons.item.Items;
 import com.caved_in.commons.plugin.BukkitPlugin;
-import com.caved_in.commons.utilities.Str;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -35,7 +33,6 @@ public class AdventureGems extends BukkitPlugin {
         gemHandler = new GemCraftHandler(this);
         
         registerListeners(
-                new MobDeathListener(),
                 new PlayerInteractListener(),
                 new GemCraftListener()
         );

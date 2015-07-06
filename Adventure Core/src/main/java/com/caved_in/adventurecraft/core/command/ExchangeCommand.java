@@ -30,7 +30,7 @@ public class ExchangeCommand {
     }
     
     @Command(identifier = "exchange gold",description = "Convert your Gold into Tunnels EXP")
-    public void onExchangeGoldCommand(Player player, @Arg(name = "amount")int amount) {
+    public void onExchangeGoldCommand(Player player, @Arg(name = "gold")int amount) {
         if (!economy.has(player,amount)) {
             Chat.message(player,"&eYou don't have enough gold to make the exchange.");
             return;
@@ -50,7 +50,7 @@ public class ExchangeCommand {
     }
     
     @Command(identifier = "exchange exp",description = "Convert your Tunnels EXP into Gold")
-    public void onExchangeExpCommand(Player player, @Arg(name = "amount")int amount) {
+    public void onExchangeExpCommand(Player player, @Arg(name = "exp")int amount) {
         int depositAmount = amount * AdventureCore.Properties.GOLD_PER_EXP;
         
         int playerExp = Players.getMoney(player);

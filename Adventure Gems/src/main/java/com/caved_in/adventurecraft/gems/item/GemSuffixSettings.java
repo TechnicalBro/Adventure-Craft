@@ -30,9 +30,10 @@ public class GemSuffixSettings {
             of(Enchantment.PROTECTION_FALL, "Acrobatic Balance"),
             of(Enchantment.PROTECTION_FIRE, "Fire Walkers"),
             of(Enchantment.PROTECTION_PROJECTILE, "Aerial Protection"),
-            of(Enchantment.SILK_TOUCH, "Delecate Hands"),
+            of(Enchantment.SILK_TOUCH, "Delicate Hands"),
             of(Enchantment.THORNS, "Thorns"),
-            of(Enchantment.WATER_WORKER, "Underwater Masonry")
+            of(Enchantment.WATER_WORKER, "Underwater Masonry"),
+            of(Enchantment.LURE,"Fishery")
     };
 
     private static Map<Enchantment, GemSuffixSettings> DEFAULT_SUFFIX_MAP = new HashMap<>();

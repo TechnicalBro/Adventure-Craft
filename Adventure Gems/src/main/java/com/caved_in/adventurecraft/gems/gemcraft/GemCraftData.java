@@ -13,6 +13,7 @@ import com.google.common.base.Strings;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.enchantments.EnchantmentWrapper;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -62,10 +63,14 @@ public class GemCraftData {
         return itemStack != null && gem != null;
     }
 
+    /**
+     * Perform the gem combination; Adding the enchantments of the gem, to the receiving gem or item!
+     * @return true if the combination was successful, false otherwise!
+     */
     public boolean performCombination() {
 
         if (!canCraft() || !integrityPreserved()) {
-//            Chat.debug("No integrity / unable to craft items");
+            Chat.debug("No integrity / unable to craft items");
             return false;
         }
 
@@ -78,7 +83,7 @@ public class GemCraftData {
         
 //        Chat.debug("Item Enhanced? : " + String.valueOf(itemEnhanced));
 
-        ItemStack modified = null;
+        ItemStack modified = itemStack.clone();
 
         int enhancedAmount = 0;
 
@@ -98,21 +103,18 @@ public class GemCraftData {
 				Enchantment e = wrapper.getEnchantment();
 				/*
 				Check if any of the existing enchantments conflict with the enchantment being added!
-
+                */
 				for(EnchantWrapper currentEnchant : Items.getEnchantments(itemStack)) {
 					if (currentEnchant.getEnchantment().conflictsWith(e)) {
-						return false;
+						Chat.debug("Enchantment " + currentEnchant.getEnchantment().getName() + " conflicts with " + e.getName());
+                        return false;
 					}
 				}
-				*/
-                Items.addUnsafeEnchantment(itemStack,wrapper.getEnchantment(),wrapper.getLevel());
+
+                Items.addUnsafeEnchantment(modified,wrapper.getEnchantment(),wrapper.getLevel());
             }
-
-//            Items.addEnchantments(itemStack, gemEnchantments);
-
-            modified = itemStack.clone();
         } else {
-            Material type = itemStack.getType();
+            Material type = modified.getType();
 
             switch (type) {
                 case LEATHER_BOOTS:
@@ -163,14 +165,17 @@ public class GemCraftData {
                     return false;
             }
 
+            /*
+            Todo: Retrieve the enhancement limit from the rarity of the item.
+             */
             if (enhancedAmount >= AdventureGems.Settings.MAX_ITEM_ADDITIONS) {
                 Chat.message(p, "&7<> &c&lThis item cannot be enhanced any more.");
                 return false;
             }
 
-            Items.addEnchantments(itemStack, gemEnchantments);
-
-            modified = itemStack.clone();
+            for(EnchantWrapper wrapper : gemEnchantments) {
+                Items.addUnsafeEnchantment(modified,wrapper.getEnchantment(),wrapper.getLevel());
+            }
         }
 
         String modSearch = "[+" + enhancedAmount + "]";
@@ -179,7 +184,7 @@ public class GemCraftData {
         
 //        Chat.debug("Searching for " + modSearch,"Replacing with " + modReplace);
         
-        String itemName = Items.getName(itemStack);
+        String itemName = Items.getName(modified);
         
         if (itemName == null) {
             return false;
@@ -193,15 +198,44 @@ public class GemCraftData {
         
         Items.setName(modified,itemName);
 
+        //Create the event that will be called when a gem and target are being combined.
         GemCraftEvent event = new GemCraftEvent(p, gem, itemStack);
 
         Plugins.callEvent(event);
 
         //todo check if cancelled, and such. Move confirmation menu to the listener, not the handler
 
-        Inventories.clearSlot(pInv, Inventories.getSlotOf(pInv, gem));
-        Inventories.clearSlot(pInv, Inventories.getSlotOf(pInv, itemStack));
+        int gemSlot = Inventories.getSlotOf(pInv, gem);
+        int itemSlot = Inventories.getSlotOf(pInv, itemStack);
 
+        if (gemSlot == -1) {
+//            Chat.debug("Unable to find gem in players inventory!");
+            return false;
+        }
+
+        //Clear the slot of the gem in the players inventory
+        Inventories.clearSlot(pInv, gemSlot);
+
+        if (itemSlot == -1) {
+            if (itemStack == null) {
+//                Chat.debug("ITEM IS NULL WHILE COMBINING, FUCK THAT SHIT");
+                return false;
+            }
+
+            int slot = Inventories.getFirst(pInv,itemStack);
+
+//            Chat.debug("Found itemstack @ slot " + slot);
+
+            Inventories.clearSlot(pInv,slot);
+
+//            Chat.debug("Was unable to find item at slot [" + itemSlot + "] // " + Items.getName(itemStack));
+//            Chat.debug("Giving player modified item");
+            Players.giveItem(p, modified);
+            p.updateInventory();
+            return true;
+        }
+
+        Inventories.clearSlot(pInv,itemSlot);
         p.updateInventory();
         Players.giveItem(p, modified);
         return true;
