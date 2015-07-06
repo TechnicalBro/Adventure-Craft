@@ -79,10 +79,6 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
                 new PlayerShootSelfListener()
 //                new PlayerBreakTreeListener()
         );
-
-        registerCommands(
-                new ExchangeCommand()
-        );
         
         registerGadgets(
                 //Prototype for the ore finder!
