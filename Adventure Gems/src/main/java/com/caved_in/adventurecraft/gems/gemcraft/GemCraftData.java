@@ -65,6 +65,7 @@ public class GemCraftData {
 
     /**
      * Perform the gem combination; Adding the enchantments of the gem, to the receiving gem or item!
+     *
      * @return true if the combination was successful, false otherwise!
      */
     public boolean performCombination() {
@@ -80,7 +81,7 @@ public class GemCraftData {
         Set<EnchantWrapper> gemEnchantments = Items.getEnchantments(gem);
 
         boolean itemEnhanced = AdventureGems.API.isEnhanced(itemStack);
-        
+
 //        Chat.debug("Item Enhanced? : " + String.valueOf(itemEnhanced));
 
         ItemStack modified = itemStack.clone();
@@ -98,20 +99,20 @@ public class GemCraftData {
                 Chat.message(p, "&7<> &c&lThis gem cannot be enhanced any more.");
                 return false; //max enhancements reached for dis.
             }
-            
-            for(EnchantWrapper wrapper : gemEnchantments) {
-				Enchantment e = wrapper.getEnchantment();
-				/*
+
+            for (EnchantWrapper wrapper : gemEnchantments) {
+                Enchantment e = wrapper.getEnchantment();
+                /*
 				Check if any of the existing enchantments conflict with the enchantment being added!
                 */
-				for(EnchantWrapper currentEnchant : Items.getEnchantments(itemStack)) {
-					if (currentEnchant.getEnchantment().conflictsWith(e)) {
-						Chat.debug("Enchantment " + currentEnchant.getEnchantment().getName() + " conflicts with " + e.getName());
+                for (EnchantWrapper currentEnchant : Items.getEnchantments(itemStack)) {
+                    if (currentEnchant.getEnchantment().conflictsWith(e)) {
+                        Chat.debug("Enchantment " + currentEnchant.getEnchantment().getName() + " conflicts with " + e.getName());
                         return false;
-					}
-				}
+                    }
+                }
 
-                Items.addUnsafeEnchantment(modified,wrapper.getEnchantment(),wrapper.getLevel());
+                Items.addUnsafeEnchantment(modified, wrapper.getEnchantment(), wrapper.getLevel());
             }
         } else {
             Material type = modified.getType();
@@ -173,30 +174,30 @@ public class GemCraftData {
                 return false;
             }
 
-            for(EnchantWrapper wrapper : gemEnchantments) {
-                Items.addUnsafeEnchantment(modified,wrapper.getEnchantment(),wrapper.getLevel());
+            for (EnchantWrapper wrapper : gemEnchantments) {
+                Items.addUnsafeEnchantment(modified, wrapper.getEnchantment(), wrapper.getLevel());
             }
         }
 
         String modSearch = "[+" + enhancedAmount + "]";
         enhancedAmount += 1;
         String modReplace = "[+" + enhancedAmount + "]";
-        
+
 //        Chat.debug("Searching for " + modSearch,"Replacing with " + modReplace);
-        
+
         String itemName = Items.getName(modified);
-        
+
         if (itemName == null) {
             return false;
         }
-        
+
         if (itemEnhanced) {
-            itemName = StringUtils.replace(itemName,modSearch,modReplace);
+            itemName = StringUtils.replace(itemName, modSearch, modReplace);
         } else {
-            itemName = StringUtils.join(itemName," &e",modReplace);
+            itemName = StringUtils.join(itemName, " &e", modReplace);
         }
-        
-        Items.setName(modified,itemName);
+
+        Items.setName(modified, itemName);
 
         //Create the event that will be called when a gem and target are being combined.
         GemCraftEvent event = new GemCraftEvent(p, gem, itemStack);
@@ -214,7 +215,15 @@ public class GemCraftData {
         }
 
         //Clear the slot of the gem in the players inventory
-        Inventories.clearSlot(pInv, gemSlot);
+        gem = Items.removeFromStack(gem, 1);
+
+        //If the player has no more gems in the stack, then clear the whole stack
+        if (gem.getAmount() == 0 || gem == null) {
+            Inventories.clearSlot(pInv, gemSlot);
+        } else {
+            //Otherwise we want to just remove a gem from the stack.
+            Inventories.setItem(pInv, gemSlot, gem);
+        }
 
         if (itemSlot == -1) {
             if (itemStack == null) {
@@ -222,22 +231,37 @@ public class GemCraftData {
                 return false;
             }
 
-            int slot = Inventories.getFirst(pInv,itemStack);
+            int slot = Inventories.getFirst(pInv, itemStack);
 
 //            Chat.debug("Found itemstack @ slot " + slot);
 
-            Inventories.clearSlot(pInv,slot);
+            ItemStack originalItem = pInv.getItem(slot);
+            Items.removeFromStack(originalItem, 1);
+
+            if (originalItem.getAmount() == 0 || originalItem == null) {
+                Inventories.clearSlot(pInv, slot);
+            } else {
+                Inventories.setItem(pInv, slot, originalItem);
+            }
 
 //            Chat.debug("Was unable to find item at slot [" + itemSlot + "] // " + Items.getName(itemStack));
 //            Chat.debug("Giving player modified item");
-            Players.giveItem(p, modified);
+            Players.giveItem(p, modified,true);
             p.updateInventory();
             return true;
         }
 
-        Inventories.clearSlot(pInv,itemSlot);
+        itemStack = Items.removeFromStack(itemStack, 1);
+
+        if (itemStack.getAmount() > 0 && itemStack != null) {
+            Inventories.setItem(pInv, itemSlot, itemStack);
+        } else {
+            Inventories.clearSlot(pInv, itemSlot);
+        }
+
         p.updateInventory();
-        Players.giveItem(p, modified);
+        //If the players inventory if full then we can drop the item :)
+        Players.giveItem(p, modified,true);
         return true;
     }
 
