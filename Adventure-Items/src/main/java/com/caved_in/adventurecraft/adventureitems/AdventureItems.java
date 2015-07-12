@@ -1,8 +1,12 @@
 package com.caved_in.adventurecraft.adventureitems;
 
+import com.caved_in.adventurecraft.adventureitems.debug.DebugItemEffect;
+import com.caved_in.adventurecraft.adventureitems.effects.CriticalStrikeEffect;
+import com.caved_in.adventurecraft.adventureitems.effects.FlameStrikeEffect;
 import com.caved_in.adventurecraft.adventureitems.effects.ItemEffectHandler;
 import com.caved_in.adventurecraft.adventureitems.listeners.ItemEffectListener;
 import com.caved_in.adventurecraft.adventureitems.users.ItemUserManager;
+import com.caved_in.commons.debug.DebugAction;
 import com.caved_in.commons.game.CraftGame;
 import com.caved_in.commons.game.listener.UserManagerListener;
 
@@ -34,6 +38,15 @@ public class AdventureItems extends CraftGame<ItemUserManager> {
                 userManagerListener = new UserManagerListener(this),
                 itemEffectListener = new ItemEffectListener(this)
         );
+
+		registerDebugActions(
+				DebugItemEffect.getInstance()
+		);
+
+		getItemEffectHandler().registerItemEffects(
+				new FlameStrikeEffect(),
+				new CriticalStrikeEffect()
+		);
     }
 
     @Override

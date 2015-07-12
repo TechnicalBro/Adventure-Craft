@@ -12,15 +12,15 @@ public interface ItemEffect {
 
     boolean verify(ItemStack item);
 
-    boolean onPlayerDamagePlayer(Player attacked, Player damaged);
+    boolean onPlayerDamagePlayer(Player attacker, Player damaged);
 
-    boolean onPlayerBreakBlock(Player player, Block block);
+	boolean onPlayerBreakBlock(Player player, Block block);
 
-    boolean onPlayerDrop(Player player, Item item);
+	boolean onPlayerDrop(Player player, Item item);
 
-    boolean onPlayerDamageEntity(Player player, Entity entity);
+	boolean onPlayerDamageEntity(Player player, Entity entity);
 
-    boolean onPlayerDamageLivingEntity(Player player, LivingEntity entity);
+	boolean onPlayerDamageLivingEntity(Player player, LivingEntity entity);
 
     void apply(ItemStack item);
 }

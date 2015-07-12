@@ -7,6 +7,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ItemEffectHandler {
     private Set<ItemEffect> itemEffects = new HashSet<>();
@@ -50,4 +51,22 @@ public class ItemEffectHandler {
 
         return effects;
     }
+
+	public ItemEffect getEffect(String name) {
+		for(ItemEffect effect : itemEffects) {
+			if (effect.name().equalsIgnoreCase(name)) {
+				return effect;
+			}
+		}
+
+		return null;
+	}
+
+	public Set<String> getEffectNames() {
+		return itemEffects.stream().map(ItemEffect::name).collect(Collectors.toSet());
+	}
+
+	public boolean effectExists(String name) {
+		return getEffect(name) != null;
+	}
 }
