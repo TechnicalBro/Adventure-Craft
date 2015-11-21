@@ -41,8 +41,4 @@ public class HealingArrow extends AdventureArrow {
 		return true;
 	}
 
-	@Override
-	public int id() {
-		return 1334006;
-	}
 }

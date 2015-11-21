@@ -32,9 +32,4 @@ public class IronOreFinder extends LimitedGadget {
     public void onBreak(Player p) {
 
     }
-
-    @Override
-    public int id() {
-        return 13001;
-    }
 }

@@ -13,9 +13,6 @@ import java.util.stream.Collectors;
 
 @Root(name = "material-table")
 public class MaterialTable {
-	@Element(name = "default-material",type = ChancedItemData.class)
-	private MaterialData defaultData = new MaterialData(Material.LEATHER);
-
 	@Element(name = "allow-duplicate-entries")
 	private boolean duplicates = false;
 
@@ -26,8 +23,9 @@ public class MaterialTable {
 
 	private ChancedItemData lastGenerated = null;
 
-	public MaterialTable(MaterialData defaultData) {
-		this.defaultData = defaultData;
+	@Deprecated
+	public MaterialTable(MaterialData data) {
+		materials.add(ChancedItemData.of(100,data));
 	}
 
 	public MaterialTable parent(LootSettings parent) {
@@ -50,11 +48,6 @@ public class MaterialTable {
 	public MaterialTable add(int chance, Material material, int datavalue) {
 		materials.add(new ChancedItemData(chance,material,datavalue));
 		clearDuplicates();
-		return this;
-	}
-
-	public MaterialTable defaultMaterial(MaterialData data) {
-		this.defaultData = data;
 		return this;
 	}
 
@@ -89,11 +82,7 @@ public class MaterialTable {
 		return lastGenerated;
 	}
 
-	public MaterialData getDefaultMaterial() {
-		return defaultData;
-	}
-
-	public List<ChancedItemData> getMaterials() {
+	public List<ChancedItemData> getItemData() {
 		return materials;
 	}
 

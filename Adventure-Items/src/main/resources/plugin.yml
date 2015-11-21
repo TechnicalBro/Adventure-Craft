@@ -3,7 +3,7 @@ main: com.caved_in.adventurecraft.adventureitems.AdventureItems
 version: ${project.version}
 description: Epic Sexy RPG Itemness
 author: Brandon Curtis
-depend: [Commons,Adventure-Loot]
+depend: [Commons]
 commands:
    adventureitems:
       description: The adventure fishing command helps admins expand the loot and tweak config for the fishing events.

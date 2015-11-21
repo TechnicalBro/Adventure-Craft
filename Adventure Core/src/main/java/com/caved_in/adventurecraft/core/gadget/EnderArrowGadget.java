@@ -35,8 +35,4 @@ public class EnderArrowGadget extends AdventureArrow {
 		return true;
 	}
 
-	@Override
-    public int id() {
-        return 133007;
-    }
 }

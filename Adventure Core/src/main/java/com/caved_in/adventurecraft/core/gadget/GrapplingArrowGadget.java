@@ -27,8 +27,4 @@ public class GrapplingArrowGadget extends AdventureArrow {
 		return true;
 	}
 
-	@Override
-    public int id() {
-        return 133005;
-    }
 }

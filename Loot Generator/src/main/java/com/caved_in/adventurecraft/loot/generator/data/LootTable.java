@@ -3,17 +3,35 @@ package com.caved_in.adventurecraft.loot.generator.data;
 import com.caved_in.adventurecraft.loot.generator.settings.LootSettings;
 import com.caved_in.commons.utilities.ListUtils;
 import org.bukkit.inventory.ItemStack;
+import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Root;
 
 import javax.swing.plaf.ListUI;
 import java.util.ArrayList;
 import java.util.List;
 
+@Root(name = "loot-table")
 public class LootTable {
+
+	@ElementList(name = "loot-settings",entry = "settings",type = LootSettings.class, required = false)
 	private List<LootSettings> lootSettings = new ArrayList<>();
 
+	@ElementList(name = "chanced-items",entry = "item",type = ChancedItemStack.class,required = false)
 	private List<ChancedItemStack> chancedItems = new ArrayList<>();
-	
+
+	@ElementList(name = "children",entry = "table",type = LootTable.class,required = false)
 	private List<LootTable> childTables = new ArrayList<>();
+
+	public LootTable(
+			@ElementList(name = "loot-settings",entry = "settings",type = LootSettings.class, required = false)List<LootSettings> settings,
+			@ElementList(name = "chanced-items",entry = "item",type = ChancedItemStack.class,required = false)List<ChancedItemStack> items,
+			@ElementList(name = "children",entry = "table",type = LootTable.class,required = false)List<LootTable> children
+			)
+	{
+		this.lootSettings = settings;
+		this.chancedItems = items;
+		this.childTables = children;
+	}
 
 	public LootTable() {
 
@@ -38,6 +56,8 @@ public class LootTable {
 		chancedItems.add(item);
 		return this;
 	}
+
+    //todo implement methods to clean the item effects off of lore. Maybe?
 
 	public LootSettings getRandom() {
 		if (lootSettings.size() <= 1) {

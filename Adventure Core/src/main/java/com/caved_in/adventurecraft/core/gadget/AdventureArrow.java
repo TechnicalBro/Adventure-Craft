@@ -32,7 +32,4 @@ public abstract class AdventureArrow extends BaseArrow {
 	}
 
 	public abstract boolean doDamage(LivingEntity target, Player shooter);
-
-	@Override
-	public abstract int id();
 }

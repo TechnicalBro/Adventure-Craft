@@ -3,10 +3,9 @@ package com.caved_in.adventurecraft.adventureitems;
 import com.caved_in.adventurecraft.adventureitems.debug.DebugItemEffect;
 import com.caved_in.adventurecraft.adventureitems.effects.CriticalStrikeEffect;
 import com.caved_in.adventurecraft.adventureitems.effects.FlameStrikeEffect;
-import com.caved_in.adventurecraft.adventureitems.effects.ItemEffectHandler;
+import com.caved_in.adventurecraft.adventureitems.util.ItemHandler;
 import com.caved_in.adventurecraft.adventureitems.listeners.ItemEffectListener;
 import com.caved_in.adventurecraft.adventureitems.users.ItemUserManager;
-import com.caved_in.commons.debug.DebugAction;
 import com.caved_in.commons.game.CraftGame;
 import com.caved_in.commons.game.listener.UserManagerListener;
 
@@ -24,7 +23,7 @@ public class AdventureItems extends CraftGame<ItemUserManager> {
     private ItemUserManager userManager;
 
     //The item Effect handler manages the registration of all item effects!
-    private ItemEffectHandler itemEffectHandler;
+    private ItemHandler itemEffectHandler;
 
     @Override
     public void startup() {
@@ -32,7 +31,7 @@ public class AdventureItems extends CraftGame<ItemUserManager> {
 
         userManager = new ItemUserManager();
 
-        itemEffectHandler = new ItemEffectHandler(this);
+        itemEffectHandler = new ItemHandler(this);
 
         registerListeners(
                 userManagerListener = new UserManagerListener(this),
@@ -79,7 +78,7 @@ public class AdventureItems extends CraftGame<ItemUserManager> {
         return userManager;
     }
 
-    public ItemEffectHandler getItemEffectHandler() {
+    public ItemHandler getItemEffectHandler() {
         return itemEffectHandler;
     }
 

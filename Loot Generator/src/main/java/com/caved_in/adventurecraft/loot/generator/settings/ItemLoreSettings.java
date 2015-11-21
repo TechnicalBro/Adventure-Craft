@@ -16,6 +16,7 @@ public class ItemLoreSettings {
 	private boolean damageDisplay = true;
 
 	@Element(name = "damage-format", required = false)
+	//todo implement method to check damage ranges on item based on the damageFormat string
 	private String damageFormat = "&cDeals &e%s&c to &e%s&c damage!";
 
 	private String rarityFormat = "&eItem Rarity: &a%s";

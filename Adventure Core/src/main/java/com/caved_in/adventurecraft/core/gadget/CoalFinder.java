@@ -2,6 +2,7 @@ package com.caved_in.adventurecraft.core.gadget;
 
 import com.caved_in.commons.block.Blocks;
 import com.caved_in.commons.chat.Chat;
+import com.caved_in.commons.game.gadget.Gadgets;
 import com.caved_in.commons.game.gadget.LimitedGadget;
 import com.caved_in.commons.item.ItemBuilder;
 import org.bukkit.Material;
@@ -31,10 +32,5 @@ public class CoalFinder extends LimitedGadget {
     @Override
     public void onBreak(Player p) {
 
-    }
-
-    @Override
-    public int id() {
-        return 13002;
     }
 }

@@ -11,5 +11,6 @@ public class LootGenerateListener implements Listener {
 
 	@EventHandler
 	public void onLootCreate(LootGenerateEvent e) {
+		//todo implement generated loot recall through command
 	}
 }

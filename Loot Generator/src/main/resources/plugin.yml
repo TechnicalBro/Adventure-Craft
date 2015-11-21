@@ -3,7 +3,7 @@ main: com.caved_in.adventurecraft.loot.AdventureLoot
 version: ${project.version}
 description: When even your loot is full of adventure you know it's a good time!
 author: Brandon Curtis
-depend: [Commons,Shards]
+depend: [Commons,Shards,Adventure-Items]
 commands:
    loot:
       description: The main command, used to handle all the aspects of the loot plugin.

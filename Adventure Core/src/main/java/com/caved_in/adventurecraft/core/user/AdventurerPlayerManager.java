@@ -4,6 +4,7 @@ import com.caved_in.adventurecraft.core.AdventureCore;
 import com.caved_in.commons.game.players.UserManager;
 import com.caved_in.commons.player.User;
 import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.convert.AnnotationStrategy;
 import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
@@ -12,7 +13,7 @@ import java.util.UUID;
 public class AdventurerPlayerManager extends UserManager<AdventurePlayer> {
     private AdventureCore core = null;
     
-    private Serializer serializer = new Persister();
+    private Serializer serializer = new Persister(new AnnotationStrategy());
 
     public AdventurerPlayerManager() {
         super(AdventurePlayer.class);
@@ -36,7 +37,6 @@ public class AdventurerPlayerManager extends UserManager<AdventurePlayer> {
             AdventurePlayer adventurer = serializer.read(AdventurePlayer.class,userFile);
             if (adventurer != null) {
                 addUser(adventurer);
-                core.debug("");
                 loaded = true;
             }
         } catch (Exception e) {

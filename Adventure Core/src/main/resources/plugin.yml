@@ -4,7 +4,7 @@ version: ${project.version}
 description: The mother-ship to all the custom plugins and features for adventure craft!
 author: Brandon Curtis
 depend: [Commons,Adventure-Gems]
-softdepend: [Adventure-Homes,Vault,Towny]
+softdepend: [Adventure-Homes,Vault,Towny,Shards]
 commands:
    adventure:
       description: The adventure command is used by admins to help build and make adventures around the world!
@@ -12,3 +12,6 @@ commands:
    exchange:
       description: Convert your Tunnels EXP into Gold for Adventure Craft, and vice versa!
       usage: /<command> <gold/exp>
+   afk:
+      description: Go Afk!
+      usage: /<command>

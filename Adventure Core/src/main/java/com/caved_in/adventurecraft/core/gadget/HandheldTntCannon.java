@@ -26,11 +26,6 @@ public class HandheldTntCannon extends ItemGadget {
     }
 
     @Override
-    public int id() {
-        return 144001;
-    }
-
-    @Override
     public void perform(Player player) {
         UUID playerId = player.getUniqueId();
         

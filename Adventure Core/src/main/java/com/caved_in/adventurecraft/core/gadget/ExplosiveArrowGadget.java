@@ -42,8 +42,4 @@ public class ExplosiveArrowGadget extends AdventureArrow {
 		return true;
 	}
 
-	@Override
-    public int id() {
-        return 133001;
-    }
 }

@@ -54,9 +54,4 @@ public class DocileArrowGadget extends AdventureArrow {
 		entity.remove();
 		return true;
 	}
-
-	@Override
-    public int id() {
-        return 133004;
-    }
 }

@@ -1,49 +1,107 @@
 package com.caved_in.adventurecraft.loot.generator.data;
 
-import com.caved_in.commons.config.XmlEnchantment;
 import org.bukkit.enchantments.Enchantment;
+import org.javatuples.Pair;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;
 
 @Root(name = "enchantment")
-public class ChancedEnchantment extends XmlEnchantment {
-	@Attribute(name = "chance")
-	private int chance = 10;
+public class ChancedEnchantment {
+    @Attribute(name = "name")
+    private String enchantName;
 
-	public static ChancedEnchantment of(int chance, Enchantment enchant, int level) {
-		return new ChancedEnchantment(chance,enchant,level);
-	}
-	
-	public ChancedEnchantment(@Attribute(name = "name") String enchantName, @Attribute(name = "level") int level, @Attribute(name = "glow", required = false) boolean glow, @Attribute(name = "chance") int chance) {
-		super(enchantName, level, glow);
-		this.chance = chance;
-	}
+    @Attribute(name = "minimum-level")
+    private int minLevel;
 
-	public ChancedEnchantment(int chance, Enchantment enchantment, int level) {
-		super(enchantment, level);
-		chance(chance);
-	}
+    @Attribute(name = "maximum-level")
+    private int maxLevel = 0;
 
-	public ChancedEnchantment() {
+    @Attribute(name = "glow", required = false)
+    private boolean glow = true;
 
-	}
+    @Attribute(name = "chance")
+    private int chance = 10;
 
-	public ChancedEnchantment enchantment(Enchantment enchantment) {
-		super.enchantment(enchantment);
-		return this;
-	}
 
-	public ChancedEnchantment level(int level) {
-		super.level(level);
-		return this;
-	}
+    @Deprecated
+    public static ChancedEnchantment of(int chance, Enchantment enchant, int level) {
+        return of(chance, enchant, level, level);
+    }
 
-	public ChancedEnchantment chance(int chance) {
-		this.chance = chance;
-		return this;
-	}
+    public static ChancedEnchantment of(int chance, Enchantment enchant, int min, int max) {
+        return new ChancedEnchantment(chance, enchant, min, max);
+    }
 
-	public int getChance() {
-		return chance;
-	}
+    public ChancedEnchantment(@Attribute(name = "name") String enchantName, @Attribute(name = "minimum-level") int minLevel, @Attribute(name = "maximum-level") int maxLevel, @Attribute(name = "glow", required = false) boolean glow, @Attribute(name = "chance") int chance) {
+        this.enchantName = enchantName;
+        this.minLevel = minLevel;
+        this.maxLevel = maxLevel;
+        this.glow = glow;
+        this.chance = chance;
+    }
+
+    public ChancedEnchantment(int chance, Enchantment enchantment, int minLevel, int maxLevel) {
+        chance(chance);
+        enchantment(enchantment);
+        level(minLevel, maxLevel);
+    }
+
+    public ChancedEnchantment(int chance, Enchantment enchantment, int level) {
+        this(chance,enchantment,level,level);
+    }
+
+    public ChancedEnchantment() {
+
+    }
+
+    public ChancedEnchantment chance(int chance) {
+        this.chance = chance;
+        return this;
+    }
+
+    public int getChance() {
+        return chance;
+    }
+
+    public ChancedEnchantment enchantment(Enchantment enchant) {
+        this.enchantName = enchant.getName();
+        return this;
+    }
+
+    public ChancedEnchantment level(int min, int max) {
+        this.minLevel = min;
+        this.maxLevel = max;
+        return this;
+    }
+
+    public ChancedEnchantment level(int lvl) {
+        this.minLevel = lvl;
+        this.maxLevel = lvl;
+        return this;
+    }
+
+    public ChancedEnchantment glow(boolean glow) {
+        this.glow = glow;
+        return this;
+    }
+
+    public Pair<Integer, Integer> getLevelRange() {
+        return Pair.with(minLevel,maxLevel);
+    }
+
+    public int getMinLevel() {
+        return minLevel;
+    }
+
+    public int getMaxLevel() {
+        return maxLevel;
+    }
+
+    public Enchantment getEnchantment() {
+        return Enchantment.getByName(enchantName);
+    }
+
+    public boolean hasGlow() {
+        return glow;
+    }
 }

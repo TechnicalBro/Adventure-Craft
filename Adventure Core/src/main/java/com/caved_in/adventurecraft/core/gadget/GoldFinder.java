@@ -33,8 +33,4 @@ public class GoldFinder extends LimitedGadget {
 
     }
 
-    @Override
-    public int id() {
-        return 13003;
-    }
 }

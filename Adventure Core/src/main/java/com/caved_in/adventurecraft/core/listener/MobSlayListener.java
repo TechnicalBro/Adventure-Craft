@@ -32,6 +32,7 @@ public class MobSlayListener implements Listener {
     public static final LootTable MOB_LOOT = new LootTable()
             .add(new LootSettingsBuilder().addLoot(
                             new ChancedItemData(40, Material.STONE_SWORD)
+                                    .damageRange(1.0, 2.5, 2.6, 4.9)
                                     .attribute(new RandomizedAttribute()
                                                     .name("Attack")
                                                     .addOperation(10, Attributes.Operation.ADD_PERCENTAGE)
@@ -41,14 +42,15 @@ public class MobSlayListener implements Listener {
                                                     .amountRange(1.0, 3.8)
                                     )
                     ).addLoot(new ChancedItemData(5, Material.DIAMOND_SWORD)
+                                    .damageRange(5.6, 6.6, 8.0, 12.1)
                                     .attribute(new RandomizedAttribute()
                                             .name("Attack").addOperation(100, Attributes.Operation.ADD_NUMBER)
                                             .type(Attributes.AttributeType.GENERIC_ATTACK_DAMAGE)
                                             .amountRange(8, 15))
                     )
-                            .addLoot(new ChancedItemData(20, Material.IRON_SWORD))
-                            .addLoot(new ChancedItemData(15, Material.GOLD_SWORD))
-                            .defaultLoot(Material.WOOD_SWORD).addNames(NameSlot.BASE,
+                            .addLoot(new ChancedItemData(20, Material.IRON_SWORD).damageRange(2.5, 5.0, 5.1, 9.0))
+                            .addLoot(new ChancedItemData(15, Material.GOLD_SWORD).damageRange(4.0, 5.0, 5.1, 7.0))
+                            .addNames(NameSlot.BASE,
                                     ChancedName.of(50, "Sword"),
                                     ChancedName.of(20, "Long Sword"),
                                     ChancedName.of(50, "Short Sword"),
@@ -118,7 +120,6 @@ public class MobSlayListener implements Listener {
                             .addEnchantment(new ChancedEnchantment(5, Enchantment.DURABILITY, 1))
                             .addEnchantment(new ChancedEnchantment(5, Enchantment.PROTECTION_ENVIRONMENTAL, 1))
                             .addEnchantment(new ChancedEnchantment(2, Enchantment.THORNS, 1))
-                            .defaultLoot(Material.LEATHER)
                             .build().randomName(false)
             )
             .add(
@@ -134,7 +135,6 @@ public class MobSlayListener implements Listener {
                             new ChancedItemData(5, Material.IRON_HELMET).attribute(
                                     new RandomizedAttribute().chance(10).type(Attributes.AttributeType.GENERIC_MAX_HEALTH).addOperation(100, Attributes.Operation.ADD_NUMBER).amountRange(2, 4).name("Health")
                             ))
-                            .defaultLoot(Material.LEATHER_HELMET)
                             .build().randomName(false)
             ).add(7, CoalFinder.getInstance().getItem())
             .add(4, IronOreFinder.getInstance().getItem())

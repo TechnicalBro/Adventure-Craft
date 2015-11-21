@@ -1,5 +1,6 @@
 package com.caved_in.adventurecraft.core;
 
+import com.caved_in.adventurecraft.core.command.AfkCommand;
 import com.caved_in.adventurecraft.core.command.ExchangeCommand;
 import com.caved_in.adventurecraft.core.debug.DebugCustomArrows;
 import com.caved_in.adventurecraft.core.debug.DebugHandCannon;
@@ -14,15 +15,25 @@ import com.caved_in.commons.item.ItemBuilder;
 import com.caved_in.commons.plugin.Plugins;
 import com.caved_in.commons.time.TimeHandler;
 import com.caved_in.commons.time.TimeType;
+import com.google.common.collect.Sets;
 import com.palmergames.bukkit.towny.Towny;
 import net.milkbowl.vault.economy.Economy;
+import net.minecraft.server.v1_8_R3.AttributeInstance;
+import net.minecraft.server.v1_8_R3.AttributeModifier;
+import net.minecraft.server.v1_8_R3.EntityInsentient;
+import net.minecraft.server.v1_8_R3.GenericAttributes;
 import org.bukkit.Material;
 import org.bukkit.Server;
+import org.bukkit.craftbukkit.v1_8_R3.entity.CraftLivingEntity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 import java.io.File;
+import java.util.Set;
+import java.util.UUID;
 
 public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
 
@@ -56,6 +67,10 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
         instance = this;
 
         userManager = new AdventurerPlayerManager();
+
+        registerCommands(
+                new AfkCommand()
+        );
         
         try {
             if (setupEconomy()) {
@@ -76,7 +91,10 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
                 new PlayerHandleBunnyListener(),
                 new PlayerGivePlayerFlowerListener(),
                 mobSlayListener,
-                new PlayerShootSelfListener()
+                new PlayerShootSelfListener(),
+                new MobSpawnerMineListener(),
+                new MobSpawnerPlaceListener()
+//                new MobDamageListener()
 //                new PlayerBreakTreeListener()
         );
         
@@ -92,7 +110,8 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
                 SlowingArrowGadget.getInstance(),
                 EnderArrowGadget.getInstance(),
 				HealingArrow.getInstance(),
-				new HandheldTntCannon()
+				new HandheldTntCannon(),
+                PartyCrackerGadget.getInstance()
         );
 
         registerDebugActions(
@@ -280,6 +299,17 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
 		public static Towny getTowny() {
 			return (Towny)Plugins.getPlugin("Towny");
 		}
+
+        private static final UUID movementSpeedUID = UUID.fromString("206a89dc-ae78-4c4d-b42c-3b31db3f5a7c");
+
+        public static void setSpeedModifier(LivingEntity entity, double mod) {
+            EntityInsentient insentient = (EntityInsentient) ((CraftLivingEntity)entity).getHandle();
+            AttributeInstance attributes = insentient.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED);
+            AttributeModifier modifier = new AttributeModifier(movementSpeedUID,"Adventure Craft Speed Modifier",mod,1);
+
+            attributes.b(modifier);
+            attributes.a(modifier);
+        }
     }
 
     public static class Properties {
@@ -294,5 +324,7 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
         How much each individual level will cost to upgrade
          */
         public static final int BASE_PRICE_PER_LEVEL = 1500;
+
+        public static final int DAYS_BEFORE_WELCOME_BACK_PACKAGE = 14;
     }
 }

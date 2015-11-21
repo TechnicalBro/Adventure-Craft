@@ -33,9 +33,4 @@ public class SlowingArrowGadget extends AdventureArrow {
 		Entities.addPotionEffect(target	,effect);
 		return true;
 	}
-
-	@Override
-    public int id() {
-        return 133002;
-    }
 }

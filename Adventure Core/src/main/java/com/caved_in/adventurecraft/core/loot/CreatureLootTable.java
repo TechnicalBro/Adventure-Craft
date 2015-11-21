@@ -54,7 +54,9 @@ public class CreatureLootTable {
             .addEnchantment(new ChancedEnchantment(20, Enchantment.DAMAGE_ALL, 1))
             .addEnchantment(new ChancedEnchantment(10, Enchantment.KNOCKBACK, 1))
             .addLoot(new ChancedItemData(20, Material.IRON_SWORD))
-            .addLoot(new ChancedItemData(20, Material.GOLD_SWORD)).addLoot(ChancedItemData.of(70,Material.WOOD_SWORD)).defaultLoot(Material.STONE_SWORD).build();
+            .addLoot(new ChancedItemData(20, Material.GOLD_SWORD))
+            .addLoot(ChancedItemData.of(70,Material.WOOD_SWORD))
+            .build();
 
     private static LootSettings TIER_1_BOW_SETTINGS = new LootSettingsBuilder()
             .addLoot(ChancedItemData.of(100, Material.BOW))

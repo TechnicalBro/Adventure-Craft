@@ -3,6 +3,7 @@ package com.caved_in.adventurecraft.core.menu;
 import com.caved_in.adventurecraft.homes.AdventureHomes;
 import com.caved_in.commons.menu.ItemMenu;
 import com.caved_in.commons.menu.SubMenuItem;
+import com.caved_in.commons.menu.menus.gadgetmenu.GadgetsMenu;
 import com.caved_in.commons.permission.Perms;
 import com.caved_in.commons.player.Players;
 import org.bukkit.Material;
@@ -26,7 +27,7 @@ public class AdventureMenu extends ItemMenu {
         the gadget menu; So they can enjoy dat shit.
          */
         if (player.hasPermission(Perms.DEBUG_MODE)) {
-            addMenuItem(new SubMenuItem("&6Gadget Selection Menu",new MaterialData(Material.PAPER),new GadgetMenu()),3);
+            addMenuItem(new SubMenuItem("&6Gadget Selection Menu",new MaterialData(Material.PAPER),GadgetsMenu.getMenu(0)),3);
         
 
         }
