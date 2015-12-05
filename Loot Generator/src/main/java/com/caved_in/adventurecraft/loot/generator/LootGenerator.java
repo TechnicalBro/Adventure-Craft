@@ -1,7 +1,7 @@
 package com.caved_in.adventurecraft.loot.generator;
 
-import com.caved_in.adventurecraft.adventureitems.effects.ItemEffect;
 import com.caved_in.adventurecraft.loot.AdventureLoot;
+import com.caved_in.adventurecraft.loot.effects.ItemEffect;
 import com.caved_in.adventurecraft.loot.event.LootGenerateEvent;
 import com.caved_in.adventurecraft.loot.generator.data.*;
 import com.caved_in.adventurecraft.loot.generator.settings.ItemEnchantmentSettings;
@@ -64,7 +64,14 @@ public class LootGenerator {
                 return Optional.of(chanceItem.item());
             }
         }
-        return generateItem(table.getRandom());
+
+        LootSettings settings = table.getRandom();
+
+        if (settings == null) {
+            return Optional.empty();
+        }
+
+        return generateItem(settings);
     }
 
     /**
@@ -124,7 +131,7 @@ public class LootGenerator {
         Optional<MaterialData> material = itemData.getChancedMaterialData();
 
 		/*
-		Retrieve a random attribute to apply to this item.
+        Retrieve a random attribute to apply to this item.
 		 */
         Optional<RandomizedAttribute> attribute = itemData.getAttribute();
 
@@ -299,7 +306,7 @@ public class LootGenerator {
         }
 
 		/*
-		If theres a min-max damage range, or a basic damage range and the lore
+        If theres a min-max damage range, or a basic damage range and the lore
 		doesn't have its damaged displayed or has no lore available, then we're going to
 		assure that the damage is displayed on the object.
 
@@ -311,7 +318,7 @@ public class LootGenerator {
         }
 
 		/*
-		Below we calculate the damage ranges for the item! (If any)
+        Below we calculate the damage ranges for the item! (If any)
 		 */
 
         double damageMin = 0;
@@ -380,6 +387,16 @@ public class LootGenerator {
             loreLines.add(String.format(lore.getDamageFormat(), damageMin, damageMax));
         }
 
+        Optional<ItemEffect> generatedEffect = Optional.empty();
+
+        if (settings.hasEffectSettings()) {
+            generatedEffect = settings.effectSettings().getChancedEffect();
+
+            if (generatedEffect.isPresent()) {
+                rarity += 1;
+            }
+        }
+
         /*
         If we're to assign a rarity on the lores item, and there's a rarity
         value already calculated; Then we're going to append the rarity of the item
@@ -416,15 +433,11 @@ public class LootGenerator {
             return Optional.empty();
         }
 
-        if (settings.hasEffectSettings()) {
-            Optional<ItemEffect> effect = settings.effectSettings().getChancedEffect();
+        if (generatedEffect.isPresent()) {
+            ItemEffect e = generatedEffect.get();
 
-            if (effect.isPresent()) {
-                ItemEffect e = effect.get();
-
-                e.apply(generatedLoot);
-                Chat.debug("Applied " + e.name() + " to " + Items.getName(generatedLoot));
-            }
+            e.apply(generatedLoot);
+            Chat.debug("Applied " + e.name() + " to " + Items.getName(generatedLoot));
         }
 
         LootGenerateEvent event = new LootGenerateEvent(settings, generatedLoot);

@@ -1,5 +1,6 @@
 package com.caved_in.adventurecraft.core;
 
+import com.caved_in.adventurecraft.core.command.AdventureCommand;
 import com.caved_in.adventurecraft.core.command.AfkCommand;
 import com.caved_in.adventurecraft.core.command.ExchangeCommand;
 import com.caved_in.adventurecraft.core.debug.DebugCustomArrows;
@@ -55,7 +56,7 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
     private static Economy economy = null;
 
     private static final String USER_DATA_FOLDER = "plugins/Adventure-Core/users/";
-    
+
     private MobSlayListener mobSlayListener;
 
     public static AdventureCore getInstance() {
@@ -69,9 +70,10 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
         userManager = new AdventurerPlayerManager();
 
         registerCommands(
-                new AfkCommand()
+                new AfkCommand(),
+                new AdventureCommand()
         );
-        
+
         try {
             if (setupEconomy()) {
                 debug("Economy has been setup!", "Registering exchange command");
@@ -81,23 +83,34 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
                 debug("Economy options setup");
             }
         } catch (NoClassDefFoundError e) {
-            
+
         }
-        
+
         mobSlayListener = new MobSlayListener();
 
         registerListeners(
+                /*
+                Handles all the player connections! Coming, going, etc!
+                 */
                 new PlayerConnectionListener(this, userManager),
+                /*
+                Allows players to put bunnies on their head, as pets!
+                 */
                 new PlayerHandleBunnyListener(),
+                /*
+                Used to spread the love between players!
+                 */
                 new PlayerGivePlayerFlowerListener(),
                 mobSlayListener,
                 new PlayerShootSelfListener(),
                 new MobSpawnerMineListener(),
-                new MobSpawnerPlaceListener()
-//                new MobDamageListener()
-//                new PlayerBreakTreeListener()
+                new MobSpawnerPlaceListener(),
+                /*
+                Allows the taming of ocelots with milk; Along with healing them!
+                 */
+                new PlayerGiveCatMilkListener()
         );
-        
+
         registerGadgets(
                 //Prototype for the ore finder!
                 IronOreFinder.getInstance(),
@@ -109,21 +122,22 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
                 KinArrowGadget.getInstance(),
                 SlowingArrowGadget.getInstance(),
                 EnderArrowGadget.getInstance(),
-				HealingArrow.getInstance(),
-				new HandheldTntCannon(),
-                PartyCrackerGadget.getInstance()
+                HealingArrow.getInstance(),
+                new HandheldTntCannon(),
+                PartyCrackerGadget.getInstance(),
+                MonsterExamineGadget.getInstance()
         );
 
         registerDebugActions(
                 new DebugMobSlayLoot(),
                 new DebugProtoFinder(),
                 new DebugCustomArrows(),
-				new DebugHandCannon()
+                new DebugHandCannon()
         );
-        
+
         registerRecipes();
-        
-        getThreadManager().registerSyncRepeatTask("Regenerate gem loot",mobSlayListener::regenerateGems, TimeHandler.getTimeInTicks(5, TimeType.MINUTE),TimeHandler.getTimeInTicks(5,TimeType.MINUTE));
+
+        getThreadManager().registerSyncRepeatTask("Regenerate gem loot", mobSlayListener::regenerateGems, TimeHandler.getTimeInTicks(5, TimeType.MINUTE), TimeHandler.getTimeInTicks(5, TimeType.MINUTE));
     }
 
     @Override
@@ -172,37 +186,37 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
         ShapelessRecipe saddleRecipe = new ShapelessRecipe(ItemBuilder.of(Material.SADDLE).item()).addIngredient(4, Material.LEATHER);
 
         ShapelessRecipe docileArrowRecipe = new ShapelessRecipe(DocileArrowGadget.getInstance().getItem())
-                .addIngredient(1,Material.ARROW)
+                .addIngredient(1, Material.ARROW)
                 .addIngredient(Material.SPIDER_EYE)
                 .addIngredient(Material.BLAZE_ROD)
                 .addIngredient(Material.GLOWSTONE_DUST);
-        
+
         ShapelessRecipe explosiveArrowRecipe = new ShapelessRecipe(ExplosiveArrowGadget.getInstance().getItem())
                 .addIngredient(Material.ARROW)
                 .addIngredient(Material.TNT)
                 .addIngredient(Material.REDSTONE);
-        
+
         ShapelessRecipe grapplingArrowRecipe = new ShapelessRecipe(GrapplingArrowGadget.getInstance().getItem())
                 .addIngredient(Material.ARROW)
                 .addIngredient(Material.SLIME_BALL);
-        
+
         ShapelessRecipe kinArrowRecipe = new ShapelessRecipe(KinArrowGadget.getInstance().getItem())
                 .addIngredient(Material.ARROW)
                 .addIngredient(Material.EMERALD)
                 .addIngredient(Material.EGG);
-        
+
         ShapelessRecipe slowingArrowRecipe = new ShapelessRecipe(SlowingArrowGadget.getInstance().getItem())
                 .addIngredient(Material.ARROW)
                 .addIngredient(Material.SPIDER_EYE)
                 .addIngredient(Material.BLAZE_ROD)
                 .addIngredient(Material.REDSTONE);
-        
+
         ShapelessRecipe enderArrowRecipe = new ShapelessRecipe(EnderArrowGadget.getInstance().getItem()).addIngredient(Material.ARROW).addIngredient(Material.ENDER_PEARL);
-        
+
         ShapelessRecipe ironOreFinder = new ShapelessRecipe(IronOreFinder.getInstance().getItem())
                 .addIngredient(Material.COMPASS)
                 .addIngredient(Material.IRON_BLOCK);
-        
+
         ShapelessRecipe goldOreFinder = new ShapelessRecipe(GoldFinder.getInstance().getItem())
                 .addIngredient(Material.COMPASS)
                 .addIngredient(Material.GOLD_BLOCK);
@@ -211,42 +225,42 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
                 .addIngredient(Material.COMPASS)
                 .addIngredient(Material.COAL_BLOCK);
 
-		ShapelessRecipe healingArrow = new ShapelessRecipe(HealingArrow.getInstance().getItem())
-				.addIngredient(Material.ARROW)
-				.addIngredient(Material.COOKIE);
+        ShapelessRecipe healingArrow = new ShapelessRecipe(HealingArrow.getInstance().getItem())
+                .addIngredient(Material.ARROW)
+                .addIngredient(Material.COOKIE);
 
         if (server.addRecipe(goldOreFinder)) {
             debug("Registered the gold ore finder");
         }
-        
+
         if (server.addRecipe(coalFinder)) {
             debug("Registered the coal finder!");
         }
-        
+
         if (server.addRecipe(enderArrowRecipe)) {
             debug("Registered the ender arrow recipe!");
         }
-        
+
         if (server.addRecipe(ironOreFinder)) {
             debug("Registered the iron ore finder recipe!");
         }
-        
+
         if (server.addRecipe(slowingArrowRecipe)) {
             debug("Registered the slowing arrow recipe");
         }
-        
+
         if (server.addRecipe(kinArrowRecipe)) {
             debug("Registered the kin arrow recipe");
         }
-        
+
         if (server.addRecipe(grapplingArrowRecipe)) {
             debug("Registered the grappling arrow");
         }
-        
+
         if (server.addRecipe(explosiveArrowRecipe)) {
             debug("Registered the explosive-arrow recipe");
         }
-        
+
         if (server.addRecipe(docileArrowRecipe)) {
             debug("Registered the docile arrow recipe");
         }
@@ -254,9 +268,9 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
             debug("The recipe for saddles has been registered; 4 LEATHER SHAPELESS");
         }
 
-		if (server.addRecipe(healingArrow)) {
-			debug("The recipe for healing arrows has been registered; 1 ARROW 1 COOKIE");
-		}
+        if (server.addRecipe(healingArrow)) {
+            debug("The recipe for healing arrows has been registered; 1 ARROW 1 COOKIE");
+        }
 
     }
 
@@ -264,7 +278,7 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
         if (!Plugins.isEnabled("Vault")) {
             return false;
         }
-        
+
         RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
         if (economyProvider != null) {
             economy = economyProvider.getProvider();
@@ -272,59 +286,63 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
 
         return (economy != null);
     }
-    
+
     public Economy getEconomy() {
         return economy;
     }
-    
+
     public static class API {
-        
+
         public static AdventurePlayer getUserData(Player player) {
             return instance.getUserManager().getUser(player);
         }
-        
+
         public static boolean hasEconomy() {
             return getEconomy() != null;
-            
+
         }
-        
+
         public static Economy getEconomy() {
             return instance.getEconomy();
         }
 
-		public static boolean hasTowny() {
-			return Plugins.getPlugin("Towny") != null;
-		}
+        public static boolean hasTowny() {
+            return Plugins.getPlugin("Towny") != null;
+        }
 
-		public static Towny getTowny() {
-			return (Towny)Plugins.getPlugin("Towny");
-		}
+        public static Towny getTowny() {
+            return (Towny) Plugins.getPlugin("Towny");
+        }
 
-        private static final UUID movementSpeedUID = UUID.fromString("206a89dc-ae78-4c4d-b42c-3b31db3f5a7c");
+//        private static final UUID movementSpeedUID = UUID.fromString("206a89dc-ae78-4c4d-b42c-3b31db3f5a7c");
 
         public static void setSpeedModifier(LivingEntity entity, double mod) {
-            EntityInsentient insentient = (EntityInsentient) ((CraftLivingEntity)entity).getHandle();
-            AttributeInstance attributes = insentient.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED);
-            AttributeModifier modifier = new AttributeModifier(movementSpeedUID,"Adventure Craft Speed Modifier",mod,1);
-
-            attributes.b(modifier);
-            attributes.a(modifier);
+//            EntityInsentient insentient = (EntityInsentient) ((CraftLivingEntity) entity).getHandle();
+//            AttributeInstance attributes = insentient.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED);
+//            AttributeModifier modifier = new AttributeModifier(movementSpeedUID, "Adventure Craft Speed Modifier", mod, 1);
+//
+//            attributes.b(modifier);
+//            attributes.a(modifier);
         }
     }
 
     public static class Properties {
         public static final int GOLD_PER_EXP = 3;
-        
+
         /*
         The hard cap on how much players can upgrade their skills, how many times.
          */
         public static final int MAX_UPGRADE_LEVEL = 30;
-    
+
         /*
         How much each individual level will cost to upgrade
          */
         public static final int BASE_PRICE_PER_LEVEL = 1500;
 
         public static final int DAYS_BEFORE_WELCOME_BACK_PACKAGE = 14;
+
+        public static final int WELCOME_BACK_PACKAGE_MONEY = 500;
+
+        public static double DROP_MULTIPLIER = 5;
     }
 }

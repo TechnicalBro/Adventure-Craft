@@ -1,11 +1,9 @@
 package com.caved_in.adventurecraft.loot.generator.settings;
 
-import com.caved_in.adventurecraft.adventureitems.effects.ItemEffect;
 import com.caved_in.adventurecraft.loot.generator.data.MaterialTable;
 import com.caved_in.adventurecraft.loot.generator.data.NameTable;
 import com.caved_in.adventurecraft.loot.generator.data.NameSlot;
 import com.caved_in.commons.game.item.WeaponProperties;
-import com.caved_in.commons.item.StainedClay;
 import lombok.ToString;
 import org.bukkit.Material;
 import org.bukkit.material.MaterialData;

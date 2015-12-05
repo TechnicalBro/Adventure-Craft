@@ -1,9 +1,8 @@
 package com.caved_in.adventurecraft.loot.debug;
 
-import com.caved_in.adventurecraft.adventureitems.AdventureItems;
-import com.caved_in.adventurecraft.adventureitems.effects.CriticalStrikeEffect;
-import com.caved_in.adventurecraft.adventureitems.effects.FlameStrikeEffect;
 import com.caved_in.adventurecraft.loot.AdventureLoot;
+import com.caved_in.adventurecraft.loot.effects.CriticalStrikeEffect;
+import com.caved_in.adventurecraft.loot.effects.FlameStrikeEffect;
 import com.caved_in.adventurecraft.loot.generator.data.ChancedEnchantment;
 import com.caved_in.adventurecraft.loot.generator.data.ChancedItemData;
 import com.caved_in.adventurecraft.loot.generator.data.ChancedName;
@@ -78,7 +77,7 @@ public class DebugGenerateWithItemEffect implements DebugAction {
     @Override
     public void doAction(Player player, String... strings) {
         ItemStack itemWithEffect = null;
-        while (itemWithEffect == null || !AdventureItems.getInstance().getItemEffectHandler().hasEffect(itemWithEffect)) {
+        while (itemWithEffect == null || !AdventureLoot.getInstance().getItemEffectHandler().hasEffect(itemWithEffect)) {
             itemWithEffect = AdventureLoot.API.createItem(TIER_1_SWORD_SETTINGS);
         }
 

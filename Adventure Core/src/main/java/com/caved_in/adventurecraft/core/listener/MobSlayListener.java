@@ -1,21 +1,19 @@
 package com.caved_in.adventurecraft.core.listener;
 
-import com.caved_in.adventurecraft.core.gadget.*;
+import com.caved_in.adventurecraft.core.AdventureCore;
+import com.caved_in.adventurecraft.core.loot.CreatureLootTable;
 import com.caved_in.adventurecraft.gems.AdventureGems;
 import com.caved_in.adventurecraft.gems.item.GemSettings;
 import com.caved_in.adventurecraft.gems.item.GemType;
 import com.caved_in.adventurecraft.loot.AdventureLoot;
-import com.caved_in.adventurecraft.loot.generator.data.*;
-import com.caved_in.adventurecraft.loot.generator.settings.LootSettings;
-import com.caved_in.adventurecraft.loot.generator.settings.LootSettingsBuilder;
 import com.caved_in.commons.chat.Chat;
 import com.caved_in.commons.effect.ParticleEffects;
 import com.caved_in.commons.entity.MobType;
-import com.caved_in.commons.item.Attributes;
+import com.caved_in.commons.sound.Sounds;
 import com.caved_in.commons.utilities.ListUtils;
 import com.caved_in.commons.utilities.NumberUtil;
 import com.caved_in.commons.world.Worlds;
-import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -24,147 +22,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.*;
 
 public class MobSlayListener implements Listener {
-
-    public static final LootTable MOB_LOOT = new LootTable()
-            .add(new LootSettingsBuilder().addLoot(
-                            new ChancedItemData(40, Material.STONE_SWORD)
-                                    .damageRange(1.0, 2.5, 2.6, 4.9)
-                                    .attribute(new RandomizedAttribute()
-                                                    .name("Attack")
-                                                    .addOperation(10, Attributes.Operation.ADD_PERCENTAGE)
-                                                    .addOperation(50, Attributes.Operation.ADD_NUMBER)
-                                                    .addOperation(10, Attributes.Operation.MULTIPLY_PERCENTAGE)
-                                                    .type(Attributes.AttributeType.GENERIC_ATTACK_DAMAGE)
-                                                    .amountRange(1.0, 3.8)
-                                    )
-                    ).addLoot(new ChancedItemData(5, Material.DIAMOND_SWORD)
-                                    .damageRange(5.6, 6.6, 8.0, 12.1)
-                                    .attribute(new RandomizedAttribute()
-                                            .name("Attack").addOperation(100, Attributes.Operation.ADD_NUMBER)
-                                            .type(Attributes.AttributeType.GENERIC_ATTACK_DAMAGE)
-                                            .amountRange(8, 15))
-                    )
-                            .addLoot(new ChancedItemData(20, Material.IRON_SWORD).damageRange(2.5, 5.0, 5.1, 9.0))
-                            .addLoot(new ChancedItemData(15, Material.GOLD_SWORD).damageRange(4.0, 5.0, 5.1, 7.0))
-                            .addNames(NameSlot.BASE,
-                                    ChancedName.of(50, "Sword"),
-                                    ChancedName.of(20, "Long Sword"),
-                                    ChancedName.of(50, "Short Sword"),
-                                    ChancedName.of(50, "Training Sword"),
-                                    ChancedName.of(10, "Claymore"),
-                                    ChancedName.of(5, "Reaver"),
-                                    ChancedName.of(5, "Rapier"),
-                                    ChancedName.of(5, "Broadsword"),
-                                    ChancedName.of(1, "Penetrator"),
-                                    ChancedName.of(1, "&cSun Spirit").prevent(NameSlot.SUFFIX),
-                                    ChancedName.of(1, "&c&lThe Slayer").prevent(NameSlot.PREFIX),
-                                    ChancedName.of(1, "&eDivine &cSmasher&a").prevent(NameSlot.PREFIX)
-                            ).addNames(NameSlot.PREFIX,
-                                    ChancedName.of(1, "&6&lKing Arthurs").prevent(NameSlot.SUFFIX),
-                                    ChancedName.of(10, "&eRigid"),
-                                    ChancedName.of(50, "&7Cracked"),
-                                    ChancedName.of(20, "&bRighteous"),
-                                    ChancedName.of(40, "Slightly Worn"),
-                                    ChancedName.of(60, "Beginners").prevent(NameSlot.SUFFIX),
-                                    ChancedName.of(1, "&aGaias"),
-                                    ChancedName.of(4, "&aGaias"),
-                                    ChancedName.of(2, "&a&lExceptional&r&e"),
-                                    ChancedName.of(2, "&a&lExceptional&r&e"),
-                                    ChancedName.of(3, "&bPosoidens"),
-                                    ChancedName.of(5, "&c&oNether Forged")
-                            ).addNames(NameSlot.SUFFIX,
-                                    ChancedName.of(5, "of Knights"),
-                                    ChancedName.of(5, "of Other-Worldly Mojo"),
-                                    ChancedName.of(10, "of Thievery"),
-                                    ChancedName.of(5, "of the Bear"),
-                                    ChancedName.of(15, "of Scrummaging"),
-                                    ChancedName.of(10, "of Bards"),
-                                    ChancedName.of(15, "of Summoners"),
-                                    ChancedName.of(15, "of Warming"),
-                                    ChancedName.of(1, "of the &cCerberus"),
-                                    ChancedName.of(2, "of &bDamascus"),
-                                    ChancedName.of(15, "of Enlightment"),
-                                    ChancedName.of(15, "of Energy"),
-                                    ChancedName.of(15, "of the Mind"),
-                                    ChancedName.of(1, "of Pancake Sorcery"),
-                                    ChancedName.of(20, "of the Tiger"),
-                                    ChancedName.of(20, "of the Fox"),
-                                    ChancedName.of(20, "of Substinence"),
-                                    ChancedName.of(20, "of Ages"),
-                                    ChancedName.of(20, "of the Leech"),
-                                    ChancedName.of(20, "of the Lamprey"),
-                                    ChancedName.of(20, "of Ennui"),
-                                    ChancedName.of(20, "of Radiance")
-                            )
-                            .addEnchantment(new ChancedEnchantment().enchantment(Enchantment.DAMAGE_ALL).level(1).chance(3))
-                            .addEnchantment(new ChancedEnchantment().enchantment(Enchantment.DAMAGE_ALL).level(2).chance(4))
-                            .addEnchantment(new ChancedEnchantment().enchantment(Enchantment.KNOCKBACK).level(2).chance(4))
-                            .addEnchantment(new ChancedEnchantment().enchantment(Enchantment.KNOCKBACK).level(1).chance(2))
-                            .addEnchantment(new ChancedEnchantment().enchantment(Enchantment.DURABILITY).level(1).chance(3))
-                            .addEnchantment(new ChancedEnchantment().enchantment(Enchantment.LOOT_BONUS_MOBS).level(1).chance(3))
-            /*Prefixes the itemTable can be given */
-            /*Suffixes the itemTable can be given */
-                            .loreDisplayDamage(true).build().randomName(true)
-            ).add(
-                    LootSettings.createBuilder()
-                            .addLoot(new ChancedItemData(5, Material.LEATHER_BOOTS))
-                            .addLoot(new ChancedItemData(10, Material.LEATHER_HELMET).attribute(
-                                    new RandomizedAttribute().type(Attributes.AttributeType.GENERIC_MAX_HEALTH).amountRange(1, 2).chance(6).addOperation(100, Attributes.Operation.ADD_NUMBER)
-                            ))
-                            .addLoot(new ChancedItemData(5, Material.LEATHER_CHESTPLATE))
-                            .addLoot(new ChancedItemData(5, Material.LEATHER_LEGGINGS))
-                            .addEnchantment(new ChancedEnchantment(5, Enchantment.DURABILITY, 1))
-                            .addEnchantment(new ChancedEnchantment(5, Enchantment.PROTECTION_ENVIRONMENTAL, 1))
-                            .addEnchantment(new ChancedEnchantment(2, Enchantment.THORNS, 1))
-                            .build().randomName(false)
-            )
-            .add(
-                    LootSettings.createBuilder()
-                            .addLoot(
-                                    new ChancedItemData(5, Material.IRON_HELMET).attribute(
-                                            new RandomizedAttribute().chance(30).type(Attributes.AttributeType.GENERIC_MAX_HEALTH).addOperation(100, Attributes.Operation.ADD_NUMBER).amountRange(1.0, 2.5).name("Health")
-                                    )
-                            ).addLoot(
-                            new ChancedItemData(2, Material.IRON_HELMET).attribute(
-                                    new RandomizedAttribute().chance(20).type(Attributes.AttributeType.GENERIC_MAX_HEALTH).addOperation(100, Attributes.Operation.ADD_NUMBER).amountRange(3, 6).name("Health")
-                            )).addLoot(
-                            new ChancedItemData(5, Material.IRON_HELMET).attribute(
-                                    new RandomizedAttribute().chance(10).type(Attributes.AttributeType.GENERIC_MAX_HEALTH).addOperation(100, Attributes.Operation.ADD_NUMBER).amountRange(2, 4).name("Health")
-                            ))
-                            .build().randomName(false)
-            ).add(7, CoalFinder.getInstance().getItem())
-            .add(4, IronOreFinder.getInstance().getItem())
-            .add(2, GoldFinder.getInstance().getItem());
-
-
-    public static LootTable SKELETON_SPECIFIC_LOOT = new LootTable()
-            .add(10, GrapplingArrowGadget.getInstance().getItem())
-            .add(6, DocileArrowGadget.getInstance().getItem())
-            .add(MOB_LOOT);
-
-    public static LootTable CREEPER_SPECIFIC_LOOT = new LootTable()
-            .add(10, ExplosiveArrowGadget.getInstance().getItem())
-            .add(3, GoldFinder.getInstance().getItem())
-            .add(MOB_LOOT);
-
-    public static LootTable ENDER_SPECIFIC_LOOT = new LootTable()
-            .add(10, EnderArrowGadget.getInstance().getItem())
-            .add(4, KinArrowGadget.getInstance().getItem())
-            .add(2, GrapplingArrowGadget.getInstance().getItem())
-            .add(MOB_LOOT);
-
-    public static LootTable NETHER_SPECIFIC_LOOT = new LootTable()
-            .add(7, ExplosiveArrowGadget.getInstance().getItem())
-            .add(7, KinArrowGadget.getInstance().getItem())
-            .add(7, DocileArrowGadget.getInstance().getItem())
-            .add(1, GoldFinder.getInstance().getItem())
-            .add(3, CoalFinder.getInstance().getItem())
-            .add(10, HealingArrow.getInstance().getItem())
-            .add(MOB_LOOT);
 
     private Map<EntityType, Integer> mobLootChances = new HashMap<EntityType, Integer>() {{
         put(MobType.BLAZE.getEntityType(), 5);
@@ -183,6 +43,9 @@ public class MobSlayListener implements Listener {
         put(EntityType.SILVERFISH, 4);
         put(EntityType.GIANT, 100);
         put(EntityType.VILLAGER, 15);
+        //todo remove after testing
+        put(EntityType.COW,10);
+        put(EntityType.CHICKEN,2);
     }};
 
     private List<ItemStack> generatedGems = new ArrayList<>();
@@ -210,9 +73,9 @@ public class MobSlayListener implements Listener {
             return;
         }
 
-        int chance = mobLootChances.get(entity.getType());
+        double dropChance = mobLootChances.get(entity.getType()) * AdventureCore.Properties.DROP_MULTIPLIER;
 
-        if (!NumberUtil.percentCheck(chance)) {
+        if (!NumberUtil.percentCheck(dropChance)) {
             return;
         }
 
@@ -221,7 +84,7 @@ public class MobSlayListener implements Listener {
 
         switch (entity.getType()) {
             case SKELETON:
-                item = AdventureLoot.API.generateItem(SKELETON_SPECIFIC_LOOT);
+                item = AdventureLoot.API.generateItem(CreatureLootTable.SKELETON_SPECIFIC_LOOT);
                 break;
             case PIG_ZOMBIE:
             case GHAST:
@@ -229,33 +92,36 @@ public class MobSlayListener implements Listener {
             case BLAZE:
             case MAGMA_CUBE:
             case SLIME:
-                item = AdventureLoot.API.generateItem(NETHER_SPECIFIC_LOOT);
+                item = AdventureLoot.API.generateItem(CreatureLootTable.NETHER_SPECIFIC_LOOT);
                 break;
             case ENDERMAN:
-                item = AdventureLoot.API.generateItem(ENDER_SPECIFIC_LOOT);
+                item = AdventureLoot.API.generateItem(CreatureLootTable.ENDER_SPECIFIC_LOOT);
                 break;
+            case CREEPER:
+                item = AdventureLoot.API.generateItem(CreatureLootTable.CREEPER_SPECIFIC_LOOT);
             default:
                 break;
         }
 
-        if (entity.getType() == EntityType.CREEPER) {
-            item = AdventureLoot.API.generateItem(CREEPER_SPECIFIC_LOOT);
-        }
-
         if (item == null) {
-            item = AdventureLoot.API.generateItem(MOB_LOOT);
+            item = AdventureLoot.API.generateItem(CreatureLootTable.GLOBAL_LOOT_TABLE);
         }
 
         if (!item.isPresent()) {
-            if (!NumberUtil.percentCheck(chance)) {
-                return;
-            } else {
+            if (NumberUtil.percentCheck(dropChance)) {
                 drop = ListUtils.getRandom(generatedGems);
             }
+            return;
         } else {
             drop = item.get();
         }
+        //todo optionally add this to the killers inventory
         Worlds.dropItem(entity, drop, true);
         ParticleEffects.sendToLocation(ParticleEffects.FLAME, entity.getLocation(), NumberUtil.getRandomInRange(15, 25));
+
+        if (entity.getKiller() != null) {
+            Sounds.playSound(entity.getKiller(), Sound.ANVIL_USE);
+            Chat.actionMessage(entity.getKiller(),"&6&lYou've received a special drop!");
+        }
     }
 }

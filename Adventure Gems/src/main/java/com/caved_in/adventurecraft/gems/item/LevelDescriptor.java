@@ -3,6 +3,7 @@ package com.caved_in.adventurecraft.gems.item;
 import com.caved_in.commons.utilities.ListUtils;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import org.javatuples.Pair;
 
 import java.util.*;
 
@@ -10,7 +11,8 @@ public class LevelDescriptor {
     
     //todo implement chances for each descriptor!
     private Map<Integer, List<String>> levelDescriptionMap = new HashMap<>();
-    
+
+
     public LevelDescriptor() {
     }
 

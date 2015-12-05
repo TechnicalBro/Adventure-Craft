@@ -24,7 +24,7 @@ public class DebugGemGenerator implements DebugAction {
     }
 
     protected DebugGemGenerator() {
-        gemSettings.defaultPrefixData().defaultSuffixData().defaultEnchantsFor(Enchantment.values());
+        gemSettings.defaultPrefixData().defaultSuffixData().defaultEnchantsFor(Enchantment.values()).defaultItemEffects();
     }
 
     public void doAction(Player player, String... strings) {

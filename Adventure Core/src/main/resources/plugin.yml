@@ -3,7 +3,7 @@ main: com.caved_in.adventurecraft.core.AdventureCore
 version: ${project.version}
 description: The mother-ship to all the custom plugins and features for adventure craft!
 author: Brandon Curtis
-depend: [Commons,Adventure-Gems]
+depend: [Commons,Adventure-Gems,Adventure-Loot]
 softdepend: [Adventure-Homes,Vault,Towny,Shards]
 commands:
    adventure:

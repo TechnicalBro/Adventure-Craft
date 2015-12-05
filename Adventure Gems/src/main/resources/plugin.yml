@@ -3,7 +3,7 @@ main: com.caved_in.adventurecraft.gems.AdventureGems
 version: ${project.version}
 description: Hidden treasures of divine power; Buff yourself and grow your gear!
 author: Brandon Curtis
-depend: [Commons]
+depend: [Commons,Adventure-Loot]
 commands:
    gems:
       description: Used to aid in the configuring / debugging of gems.

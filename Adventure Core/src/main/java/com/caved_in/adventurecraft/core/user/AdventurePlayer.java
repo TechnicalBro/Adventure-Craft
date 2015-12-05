@@ -17,25 +17,29 @@ public class AdventurePlayer extends User {
     @Element(name = "has-received-start-book")
     private boolean hasReceivedStartBook = false;
 
-    @Element(name = "last-played")
-    private long lastPlayedTimestamp;
+    @Element(name = "last-played", type = Date.class)
+    private Date lastPlayedTimestamp;
 
-    @Element(name = "first-played")
-    private long firstPlayed;
-    
+    @Element(name = "first-played", type = Date.class)
+    private Date firstPlayed;
+
     public AdventurePlayer(Player p) {
-        super (p);
-        firstPlayed = System.currentTimeMillis();
+        super(p);
+        firstPlayed = new Date();
+        lastPlayedTimestamp = new Date();
     }
-    
-    public AdventurePlayer(@Element(name = "name")String name, @Element(name="uuid")String uid, @Element(name = "world")String world,
-                           @Element(name = "has-received-start-book")boolean hasReceivedStartBook) {
-        super(name,uid,world);
+
+    public AdventurePlayer(@Element(name = "name") String name, @Element(name = "uuid") String uid, @Element(name = "world") String world,
+                           @Element(name = "has-received-start-book") boolean hasReceivedStartBook, @Element(name = "last-played", type = Date.class) Date lastPlayed,
+                           @Element(name = "first-played", type = Date.class) Date firstPlayed) {
+        super(name, uid, world);
         this.hasReceivedStartBook = hasReceivedStartBook;
+        this.lastPlayedTimestamp = lastPlayed;
+        this.firstPlayed = firstPlayed;
     }
 
     public void updateLastPlayed() {
-        lastPlayedTimestamp = System.currentTimeMillis();
+        lastPlayedTimestamp = new Date();
     }
 
     public boolean hasReceivedStartBook() {
@@ -47,37 +51,36 @@ public class AdventurePlayer extends User {
     }
 
     public long getLastTimePlayedTimestamp() {
-        return lastPlayedTimestamp;
+        return lastPlayedTimestamp.getTime();
     }
 
     public long getFirstPlayedTimestamp() {
-        return firstPlayed;
+        return firstPlayed.getTime();
     }
 
     public String getLastTimePlayed() {
-        return TimeHandler.timeDurationToWords(lastPlayedTimestamp);
+        return TimeHandler.timeDurationToWords(lastPlayedTimestamp.getTime());
     }
 
     public String getFirstTimePlayed() {
-        return TimeHandler.timeDurationToWords(firstPlayed);
+        return TimeHandler.timeDurationToWords(firstPlayed.getTime());
     }
 
     public Date getDateLastPlayed() {
-        return new Date(lastPlayedTimestamp);
+        return lastPlayedTimestamp;
     }
 
     public Date getDateFirstPlayed() {
-        return new Date(firstPlayed);
+        return firstPlayed;
     }
 
     public int getDaysSinceLastPlayed() {
-        //todo fix this. It's broken.
-        Date today = new Date(System.currentTimeMillis());
+        Date today = new Date();
         Date lastPlayed = getDateLastPlayed();
 
         long daysDifference = today.getTime() - lastPlayed.getTime();
 
-        long days = TimeUnit.DAYS.convert(daysDifference,TimeUnit.MILLISECONDS);
-        return (int)days;
+        long days = TimeUnit.DAYS.convert(daysDifference, TimeUnit.MILLISECONDS);
+        return (int) days;
     }
 }

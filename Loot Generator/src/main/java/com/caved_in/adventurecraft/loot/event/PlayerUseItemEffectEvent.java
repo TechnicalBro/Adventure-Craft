@@ -1,6 +1,6 @@
-package com.caved_in.adventurecraft.adventureitems.event;
+package com.caved_in.adventurecraft.loot.event;
 
-import com.caved_in.adventurecraft.adventureitems.effects.ItemEffect;
+import com.caved_in.adventurecraft.loot.effects.ItemEffect;
 import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerEvent;

@@ -1,7 +1,8 @@
-package com.caved_in.adventurecraft.adventureitems.util;
+package com.caved_in.adventurecraft.loot.util;
 
-import com.caved_in.adventurecraft.adventureitems.AdventureItems;
-import com.caved_in.adventurecraft.adventureitems.effects.ItemEffect;
+import com.caved_in.adventurecraft.loot.AdventureLoot;
+import com.caved_in.adventurecraft.loot.effects.ItemEffect;
+import com.caved_in.adventurecraft.loot.generator.LootGenerator;
 import com.caved_in.commons.chat.Chat;
 import com.caved_in.commons.game.CraftGame;
 import com.caved_in.commons.item.Items;
@@ -20,9 +21,9 @@ import java.util.stream.Collectors;
 public class ItemHandler {
     private Set<ItemEffect> itemEffects = new HashSet<>();
 
-    private AdventureItems game;
+    private AdventureLoot game;
 
-    public ItemHandler(AdventureItems game) {
+    public ItemHandler(AdventureLoot game) {
         this.game = game;
     }
 

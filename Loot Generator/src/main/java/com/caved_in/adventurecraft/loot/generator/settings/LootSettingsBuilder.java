@@ -1,17 +1,17 @@
 package com.caved_in.adventurecraft.loot.generator.settings;
 
-import com.caved_in.adventurecraft.adventureitems.effects.ItemEffect;
+import com.caved_in.adventurecraft.loot.effects.ItemEffect;
 import com.caved_in.adventurecraft.loot.generator.data.*;
 
 public class LootSettingsBuilder {
-    private LootSettings settings;
+    private LootSettings settings = new LootSettings();
 
     public static LootSettingsBuilder create() {
         return new LootSettingsBuilder();
     }
 
     public LootSettingsBuilder() {
-        settings = new LootSettings();
+
     }
 
     public LootSettingsBuilder addLoot(ChancedItemData itemData) {
@@ -89,6 +89,11 @@ public class LootSettingsBuilder {
 
     public LootSettingsBuilder addItemEffect(int chance, ItemEffect effect) {
         settings.effectSettings().add(chance, effect);
+        return this;
+    }
+
+    public LootSettingsBuilder randomName(boolean randName) {
+        settings.randomName(randName);
         return this;
     }
 

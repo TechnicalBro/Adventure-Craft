@@ -1,32 +1,65 @@
-package com.caved_in.adventurecraft.adventureitems.listeners;
+package com.caved_in.adventurecraft.loot.listener;
 
-import com.caved_in.adventurecraft.adventureitems.AdventureItems;
-import com.caved_in.adventurecraft.adventureitems.effects.ItemEffect;
-import com.caved_in.adventurecraft.adventureitems.util.ItemHandler;
+import com.caved_in.adventurecraft.loot.AdventureLoot;
+import com.caved_in.adventurecraft.loot.effects.ItemEffect;
+import com.caved_in.adventurecraft.loot.generator.LootGenerator;
+import com.caved_in.adventurecraft.loot.util.ItemHandler;
 import com.caved_in.commons.chat.Chat;
 import com.caved_in.commons.event.PlayerDamagePlayerEvent;
-import com.caved_in.commons.item.Items;
 import com.caved_in.commons.player.Players;
 import com.caved_in.commons.utilities.NumberUtil;
-import org.apache.commons.lang3.StringUtils;
+import org.bukkit.Material;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.projectiles.ProjectileSource;
 import org.javatuples.Pair;
 
-import java.util.List;
 import java.util.Set;
 
 public class ItemEffectListener implements Listener {
 
     private ItemHandler handler;
 
-    public ItemEffectListener(AdventureItems plugin) {
+    public ItemEffectListener(AdventureLoot plugin) {
         handler = plugin.getItemEffectHandler();
+    }
+
+    @EventHandler
+    public void onPlayerActivate(PlayerInteractEvent e) {
+        if (!e.hasItem()) {
+            return;
+        }
+
+        Player player = e.getPlayer();
+
+        Action action = e.getAction();
+
+        if (action != Action.RIGHT_CLICK_AIR && action != Action.RIGHT_CLICK_BLOCK) {
+            return;
+        }
+
+        ItemStack hand = e.getItem();
+
+        if (!handler.hasEffect(hand)) {
+            return;
+        }
+
+        Set<ItemEffect> effects = handler.getEffects(hand);
+
+        for (ItemEffect effect : effects) {
+            Chat.debug(String.format("Player %s has effect %s proc on Item", player.getName(), effect.name()));
+            if (!effect.onActivate(player)) {
+                //todo something on fail.
+                continue;
+            }
+        }
+
     }
 
     @EventHandler
@@ -48,8 +81,8 @@ public class ItemEffectListener implements Listener {
             Double damageMin = damagePair.getValue0();
             Double damageMax = damagePair.getValue1();
 
-            double damage = NumberUtil.getRandomInRange(damageMin,damageMax);
-            damage = NumberUtil.round(damage,2);
+            double damage = NumberUtil.getRandomInRange(damageMin, damageMax);
+            damage = NumberUtil.round(damage, 2);
             //todo verify damage ranges.
             //todo damage the damaged with a random in range of the values on the item.
             damaged.damage(damage);
@@ -63,8 +96,7 @@ public class ItemEffectListener implements Listener {
         Set<ItemEffect> effects = handler.getEffects(hand);
 
         for (ItemEffect effect : effects) {
-            Chat.message(attacker, String.format("&cEffect &a%s &cis being used against %s", effect.name(), damaged.getName()));
-            if (!effect.onPlayerDamagePlayer(attacker, damaged)) {
+            if (!effect.onPlayerDamagePlayer(attacker, damaged, e.getDamage())) {
                 //todo potentially cancel the event?
                 continue;
             }
@@ -85,7 +117,6 @@ public class ItemEffectListener implements Listener {
         Set<ItemEffect> effects = handler.getEffects(droppedItemStack);
 
         for (ItemEffect effect : effects) {
-            Chat.message(player, String.format("Player %s has item proc effect %s when dropping", player.getName(), effect.name()));
             //If the item isn't supposed to be dropped, then cancel the event- Some
             //Effects won't let this happen, rather destroys them- sets aflame, etc
             //Let the effect do the heavy lifting.
@@ -124,8 +155,9 @@ public class ItemEffectListener implements Listener {
             LivingEntity shooter = (LivingEntity) source;
 
             if (!(shooter instanceof Player)) {
-                damager = (Player) shooter;
+                return;
             }
+            damager = (Player) shooter;
         }
 
         if (entityDamager.getType() == EntityType.SNOWBALL) {
@@ -165,15 +197,21 @@ public class ItemEffectListener implements Listener {
         Check if the item has a damage range, and if so apply it to the event.
          */
         if (handler.hasDamageRange(hand)) {
+
             Pair<Double, Double> damagePair = handler.getDamageRange(hand);
             Double damageMin = damagePair.getValue0();
             Double damageMax = damagePair.getValue1();
             //todo verify damage ranges.
 
-            double damage = NumberUtil.getRandomInRange(damageMin,damageMax);
-            damage = NumberUtil.round(damage,2);
+            double damage = NumberUtil.getRandomInRange(damageMin, damageMax);
+            damage = NumberUtil.round(damage, 2);
 
-            e.setDamage(damage);
+            if (hand.getType() == Material.BOW && entityDamager.getType() != EntityType.ARROW) {
+                e.setDamage(NumberUtil.round(damage / 2, 2));
+                Chat.actionMessage(damager, "&7Whacking enemies with your Bow does half the Damage");
+            } else {
+                e.setDamage(damage);
+            }
         }
 
         if (!handler.hasEffect(hand)) {
@@ -185,16 +223,16 @@ public class ItemEffectListener implements Listener {
         //We have another method listening to livingentity damage
         if (damaged instanceof LivingEntity) {
             for (ItemEffect effect : effects) {
-                if (effect.onPlayerDamageLivingEntity(damager, (LivingEntity) damaged)) {
-                    Chat.message(damager, "&cYour Item has the effect: " + effect.name() + " become &aActive");
+                if (effect.onPlayerDamageLivingEntity(damager, (LivingEntity) damaged, e.getDamage())) {
+                    Chat.debug("&cPlayer " + damager.getName() + " has the effect: " + effect.name() + " become &aActive");
                 } else {
                     //todo potentially cancel the event?
                 }
             }
         } else {
             for (ItemEffect effect : effects) {
-                if (effect.onPlayerDamageEntity(damager, damaged)) {
-                    Chat.message(damager, "&cYour Item has the effect: " + effect.name() + " become &aActive");
+                if (effect.onPlayerDamageEntity(damager, damaged,e.getDamage())) {
+                    Chat.debug("&cPlayer " + damager.getName() + " has the effect: " + effect.name() + " become &aActive");
                 } else {
                     //todo potentially cancel the event?
                 }

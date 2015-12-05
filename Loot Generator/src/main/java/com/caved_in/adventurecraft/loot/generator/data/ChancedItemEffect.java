@@ -1,7 +1,7 @@
 package com.caved_in.adventurecraft.loot.generator.data;
 
-import com.caved_in.adventurecraft.adventureitems.AdventureItems;
-import com.caved_in.adventurecraft.adventureitems.effects.ItemEffect;
+import com.caved_in.adventurecraft.loot.AdventureLoot;
+import com.caved_in.adventurecraft.loot.effects.ItemEffect;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;
 
@@ -22,11 +22,11 @@ public class ChancedItemEffect {
 
     public ChancedItemEffect(@Attribute(name = "chance")int chance, @Attribute(name = "effect")String effectName) {
         this.chance = chance;
-        if (!AdventureItems.getInstance().getItemEffectHandler().effectExists(effectName)) {
+        if (!AdventureLoot.getInstance().getItemEffectHandler().effectExists(effectName)) {
             throw new IllegalAccessError("Unable to initiate chanced item effect for " + effectName);
         }
         this.effectName = effectName;
-        this.effect = AdventureItems.getInstance().getItemEffectHandler().getEffect(effectName);
+        this.effect = AdventureLoot.getInstance().getItemEffectHandler().getEffect(effectName);
     }
 
     public ChancedItemEffect() {

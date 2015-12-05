@@ -1,6 +1,6 @@
 package com.caved_in.adventurecraft.loot.generator.settings;
 
-import com.caved_in.adventurecraft.adventureitems.effects.ItemEffect;
+import com.caved_in.adventurecraft.loot.effects.ItemEffect;
 import com.caved_in.adventurecraft.loot.generator.data.ChancedItemEffect;
 import com.caved_in.adventurecraft.loot.generator.data.LootTable;
 import com.caved_in.commons.utilities.ListUtils;

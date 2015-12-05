@@ -60,6 +60,10 @@ public class LootTable {
     //todo implement methods to clean the item effects off of lore. Maybe?
 
 	public LootSettings getRandom() {
+		if (lootSettings.isEmpty()) {
+			return null;
+		}
+
 		if (lootSettings.size() <= 1) {
 			return lootSettings.get(0);
 		}

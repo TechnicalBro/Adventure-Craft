@@ -1,4 +1,4 @@
-package com.caved_in.adventurecraft.adventureitems.users;
+package com.caved_in.adventurecraft.loot.users;
 
 import com.caved_in.commons.player.User;
 import org.bukkit.entity.Player;

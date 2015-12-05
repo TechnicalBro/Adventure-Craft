@@ -1,5 +1,6 @@
 package com.caved_in.adventurecraft.gems.item;
 
+import com.caved_in.adventurecraft.loot.effects.*;
 import com.caved_in.commons.chat.Chat;
 import com.mysql.jdbc.StringUtils;
 import org.bukkit.enchantments.Enchantment;
@@ -33,32 +34,47 @@ public class GemSuffixSettings {
             of(Enchantment.SILK_TOUCH, "Delicate Hands"),
             of(Enchantment.THORNS, "Thorns"),
             of(Enchantment.WATER_WORKER, "Underwater Masonry"),
-            of(Enchantment.LURE,"Fishery")
+            of(Enchantment.LURE,"Fishery"),
+            /*
+            Suffix Settings for the Item Effects! (Only includes default settings)
+             */
+            of(BackstabEffect.getInstance(),"Back-Stabbing"),
+            of(BleedEffect.getInstance(),"Blood Spatter"),
+            of(CriticalStrikeEffect.getInstance(),"Precision Strike"),
+            of(FlameStrikeEffect.getInstance(),"Flaming Infernos"),
+            of(LifeLeechEffect.getInstance(),"Vampirism"),
+            of(PhaseEffect.getInstance(),"Wormholes"),
+            of(PoisonEffect.getInstance(),"Toxicities"),
     };
 
     private static Map<Enchantment, GemSuffixSettings> DEFAULT_SUFFIX_MAP = new HashMap<>();
 
+    private static Map<String, GemSuffixSettings> DEFAULT_EFFECT_SUFFIX_MAP = new HashMap<>();
+
     static {
         for (GemSuffixSettings settings : DEFAULT_SUFFIX_SETTINGS) {
-            DEFAULT_SUFFIX_MAP.put(settings.enchant, settings);
+            if (settings.hasEffect()) {
+                DEFAULT_EFFECT_SUFFIX_MAP.put(settings.getEffect().name(),settings);
+            } else {
+                DEFAULT_SUFFIX_MAP.put(settings.enchant, settings);
+            }
         }
     }
-
-    public Enchantment enchant;
-
-    public int minimumLevel;
-    public int maximumLevel;
-
-    public String suffix = "";
-
-    public LevelDescriptor suffixDescriptions = new LevelDescriptor();
 
     public static GemSuffixSettings getDefaultFor(Enchantment enchantment) {
         return DEFAULT_SUFFIX_MAP.get(enchantment);
     }
 
+    public static GemSuffixSettings getDefaultFor(ItemEffect effect) {
+        return DEFAULT_EFFECT_SUFFIX_MAP.get(effect.name());
+    }
+
     public static GemSuffixSettings of(Enchantment enchant, String suffix, int lvlMin, int lvlMax) {
         return new GemSuffixSettings(enchant, lvlMin, lvlMax, suffix);
+    }
+
+    public static GemSuffixSettings of(ItemEffect effect, String suffix) {
+        return new GemSuffixSettings(effect,suffix);
     }
 
     /**
@@ -72,6 +88,17 @@ public class GemSuffixSettings {
         return new GemSuffixSettings().suffix(suffix).enchant(enchant).range(1, Integer.MAX_VALUE);
     }
 
+    public Enchantment enchant;
+
+    public int minimumLevel;
+    public int maximumLevel;
+
+    public String suffix = "";
+
+    public LevelDescriptor suffixDescriptions = new LevelDescriptor();
+
+    private ItemEffect effect = null;
+
     public GemSuffixSettings() {
 
     }
@@ -81,6 +108,16 @@ public class GemSuffixSettings {
         this.minimumLevel = min;
         this.maximumLevel = max;
         this.suffix = suffix;
+    }
+
+    public GemSuffixSettings(ItemEffect effect, String suffix) {
+        this.effect = effect;
+        this.suffix = suffix;
+    }
+
+    public GemSuffixSettings effect(ItemEffect effect) {
+        this.effect = effect;
+        return this;
     }
 
     public GemSuffixSettings enchant(Enchantment enchant) {
@@ -123,5 +160,13 @@ public class GemSuffixSettings {
         }
 
         return String.format("%s %s", descriptor, suffix);
+    }
+
+    public boolean hasEffect() {
+        return effect != null;
+    }
+
+    public ItemEffect getEffect() {
+        return effect;
     }
 }

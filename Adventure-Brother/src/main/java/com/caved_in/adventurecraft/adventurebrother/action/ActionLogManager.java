@@ -169,7 +169,7 @@ public class ActionLogManager extends GameFeature {
             brother.getUserManager().getAllInBigBrotherChannel().forEach(p -> p.message("&a&l[BigBrother] &c&lSaving all players log files"));
             saveLogs();
             saveTicker.reset();
-            Chat.debug("Saved big brother logs!!!!");
+//            Chat.debug("Saved big brother logs!!!!");
         } else {
             saveTicker.tick();
         }
@@ -179,7 +179,7 @@ public class ActionLogManager extends GameFeature {
         for (Minion minion : brother.getUserManager().allUsers()) {
             ActionLog minionLog = minion.getActionLog();
             logs.put(minion.getId(), minionLog);
-            Chat.debug("Updated cached data for " + minion.getId().toString());
+//            Chat.debug("Updated cached data for " + minion.getId().toString());
         }
     }
 }
