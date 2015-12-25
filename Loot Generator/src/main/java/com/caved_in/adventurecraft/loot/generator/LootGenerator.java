@@ -326,10 +326,12 @@ public class LootGenerator {
         boolean applyDamages = true;
 
 		/*
-		If there's a min-max damage ranges for minMin,minMax,maxMin,maxMax, then we need to
+        If there's a min-max damage ranges for minMin,minMax,maxMin,maxMax, then we need to
 		generate a number to the item within each range for these damage values!
 		 */
-        if (hasMinMaxDamageRanges) {
+
+        if (hasMinMaxDamageRanges && !Items.isArmor(material.get().getItemType())) {
+
             Pair<Double, Double> damageMinRange = itemData.getMinDamageRange();
             Pair<Double, Double> damageMaxRange = itemData.getMaxDamageRange();
 
@@ -340,17 +342,17 @@ public class LootGenerator {
             Double maxMax = damageMaxRange.getValue1();
 
 			/*
-			Assign the damage minimum on a value between the min-floor and cieling.
+            Assign the damage minimum on a value between the min-floor and cieling.
 			 */
             damageMin = NumberUtil.getRandomInRange(minMin, minMax);
             damageMin = NumberUtil.round(damageMin, 2);
 
 			/*
-			Assign the damage maximum on a value between the max floor and cieling.
+            Assign the damage maximum on a value between the max floor and cieling.
 			 */
             damageMax = NumberUtil.getRandomInRange(maxMin, maxMax);
             damageMax = NumberUtil.round(damageMax, 2);
-        } else if (hasDamageRange) {
+        } else if (hasDamageRange && !Items.isArmor(material.get().getItemType())) {
 			/*
 			Otherwise if we only have a singular damage range, just assign the min and max to the item!
 			 */
@@ -418,7 +420,7 @@ public class LootGenerator {
         /*
         Check if there's any lines of lore to be applied to the item, and if so:
         Do it! JUST, DO IT!
-         */
+        */
         if (loreLines.size() > 0) {
             item.lore(loreLines);
         }

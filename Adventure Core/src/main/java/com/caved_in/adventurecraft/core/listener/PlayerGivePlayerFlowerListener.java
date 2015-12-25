@@ -12,6 +12,20 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 public class PlayerGivePlayerFlowerListener implements Listener {
+
+    private static PlayerGivePlayerFlowerListener instance = null;
+
+    public static PlayerGivePlayerFlowerListener getInstance() {
+        if (instance == null) {
+            instance = new PlayerGivePlayerFlowerListener();
+        }
+        return instance;
+    }
+
+    protected PlayerGivePlayerFlowerListener() {
+
+    }
+
     @EventHandler
     public void onPlayerVersusPlayerEvent(PlayerDamagePlayerEvent e) {
         Player swinger = e.getPlayer();

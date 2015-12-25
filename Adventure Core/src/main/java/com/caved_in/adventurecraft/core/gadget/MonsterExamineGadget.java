@@ -6,7 +6,11 @@ import com.caved_in.commons.entity.Entities;
 import com.caved_in.commons.game.item.BaseWeapon;
 import com.caved_in.commons.item.ItemBuilder;
 import com.caved_in.commons.player.Players;
+import com.caved_in.commons.plugin.Plugins;
 import com.caved_in.commons.utilities.NumberUtil;
+import com.caved_in.entityspawningmechanic.EntityMechanic;
+import com.caved_in.entityspawningmechanic.data.EntityWrapper;
+import com.caved_in.entityspawningmechanic.handlers.entity.EntityHandler;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.LivingEntity;
@@ -37,7 +41,7 @@ public class MonsterExamineGadget extends BaseWeapon {
     private void performTargetExamine(Player p) {
         Location targetLoc = Players.getTargetLocation(p, 10);
 
-        Set<LivingEntity> target = Entities.getLivingEntitiesNearLocation(targetLoc, 1.1);
+        Set<LivingEntity> target = Entities.getLivingEntitiesNearLocation(targetLoc, 2);
 
         if (target.isEmpty()) {
             Chat.actionMessage(p, "&c&lThere's no monsters to examine in range.");
@@ -49,14 +53,36 @@ public class MonsterExamineGadget extends BaseWeapon {
                 continue;
             }
 
-            Chat.actionMessage(p, String.format("&eCurrent Health: &a%s &6- &eMaximum Health: &c%s", Entities.getCurrentHealth(entity), Entities.getMaxHealth(entity)));
-            ParticleEffects.sendToLocation(ParticleEffects.SPELL_WITCH, entity.getEyeLocation(), 12);
-            break;
+            if (Players.isDebugging(p)) {
+                Chat.format(p, "&cEntity UUID is: " + entity.getUniqueId().toString());
+                Chat.format(p, "&eCurrent Health: &a%s &6- &eMaximum Health: &c%s", Entities.getCurrentHealth(entity), Entities.getMaxHealth(entity));
+                Chat.format(p, "&eEntity Name is &r: %s", Entities.getName(entity));
+
+                if (Plugins.isEnabled("Entity-Mechanic")) {
+                    EntityWrapper wrapper = EntityHandler.getWrapper(entity);
+                    LivingEntity wrappedEntity = wrapper.getEntity();
+                    if (wrappedEntity == null) {
+                        Chat.format("&c&lWrapped entity is null");
+                        continue;
+                    }
+                    Chat.format(p, "&eEntity is: &c%s&e, and &c%s", wrappedEntity.isValid() ? "&aValid" : "Invalid", wrappedEntity.isDead() ? "Dead" : "&aNot Dead");
+                }
+
+            } else {
+                Chat.actionMessage(p, String.format("&eCurrent Health: &a%s &6- &eMaximum Health: &c%s", Entities.getCurrentHealth(entity), Entities.getMaxHealth(entity)));
+                ParticleEffects.sendToLocation(ParticleEffects.SPELL_WITCH, entity.getEyeLocation(), 12);
+                break;
+
+            }
+        }
+
+        if (Players.isDebugging(p)) {
+            return;
         }
 
         if (NumberUtil.percentCheck(15)) {
-            Chat.message(p,"&c&lYour &6Monster Examine&c gadget degrades after use!");
-            Players.removeFromHand(p,1);
+            Chat.message(p, "&c&lYour &6Monster Examine&c gadget degrades after use!");
+            Players.removeFromHand(p, 1);
         }
     }
 

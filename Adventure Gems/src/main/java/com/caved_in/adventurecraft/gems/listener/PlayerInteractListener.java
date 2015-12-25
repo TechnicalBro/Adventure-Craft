@@ -26,7 +26,6 @@ public class PlayerInteractListener implements Listener {
         Player p = e.getPlayer();
         
         Action action = e.getAction();
-        
 
         switch (action) {
             case LEFT_CLICK_BLOCK:

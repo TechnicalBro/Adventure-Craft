@@ -16,25 +16,16 @@ import com.caved_in.commons.item.ItemBuilder;
 import com.caved_in.commons.plugin.Plugins;
 import com.caved_in.commons.time.TimeHandler;
 import com.caved_in.commons.time.TimeType;
-import com.google.common.collect.Sets;
 import com.palmergames.bukkit.towny.Towny;
 import net.milkbowl.vault.economy.Economy;
-import net.minecraft.server.v1_8_R3.AttributeInstance;
-import net.minecraft.server.v1_8_R3.AttributeModifier;
-import net.minecraft.server.v1_8_R3.EntityInsentient;
-import net.minecraft.server.v1_8_R3.GenericAttributes;
 import org.bukkit.Material;
 import org.bukkit.Server;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftLivingEntity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 import java.io.File;
-import java.util.Set;
-import java.util.UUID;
 
 public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
 
@@ -76,17 +67,11 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
 
         try {
             if (setupEconomy()) {
-                debug("Economy has been setup!", "Registering exchange command");
-                registerCommands(
-                        new ExchangeCommand()
-                );
-                debug("Economy options setup");
+                debug("Economy has been setup!");
             }
         } catch (NoClassDefFoundError e) {
 
         }
-
-        mobSlayListener = new MobSlayListener();
 
         registerListeners(
                 /*
@@ -96,19 +81,22 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
                 /*
                 Allows players to put bunnies on their head, as pets!
                  */
-                new PlayerHandleBunnyListener(),
+                PlayerHandleBunnyListener.getInstance(),
                 /*
                 Used to spread the love between players!
                  */
-                new PlayerGivePlayerFlowerListener(),
-                mobSlayListener,
-                new PlayerShootSelfListener(),
-                new MobSpawnerMineListener(),
-                new MobSpawnerPlaceListener(),
+                PlayerGivePlayerFlowerListener.getInstance(),
+                mobSlayListener = MobSlayListener.getInstance(),
+                PlayerShootSelfListener.getInstance(),
+                PremiumMobSpawnerListener.getInstance(),
                 /*
                 Allows the taming of ocelots with milk; Along with healing them!
                  */
-                new PlayerGiveCatMilkListener()
+                PlayerGiveCatMilkListener.getInstance(),
+                /*
+                Put a nice little halo on the items that are dropped!
+                 */
+                ItemHaloListener.getInstance()
         );
 
         registerGadgets(
@@ -327,6 +315,7 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
     }
 
     public static class Properties {
+        //todo move to config file. Yaml? Json?
         public static final int GOLD_PER_EXP = 3;
 
         /*
@@ -343,6 +332,6 @@ public class AdventureCore extends CraftGame<AdventurerPlayerManager> {
 
         public static final int WELCOME_BACK_PACKAGE_MONEY = 500;
 
-        public static double DROP_MULTIPLIER = 5;
+        public static double DROP_MULTIPLIER = 1.2;
     }
 }

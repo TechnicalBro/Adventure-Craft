@@ -16,6 +16,19 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class PlayerHandleBunnyListener implements Listener {
+
+    private static PlayerHandleBunnyListener instance = null;
+
+    public static PlayerHandleBunnyListener getInstance() {
+        if (instance == null) {
+            instance = new PlayerHandleBunnyListener();
+        }
+        return instance;
+    }
+
+    protected PlayerHandleBunnyListener() {
+
+    }
     
     @EventHandler
     public void onPlayerInteractBunny(PlayerInteractEntityEvent e) {

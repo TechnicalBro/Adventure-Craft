@@ -4,7 +4,7 @@ version: ${project.version}
 description: The mother-ship to all the custom plugins and features for adventure craft!
 author: Brandon Curtis
 depend: [Commons,Adventure-Gems,Adventure-Loot]
-softdepend: [Adventure-Homes,Vault,Towny,Shards]
+softdepend: [Adventure-Homes,Vault,Towny,Shards,Entity-Mechanic]
 commands:
    adventure:
       description: The adventure command is used by admins to help build and make adventures around the world!

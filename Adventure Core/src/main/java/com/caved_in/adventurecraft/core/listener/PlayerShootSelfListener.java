@@ -14,6 +14,20 @@ import java.util.Set;
 import java.util.UUID;
 
 public class PlayerShootSelfListener implements Listener {
+
+    private static PlayerShootSelfListener instance = null;
+
+    public static PlayerShootSelfListener getInstance() {
+        if (instance == null) {
+            instance = new PlayerShootSelfListener();
+        }
+
+        return instance;
+    }
+
+    protected PlayerShootSelfListener() {
+
+    }
     
     private Set<UUID> fallDamagers = new HashSet<>();
     

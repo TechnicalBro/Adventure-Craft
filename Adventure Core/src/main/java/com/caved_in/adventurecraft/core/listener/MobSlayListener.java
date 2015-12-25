@@ -16,6 +16,7 @@ import com.caved_in.commons.world.Worlds;
 import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,6 +26,15 @@ import org.bukkit.inventory.ItemStack;
 import java.util.*;
 
 public class MobSlayListener implements Listener {
+
+    private static MobSlayListener instance = null;
+
+    public static MobSlayListener getInstance() {
+        if (instance == null) {
+            instance = new MobSlayListener();
+        }
+        return instance;
+    }
 
     private Map<EntityType, Integer> mobLootChances = new HashMap<EntityType, Integer>() {{
         put(MobType.BLAZE.getEntityType(), 5);
@@ -44,15 +54,15 @@ public class MobSlayListener implements Listener {
         put(EntityType.GIANT, 100);
         put(EntityType.VILLAGER, 15);
         //todo remove after testing
-        put(EntityType.COW,10);
-        put(EntityType.CHICKEN,2);
+        put(EntityType.COW, 10);
+        put(EntityType.CHICKEN, 2);
     }};
 
     private List<ItemStack> generatedGems = new ArrayList<>();
 
     private GemSettings settings = new GemSettings().defaultPrefixData().defaultSuffixData().defaultEnchantsFor(Enchantment.values());
 
-    public MobSlayListener() {
+    protected MobSlayListener() {
         regenerateGems();
     }
 
@@ -74,6 +84,8 @@ public class MobSlayListener implements Listener {
         }
 
         double dropChance = mobLootChances.get(entity.getType()) * AdventureCore.Properties.DROP_MULTIPLIER;
+
+        Chat.debug("There's a " + dropChance + "% drop chance for " + entity.getType().name() + "!");
 
         if (!NumberUtil.percentCheck(dropChance)) {
             return;
@@ -110,18 +122,37 @@ public class MobSlayListener implements Listener {
         if (!item.isPresent()) {
             if (NumberUtil.percentCheck(dropChance)) {
                 drop = ListUtils.getRandom(generatedGems);
+            } else {
+                drop = AdventureLoot.API.createItem(CreatureLootTable.GLOBAL_LOOT_TABLE);
             }
-            return;
         } else {
             drop = item.get();
         }
-        //todo optionally add this to the killers inventory
-        Worlds.dropItem(entity, drop, true);
-        ParticleEffects.sendToLocation(ParticleEffects.FLAME, entity.getLocation(), NumberUtil.getRandomInRange(15, 25));
 
+        if (drop == null) {
+            if (NumberUtil.percentCheck(dropChance)) {
+                drop = ListUtils.getRandom(generatedGems);
+            } else {
+                drop = AdventureLoot.API.createItem(CreatureLootTable.GLOBAL_LOOT_TABLE);
+            }
+        }
+
+        if (drop == null) {
+            return;
+        }
+        //todo optionally add this to the killers inventory
+        Item droppedItem = Worlds.dropItem(entity, drop, true);
+
+        if (droppedItem == null) {
+            return;
+        }
+
+        ParticleEffects.sendToLocation(ParticleEffects.FLAME, entity.getLocation(), NumberUtil.getRandomInRange(15, 25));
+        ItemHaloListener.makeHalo(droppedItem);
+        
         if (entity.getKiller() != null) {
             Sounds.playSound(entity.getKiller(), Sound.ANVIL_USE);
-            Chat.actionMessage(entity.getKiller(),"&6&lYou've received a special drop!");
+            Chat.message(entity.getKiller(), "&6&lYou've received a special drop!");
         }
     }
 }

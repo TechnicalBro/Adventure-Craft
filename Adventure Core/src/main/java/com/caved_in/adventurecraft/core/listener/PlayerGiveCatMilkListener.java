@@ -17,6 +17,19 @@ import org.bukkit.inventory.ItemStack;
 
 public class PlayerGiveCatMilkListener implements Listener {
 
+    private static PlayerGiveCatMilkListener instance = null;
+
+    public static PlayerGiveCatMilkListener getInstance() {
+        if (instance == null) {
+            instance = new PlayerGiveCatMilkListener();
+        }
+        return instance;
+    }
+
+    protected PlayerGiveCatMilkListener() {
+
+    }
+
     @EventHandler
     public void onPlayerGiveCatMilk(PlayerInteractEntityEvent e) {
         Entity entity = e.getRightClicked();

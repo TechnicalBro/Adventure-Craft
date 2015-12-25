@@ -21,6 +21,7 @@ import com.caved_in.commons.plugin.Plugins;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Optional;
+import java.util.Set;
 
 public class AdventureLoot extends CraftGame<ItemUserManager> {
     private static AdventureLoot instance;
@@ -53,6 +54,8 @@ public class AdventureLoot extends CraftGame<ItemUserManager> {
         userManager = new ItemUserManager();
 
         itemEffectHandler = new ItemHandler(this);
+
+        API.init();
 
         registerListeners(
                 userManagerListener = new UserManagerListener(this),
@@ -119,6 +122,22 @@ public class AdventureLoot extends CraftGame<ItemUserManager> {
 
     public static class API {
 
+        private static AdventureLoot instance = null;
+
+        private static ItemHandler itemHandler = null;
+
+        private static boolean init = false;
+
+        public static void init() {
+            if (init) {
+                return;
+            }
+
+            instance = getInstance();
+            itemHandler = instance.getItemEffectHandler();
+            init = true;
+        }
+
         public static ItemStack createItem(LootTable table) {
             return generator.createItem(table);
         }
@@ -140,7 +159,30 @@ public class AdventureLoot extends CraftGame<ItemUserManager> {
         }
 
         public static void registerItemEffects(ItemEffect... effects) {
-            getInstance().getItemEffectHandler().registerItemEffects(effects);
+            itemHandler.registerItemEffects(effects);
+        }
+
+        public static boolean hasItemEffect(ItemStack item) {
+            return itemHandler.hasEffect(item);
+        }
+
+        public static ItemEffect getEffect(String name) {
+            return itemHandler.getEffect(name);
+        }
+
+        public static boolean effectExists(String name) {
+            return itemHandler.effectExists(name);
+        }
+
+        public static Set<ItemEffect> getEffects(ItemStack item) {
+            return itemHandler.getEffects(item);
+        }
+
+        public static boolean hasDamageRange(ItemStack item) {
+            if (item == null) {
+                return false;
+            }
+            return itemHandler.hasDamageRange(item);
         }
     }
 }

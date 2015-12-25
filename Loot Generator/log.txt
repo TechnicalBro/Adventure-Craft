@@ -1,3 +1,7 @@
+December 21'st, 2015:
+	+ Updated LootGenerator to not apply damage ranges to armours any more.
+
+
 November 17'th, 2015:
 	+ Implemented option to ChancedItemData to force damage applications!
 

@@ -2,6 +2,7 @@ package com.caved_in.adventurecraft.homes.menu;
 
 import com.caved_in.adventurecraft.homes.AdventureHomes;
 import com.caved_in.adventurecraft.homes.HomeMessages;
+import com.caved_in.adventurecraft.homes.event.PlayerTeleportHomeEvent;
 import com.caved_in.adventurecraft.homes.users.HomePlayer;
 import com.caved_in.adventurecraft.homes.users.HomePlayerManager;
 import com.caved_in.adventurecraft.homes.users.PlayerHomeAction;
@@ -15,6 +16,7 @@ import com.caved_in.commons.menu.ItemMenu;
 import com.caved_in.commons.menu.MenuItem;
 import com.caved_in.commons.menu.Menus;
 import com.caved_in.commons.menu.SubMenuItem;
+import com.caved_in.commons.plugin.Plugins;
 import com.caved_in.commons.warp.Warp;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -87,6 +89,15 @@ public class HomeMenu extends ItemMenu {
 					break;
 				case TELEPORT:
 					close(player);
+
+					PlayerTeleportHomeEvent homeEvent = new PlayerTeleportHomeEvent(player,warp);
+					Plugins.callEvent(homeEvent);
+
+					if (homeEvent.isCancelled()) {
+						close(player);
+						return;
+					}
+
 					warp.bring(player);
 					WELCOME_HOME_TITLE.send(player);
 					break;

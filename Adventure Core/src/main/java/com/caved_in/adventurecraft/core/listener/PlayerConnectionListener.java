@@ -85,7 +85,7 @@ public class PlayerConnectionListener implements Listener {
             users.addUser(p);
             core.debug("Player " + p.getName() + " has joined the Vortechs for the first time!");
             //todo move this welcome title formatting to a config file
-            welcomeTitleBuilder.subtitle(String.format("%sWelcome %s to %sVortechs!", ChatColor.YELLOW.toString(), p.getName(), ChatColor.GOLD.toString())).build().broadcast();
+            welcomeTitleBuilder.subtitle(String.format("%sWelcome, %s to %sVortechs!", ChatColor.YELLOW.toString(), p.getName(), ChatColor.GOLD.toString())).build().broadcast();
             //todo move the items to a config file for when someone joins!
             Players.giveItem(p,
                     Items.makeItem(Material.STONE_PICKAXE),

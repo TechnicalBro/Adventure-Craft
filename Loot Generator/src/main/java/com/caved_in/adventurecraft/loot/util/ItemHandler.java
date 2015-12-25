@@ -36,6 +36,10 @@ public class ItemHandler {
     }
 
     public boolean hasEffect(ItemStack item) {
+        if (item == null) {
+            return false;
+        }
+
         for(ItemEffect effect : itemEffects) {
             if (!effect.verify(item)) {
                 continue;
@@ -76,13 +80,29 @@ public class ItemHandler {
 	}
 
 	public boolean effectExists(String name) {
+        if (name == null || StringUtils.isEmpty(name)) {
+            return false;
+        }
+
 		return getEffect(name) != null;
 	}
 
     public boolean hasDamageRange(ItemStack item) {
+        if (item == null) {
+            return false;
+        }
+
         if (Items.hasLore(item)) {
             List<String> loreLines = Items.getLore(item);
+
+            if (loreLines == null){
+                return false;
+            }
+
             for (String line : loreLines) {
+                if (line == null) {
+                    continue;
+                }
                 if (StringUtils.containsIgnoreCase(line, "deals") && StringUtils.containsIgnoreCase(line, "damage!")) {
                     return true;
                 }
