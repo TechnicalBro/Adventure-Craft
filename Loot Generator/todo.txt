@@ -1,5 +1,0 @@
-Conventional Tags for Names
-==============================
-
-	Using tags like {material-description} inside the prefixes / suffixes / base
-	should be replaced with a description of the material type; Like Material.WOODEN_SWORD -> "Wooden"

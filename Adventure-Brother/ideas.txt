@@ -1,8 +1,0 @@
-Big Brother Chat channel to see a live stream of all of
-the players actions, or a specific players actions.
-
-Logging of Hashtags and @Mentions for players
-Swear Filter
-Stats about top chatters, crafters, playtime, etc.
-
-Retrieve players total playtime in last hour, last week, perm.

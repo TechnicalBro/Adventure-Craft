@@ -4,20 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.caved_in.adventurecraft</groupId>
-    <artifactId>adventurecraft-parent</artifactId>
+    <groupId>com.devsteady.gaeacraft</groupId>
+    <artifactId>gaeacraft-parent</artifactId>
     <version>1.1.0</version>
     <packaging>pom</packaging>
     
     <modules>
 
-        <module>Fishing Upgrade</module>
-        <module>Adventure Core</module>
-        <module>Loot Generator</module>
-        <module>Adventure Homes</module>
-        <module>Adventure Gems</module>
-        <module>Adventure-Brother</module>
-        <module>Adventure-Skills</module>
+        <module>Core</module>
+        <module>fishingplus</module>
+        <module>lootgenerator</module>
+        <module>gems</module>
+        <module>gaeashop</module>
+        <module>gaeahomes</module>
+        <module>father-nature</module>
         <!--<module>Adventure Shop</module>-->
     </modules>
 

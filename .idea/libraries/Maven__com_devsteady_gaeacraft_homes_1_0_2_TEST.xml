@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.devsteady.gaeacraft:homes:1.0.2-TEST">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/devsteady/gaeacraft/homes/1.0.2-TEST/homes-1.0.2-TEST.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/devsteady/gaeacraft/homes/1.0.2-TEST/homes-1.0.2-TEST-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/devsteady/gaeacraft/homes/1.0.2-TEST/homes-1.0.2-TEST-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

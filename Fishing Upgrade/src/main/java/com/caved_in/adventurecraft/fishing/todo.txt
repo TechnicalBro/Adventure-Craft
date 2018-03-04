@@ -1,6 +1,0 @@
-Item Cycle System
-==================
-
-	Create a system inside Adventure Fishing where the loot cycles every x minutes;
-	Tables of loot provide different catches, which just drives a fresher feel to fishing
-	As they won't be getting the same loot over and over again!

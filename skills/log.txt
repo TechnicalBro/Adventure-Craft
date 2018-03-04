@@ -1,0 +1,5 @@
+December 24'th, 2015:
+    + Implemented a total skills GUI
+    + Implemented skill points and skill tree.
+    + Implemented saving of skill points, skill trees, and perks to file!
+    + Everything (seems) to be fully functional!

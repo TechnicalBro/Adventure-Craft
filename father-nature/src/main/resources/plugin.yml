@@ -1,0 +1,10 @@
+name: Adventure-Brother
+main: com.caved_in.adventurecraft.adventurebrother.BigBrother
+version: ${project.version}
+description: Big Brother is always watching.
+author: Brandon Curtis
+depend: [Commons]
+commands:
+   bigbrother:
+      description: Big Brother just knows. Srsly Bro. Srsly.
+      usage: /<command>

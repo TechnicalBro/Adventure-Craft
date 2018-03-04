@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="adventure-brother" />
+        <module name="adventure-core" />
+        <module name="adventure-homes" />
+        <module name="adventure-skills" />
+        <module name="adventureshop" />
+        <module name="fishing-upgrade" />
+        <module name="gems" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="adventure-brother" target="1.5" />
+      <module name="adventure-core" target="1.8" />
+      <module name="adventure-homes" target="1.5" />
+      <module name="adventure-skills" target="1.5" />
+      <module name="adventurecraft-parent" target="1.5" />
+      <module name="adventureshop" target="1.5" />
+      <module name="fishing-upgrade" target="1.8" />
+      <module name="gaeacraft" target="1.5" />
+      <module name="gems" target="1.5" />
+      <module name="lootgenerator" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
