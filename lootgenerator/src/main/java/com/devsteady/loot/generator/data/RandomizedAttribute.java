@@ -1,8 +1,7 @@
 package com.devsteady.loot.generator.data;
 
-import com.caved_in.commons.config.XmlAttribute;
-import com.caved_in.commons.item.Attributes;
-import com.caved_in.commons.utilities.NumberUtil;
+import com.devsteady.onyx.item.Attributes;
+import com.devsteady.onyx.utilities.NumberUtil;
 import lombok.ToString;
 
 import java.util.ArrayList;
@@ -62,7 +61,7 @@ public class RandomizedAttribute {
 		}
 
 		Attributes.Attribute.Builder builder = Attributes.Attribute.newBuilder()
-				.amount(NumberUtil.getRandomInRange(minAmount,maxAmount))
+				.amount(NumberUtil.randomDouble(minAmount,maxAmount))
 				.name(name).type(type);
 
 		Attributes.Operation operation = null;

@@ -1,26 +1,26 @@
 package com.devsteady.loot.generator.data;
 
 import com.devsteady.loot.generator.settings.LootSettings;
-import com.caved_in.commons.utilities.ListUtils;
+import com.devsteady.onyx.utilities.ListUtils;
+import com.devsteady.onyx.yml.Path;
+import com.devsteady.onyx.yml.Skip;
+import com.devsteady.onyx.yml.YamlConfig;
 import org.bukkit.Material;
 import org.bukkit.material.MaterialData;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Root(name = "material-table")
-public class MaterialTable {
-	@Element(name = "allow-duplicate-entries")
+public class MaterialTable extends YamlConfig {
+	@Path("allow-duplicates")
 	private boolean duplicates = false;
 
-	@ElementList(name = "materials",entry = "m",required = false,type = ChancedItemData.class)
+	@Path("materials")
 	private List<ChancedItemData> materials = new ArrayList<>();
 
+	@Skip
 	private LootSettings parent;
 
+	@Skip
 	private ChancedItemData lastGenerated = null;
 
 	@Deprecated

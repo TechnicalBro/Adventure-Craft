@@ -1,30 +1,28 @@
 package com.devsteady.loot.generator.settings;
 
 import com.devsteady.loot.generator.data.ChancedEnchantment;
+import com.devsteady.onyx.yml.Path;
+import com.devsteady.onyx.yml.YamlConfig;
+import lombok.Getter;
 import lombok.ToString;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Root(name = "enchantment-settings")
 @ToString(of = {"enchantments"})
-public class ItemEnchantmentSettings {
+public class ItemEnchantmentSettings extends YamlConfig {
 
-    @ElementList(name = "enchantments", entry = "enchantment", type = ChancedEnchantment.class)
+    @Path("enchantments")
+    @Getter
     private List<ChancedEnchantment> enchantments = new ArrayList<>();
 
-    @Element(name = "maximum-enchantment-count")
+    @Path("maximum-enchantment-count")
+    @Getter
     private int maximumEnchantments = 1;
 
     private LootSettings parent;
 
-    public ItemEnchantmentSettings(
-            @ElementList(name = "enchantments", entry = "enchantment", type = ChancedEnchantment.class) List<ChancedEnchantment> enchantment,
-            @Element(name = "maximum-enchantment-count") int maximumEnchantments
-    ) {
+    public ItemEnchantmentSettings(List<ChancedEnchantment> enchantment,int maximumEnchantments) {
         this.enchantments = enchantment;
         this.maximumEnchantments = maximumEnchantments;
     }

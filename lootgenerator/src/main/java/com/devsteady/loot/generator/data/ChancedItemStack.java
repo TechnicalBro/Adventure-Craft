@@ -1,31 +1,27 @@
 package com.devsteady.loot.generator.data;
 
-import com.caved_in.commons.config.XmlItemStack;
+import com.devsteady.onyx.yml.Path;
+import com.devsteady.onyx.yml.YamlConfig;
+import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
 
-@Root(name = "chanced-item")
-public class ChancedItemStack {
+public class ChancedItemStack extends YamlConfig {
 
-	@Element(name = "item",type = XmlItemStack.class)
-	private XmlItemStack item;
+	@Path("item")
+	@Getter
+	private ItemStack item;
 
-	@Attribute(name = "chance")
+	@Path("chance")
+	@Getter
 	private int chance = 100;
 	
 	public static ChancedItemStack of(ItemStack item, int chance) {
 		return new ChancedItemStack(item,chance);
 	}
 
-	public ChancedItemStack(@Element(name = "item",type = XmlItemStack.class)XmlItemStack item, @Attribute(name= "chance") int chance) {
+	public ChancedItemStack(ItemStack item,int chance) {
 		this.item = item;
 		this.chance = chance;
-	}
-
-	public ChancedItemStack(ItemStack item, int chance) {
-		this(XmlItemStack.fromItem(item), chance);
 	}
 
 	public ChancedItemStack() {
@@ -33,21 +29,12 @@ public class ChancedItemStack {
 	}
 
 	public ChancedItemStack item(ItemStack item) {
-		this.item = XmlItemStack.fromItem(item);
+		this.item = item;
 		return this;
-	}
-
-	public ItemStack item() {
-		return this.item.getItemStack();
 	}
 
 	public ChancedItemStack chance(int chance) {
 		this.chance = chance;
 		return this;
 	}
-
-	public int chance() {
-		return chance;
-	}
-
 }

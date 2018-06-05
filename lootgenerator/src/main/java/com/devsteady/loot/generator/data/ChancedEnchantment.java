@@ -1,26 +1,31 @@
 package com.devsteady.loot.generator.data;
 
+import com.devsteady.onyx.yml.Path;
+import com.devsteady.onyx.yml.YamlConfig;
+import lombok.Getter;
 import org.bukkit.enchantments.Enchantment;
-import org.javatuples.Pair;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Root;
 
-public class ChancedEnchantment {
-    @Attribute(name = "name")
-    private String enchantName;
+public class ChancedEnchantment extends YamlConfig {
 
-    @Attribute(name = "minimum-level")
+    @Path("enchantment")
+    @Getter
+    private Enchantment enchant;
+
+    @Path("minimum-level")
+    @Getter
     private int minLevel;
 
-    @Attribute(name = "maximum-level")
+    @Path("maximum-level")
+    @Getter
     private int maxLevel = 0;
 
-    @Attribute(name = "glow", required = false)
-    private boolean glow = true;
-
-    @Attribute(name = "chance")
+    @Path("chance")
+    @Getter
     private int chance = 10;
 
+    @Path("glow")
+    @Getter
+    private boolean glow = false;
 
     @Deprecated
     public static ChancedEnchantment of(int chance, Enchantment enchant, int level) {
@@ -29,14 +34,6 @@ public class ChancedEnchantment {
 
     public static ChancedEnchantment of(int chance, Enchantment enchant, int min, int max) {
         return new ChancedEnchantment(chance, enchant, min, max);
-    }
-
-    public ChancedEnchantment(@Attribute(name = "name") String enchantName, @Attribute(name = "minimum-level") int minLevel, @Attribute(name = "maximum-level") int maxLevel, @Attribute(name = "glow", required = false) boolean glow, @Attribute(name = "chance") int chance) {
-        this.enchantName = enchantName;
-        this.minLevel = minLevel;
-        this.maxLevel = maxLevel;
-        this.glow = glow;
-        this.chance = chance;
     }
 
     public ChancedEnchantment(int chance, Enchantment enchantment, int minLevel, int maxLevel) {
@@ -63,7 +60,7 @@ public class ChancedEnchantment {
     }
 
     public ChancedEnchantment enchantment(Enchantment enchant) {
-        this.enchantName = enchant.getName();
+        this.enchant = enchant;
         return this;
     }
 
@@ -84,23 +81,7 @@ public class ChancedEnchantment {
         return this;
     }
 
-    public Pair<Integer, Integer> getLevelRange() {
-        return Pair.with(minLevel,maxLevel);
-    }
-
-    public int getMinLevel() {
-        return minLevel;
-    }
-
-    public int getMaxLevel() {
-        return maxLevel;
-    }
-
-    public Enchantment getEnchantment() {
-        return Enchantment.getByName(enchantName);
-    }
-
-    public boolean hasGlow() {
-        return glow;
+    public int[] getLevelRange() {
+        return new int[] {minLevel,maxLevel};
     }
 }

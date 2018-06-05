@@ -53,14 +53,18 @@ public class AdventureLoot extends CraftGame<ItemUserManager> {
 
         itemEffectHandler = new ItemHandler(this);
 
-        API.init();
-
+        /*
+        Register our Listeners
+         */
         registerListeners(
-                userManagerListener = new UserManagerListener(this),
+                userManager, /* Our user manager */
                 itemEffectListener = new ItemEffectListener(this),
                 new LootGenerateListener()
         );
 
+        /*
+        Register debug actions
+         */
         registerDebugActions(
                 DebugItemEffect.getInstance(),
                 new DebugLootGenerator(),
@@ -68,6 +72,9 @@ public class AdventureLoot extends CraftGame<ItemUserManager> {
                 new DebugGenerateWithItemEffect()
         );
 
+        /*
+         * REGISTER OUR ITEM EFFECTS.
+         */
         getItemEffectHandler().registerItemEffects(
                 FlameStrikeEffect.getInstance(),
                 CriticalStrikeEffect.getInstance(),
@@ -78,6 +85,9 @@ public class AdventureLoot extends CraftGame<ItemUserManager> {
                 LifeLeechEffect.getInstance()
         );
 
+        /*
+        Register our commands to make the loots
+         */
         registerCommands(
                 new LootCommand()
         );
@@ -120,22 +130,6 @@ public class AdventureLoot extends CraftGame<ItemUserManager> {
 
     public static class API {
 
-        private static AdventureLoot instance = null;
-
-        private static ItemHandler itemHandler = null;
-
-        private static boolean init = false;
-
-        public static void init() {
-            if (init) {
-                return;
-            }
-
-            instance = getInstance();
-            itemHandler = instance.getItemEffectHandler();
-            init = true;
-        }
-
         public static ItemStack createItem(LootTable table) {
             return generator.createItem(table);
         }
@@ -157,30 +151,30 @@ public class AdventureLoot extends CraftGame<ItemUserManager> {
         }
 
         public static void registerItemEffects(ItemEffect... effects) {
-            itemHandler.registerItemEffects(effects);
+            getInstance().getItemEffectHandler().registerItemEffects(effects);
         }
 
         public static boolean hasItemEffect(ItemStack item) {
-            return itemHandler.hasEffect(item);
+            return getInstance().getItemEffectHandler().hasEffect(item);
         }
 
         public static ItemEffect getEffect(String name) {
-            return itemHandler.getEffect(name);
+            return getInstance().getItemEffectHandler().getEffect(name);
         }
 
         public static boolean effectExists(String name) {
-            return itemHandler.effectExists(name);
+            return getInstance().getItemEffectHandler().effectExists(name);
         }
 
         public static Set<ItemEffect> getEffects(ItemStack item) {
-            return itemHandler.getEffects(item);
+            return getInstance().getItemEffectHandler().getEffects(item);
         }
 
         public static boolean hasDamageRange(ItemStack item) {
             if (item == null) {
                 return false;
             }
-            return itemHandler.hasDamageRange(item);
+            return getInstance().getItemEffectHandler().hasDamageRange(item);
         }
     }
 }

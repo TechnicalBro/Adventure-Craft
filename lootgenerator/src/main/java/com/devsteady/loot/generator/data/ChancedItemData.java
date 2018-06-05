@@ -1,32 +1,37 @@
 package com.devsteady.loot.generator.data;
 
-import com.caved_in.commons.item.Items;
-import com.caved_in.commons.utilities.NumberUtil;
+import com.devsteady.onyx.item.Items;
+import com.devsteady.onyx.utilities.NumberUtil;
+import com.devsteady.onyx.yml.Path;
+import com.devsteady.onyx.yml.YamlConfig;
 import com.google.common.base.Preconditions;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Material;
 import org.bukkit.material.MaterialData;
-import org.javatuples.Pair;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Root;
 
 import java.util.Optional;
 
-@Root(name = "chanced-material")
-public class ChancedItemData {
-    @Attribute(name = "chance")
+public class ChancedItemData extends YamlConfig {
+
+    @Path("chance")
+    @Getter
+    @Setter
     private int chance = 100;
 
-    @Attribute(name = "material")
+    @Path("material")
+    @Getter @Setter
     private Material material;
 
-    @Attribute(name = "data-value", required = false)
+    @Path(value="data-value",required=false)
+    @Getter @Setter
     private int dataValue = 0;
 
-    private Pair<Double, Double> damageMinRange = null;
+    private double[] damageMinRange = null;
 
-    private Pair<Double, Double> damageMaxRange = null;
+    private double[] damageMaxRange = null;
 
-    private Pair<Double, Double> damageRange = null;
+    private double[] damageRange = null;
 
     private boolean overrideDamageApplications = false;
 
@@ -41,7 +46,7 @@ public class ChancedItemData {
         return new ChancedItemData(chance, data);
     }
 
-    public ChancedItemData(@Attribute(name = "chance") int chance, @Attribute(name = "material") Material material, @Attribute(name = "data-value", required = false) int dataValue) {
+    public ChancedItemData(int chance,Material material,int dataValue) {
         this.chance = chance;
         this.material = material;
         this.dataValue = dataValue;
@@ -75,13 +80,13 @@ public class ChancedItemData {
     }
 
     public ChancedItemData damageRange(double minMin, double minMax, double maxMin, double maxMax) {
-        damageMinRange = Pair.with(minMin, minMax);
-        damageMaxRange = Pair.with(maxMin, maxMax);
+        damageMinRange = new double[] {minMin, minMax};
+        damageMaxRange = new double[] {maxMin, maxMax};
         return this;
     }
 
     public ChancedItemData damageRange(double min, double max) {
-        damageRange = Pair.with(min, max);
+        damageRange = new double[] {min, max};
         return this;
     }
 
@@ -105,22 +110,6 @@ public class ChancedItemData {
         return damageRange != null;
     }
 
-    public Pair<Double, Double> getMinDamageRange() {
-        return damageMinRange;
-    }
-
-    public Pair<Double, Double> getMaxDamageRange() {
-        return damageMaxRange;
-    }
-
-    public Pair<Double, Double> getDamageRange() {
-        return damageRange;
-    }
-
-    public int getChance() {
-        return chance;
-    }
-
     public MaterialData getMaterialData() {
         Preconditions.checkNotNull(getMaterial(), "Unable to create item as material is null");
         if (dataValue > 0) {
@@ -128,14 +117,6 @@ public class ChancedItemData {
         } else {
             return new MaterialData(getMaterial());
         }
-    }
-
-    public Material getMaterial() {
-        return material;
-    }
-
-    public int getDataValue() {
-        return dataValue;
     }
 
     public void setAttribute(RandomizedAttribute attribute) {

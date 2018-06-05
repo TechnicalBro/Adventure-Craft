@@ -1,37 +1,40 @@
 package com.devsteady.loot.generator.settings;
 
+import com.devsteady.onyx.yml.Path;
+import com.devsteady.onyx.yml.Skip;
+import com.devsteady.onyx.yml.YamlConfig;
+import lombok.Getter;
 import lombok.ToString;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@Root(name = "lore-settings")
 @ToString(of = {"damageDisplay", "damageFormat", "lore"})
-public class ItemLoreSettings {
-	@Element(name = "display-damage")
+public class ItemLoreSettings extends YamlConfig {
+	@Path("display-damage")
+	@Getter
 	private boolean damageDisplay = true;
 
-	@Element(name = "damage-format", required = false)
+	@Path("damage-format")
 	//todo implement method to check damage ranges on item based on the damageFormat string
+	@Getter
 	private String damageFormat = "&cDeals &e%s&c to &e%s&c damage!";
 
+	@Getter
+	@Path("rarity-format")
 	private String rarityFormat = "&eItem Rarity: &a%s";
 
+	@Getter
+	@Path("display-rarity")
 	private boolean displayRarity = true;
 
-	@ElementList(name = "lines", entry = "line", required = false)
+	@Path("lines")
 	private List<String> lore = new ArrayList<>();
 
+	@Skip
 	private LootSettings parent = null;
 
-	public ItemLoreSettings(
-			@Element(name = "display-damage") boolean damageDisplay,
-			@Element(name = "damage-format", required = false) String damageFormat,
-			@ElementList(name = "lines", entry = "line", required = false) List<String> lore) {
+	public ItemLoreSettings(boolean damageDisplay,String damageFormat,List<String> lore) {
 		this.lore = lore;
 		this.damageDisplay = damageDisplay;
 		this.damageFormat = damageFormat;

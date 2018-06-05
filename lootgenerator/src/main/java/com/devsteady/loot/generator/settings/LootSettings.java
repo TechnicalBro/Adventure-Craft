@@ -3,45 +3,44 @@ package com.devsteady.loot.generator.settings;
 import com.devsteady.loot.generator.data.MaterialTable;
 import com.devsteady.loot.generator.data.NameTable;
 import com.devsteady.loot.generator.data.NameSlot;
-import com.caved_in.commons.game.item.WeaponProperties;
+import com.devsteady.onyx.game.item.WeaponProperties;
+import com.devsteady.onyx.yml.Path;
+import com.devsteady.onyx.yml.YamlConfig;
 import lombok.ToString;
 import org.bukkit.Material;
 import org.bukkit.material.MaterialData;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
 
-@Root(name = "loot-settings")
 @ToString(of = {"materialTable", "weaponProperties", "randomName", "name", "base", "prefixes", "suffixes", "loreSettings", "enchantmentSettings"})
-public class LootSettings {
+public class LootSettings extends YamlConfig {
 
-    @Element(name = "material-table", type = MaterialTable.class)
+    @Path("material-table")
     private MaterialTable materialTable;
 
-    @Element(name = "weapon-settings", type = WeaponProperties.class)
-    private WeaponProperties weaponProperties = new WeaponProperties(0, true, true, 2, 5);
+    @Path("weapon-properties")
+    private WeaponProperties weaponProperties = new WeaponProperties().damage(2,5);
 
-    @Element(name = "random-name")
+    @Path("generate-random-name")
     private boolean randomName = false;
 
-    @Element(name = "itemTable-name", required = false)
+    @Path("name")
     private String name;
 
-    @Element(name = "base-name-table", type = NameTable.class, required = false)
-    private NameTable base = new NameTable(NameSlot.BASE);
-
-    @Element(name = "prefixes", type = NameTable.class, required = false)
+    @Path("table.prefixes")
     private NameTable prefixes = new NameTable(NameSlot.PREFIX);
 
-    @Element(name = "suffixes", type = NameTable.class, required = false)
+    @Path("table.bases")
+    private NameTable base = new NameTable(NameSlot.BASE);
+
+    @Path("table.suffixes")
     private NameTable suffixes = new NameTable(NameSlot.SUFFIX);
 
-    @Element(name = "lore-settings", type = ItemLoreSettings.class)
+    @Path("lore-settings")
     private ItemLoreSettings loreSettings = new ItemLoreSettings();
 
-    @Element(name = "enchantment-settings", type = ItemEnchantmentSettings.class)
+    @Path("enchantment-settings")
     private ItemEnchantmentSettings enchantmentSettings = new ItemEnchantmentSettings();
 
-    @Element(name = "effect-settings", type = ItemEffectSettings.class, required = false)
+    @Path(value="effect-settings",required = false)
     private ItemEffectSettings effectSettings = new ItemEffectSettings();
 
     public static LootSettingsBuilder createBuilder() {
@@ -52,18 +51,7 @@ public class LootSettings {
         return new LootSettings();
     }
 
-    public LootSettings(@Element(name = "weapon-settings", type = WeaponProperties.class) WeaponProperties weaponProperties,
-                        @Element(name = "material-table", type = MaterialTable.class) MaterialTable materialTable,
-                        @Element(name = "random-name") boolean randomName,
-                        @Element(name = "itemTable-name", required = false) String name,
-                        @Element(name = "base-name-table", type = NameTable.class, required = false) NameTable base,
-                        @Element(name = "prefixes-table", type = NameTable.class, required = false) NameTable prefixes,
-                        @Element(name = "suffixes-table", type = NameTable.class, required = false) NameTable suffixes,
-                        @Element(name = "lore-settings", type = ItemLoreSettings.class) ItemLoreSettings loreSettings,
-                        @Element(name = "enchantment-settings", type = ItemEnchantmentSettings.class) ItemEnchantmentSettings enchantmentSettings,
-                        @Element(name = "effect-settings", type = ItemEffectSettings.class, required = false) ItemEffectSettings effectSettings
-
-    ) {
+    public LootSettings(WeaponProperties weaponProperties,MaterialTable materialTable,boolean randomName,String name,NameTable base,NameTable prefixes,NameTable suffixes,ItemLoreSettings loreSettings,ItemEnchantmentSettings enchantmentSettings,ItemEffectSettings effectSettings) {
         this.materialTable = materialTable;
         this.randomName = randomName;
         this.name = name;

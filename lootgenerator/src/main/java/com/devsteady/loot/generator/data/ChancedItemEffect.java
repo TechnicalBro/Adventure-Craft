@@ -2,30 +2,33 @@ package com.devsteady.loot.generator.data;
 
 import com.devsteady.loot.AdventureLoot;
 import com.devsteady.loot.effects.ItemEffect;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Root;
+import com.devsteady.onyx.yml.Path;
+import com.devsteady.onyx.yml.YamlConfig;
+import lombok.Getter;
 
-@Root(name = "chanced-item-effect")
-public class ChancedItemEffect {
+public class ChancedItemEffect extends YamlConfig {
 
     public static ChancedItemEffect of(int chance, ItemEffect effect) {
         return new ChancedItemEffect().chance(chance).effect(effect);
     }
 
+    @Getter
     private ItemEffect effect;
 
-    @Attribute(name = "chance")
+    @Path("chance")
+    @Getter
     private int chance;
 
-    @Attribute(name = "effect")
-    private String effectName;
+    @Path("name")
+    @Getter
+    private String name;
 
-    public ChancedItemEffect(@Attribute(name = "chance")int chance, @Attribute(name = "effect")String effectName) {
+    public ChancedItemEffect(int chance, String effectName) {
         this.chance = chance;
         if (!AdventureLoot.getInstance().getItemEffectHandler().effectExists(effectName)) {
             throw new IllegalAccessError("Unable to initiate chanced item effect for " + effectName);
         }
-        this.effectName = effectName;
+        this.name = effectName;
         this.effect = AdventureLoot.getInstance().getItemEffectHandler().getEffect(effectName);
     }
 
@@ -35,7 +38,7 @@ public class ChancedItemEffect {
 
     public ChancedItemEffect effect(ItemEffect e) {
         this.effect = e;
-        this.effectName = e.name();
+        this.name = e.name();
         return this;
     }
 
@@ -50,9 +53,5 @@ public class ChancedItemEffect {
 
     public ItemEffect effect() {
         return effect;
-    }
-
-    public String effectName() {
-        return effectName;
     }
 }

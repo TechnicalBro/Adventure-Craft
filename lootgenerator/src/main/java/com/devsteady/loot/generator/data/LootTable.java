@@ -1,29 +1,25 @@
 package com.devsteady.loot.generator.data;
 
 import com.devsteady.loot.generator.settings.LootSettings;
-import com.caved_in.commons.utilities.ListUtils;
+import com.devsteady.onyx.utilities.ListUtils;
+import com.devsteady.onyx.yml.Path;
 import com.devsteady.onyx.yml.YamlConfig;
 import org.bukkit.inventory.ItemStack;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class LootTable extends YamlConfig {
 
+	@Path("settings")
 	private List<LootSettings> lootSettings = new ArrayList<>();
 
+	@Path("chanced-items")
 	private List<ChancedItemStack> chancedItems = new ArrayList<>();
 
+	@Path("children")
 	private List<LootTable> childTables = new ArrayList<>();
 
-	public LootTable(
-			@ElementList(name = "loot-settings",entry = "settings",type = LootSettings.class, required = false)List<LootSettings> settings,
-			@ElementList(name = "chanced-items",entry = "item",type = ChancedItemStack.class,required = false)List<ChancedItemStack> items,
-			@ElementList(name = "children",entry = "table",type = LootTable.class,required = false)List<LootTable> children
-			)
-	{
+	public LootTable(List<LootSettings> settings,List<ChancedItemStack> items,List<LootTable> children) {
 		this.lootSettings = settings;
 		this.chancedItems = items;
 		this.childTables = children;

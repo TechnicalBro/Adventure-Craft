@@ -1,26 +1,27 @@
 package com.devsteady.loot.generator.data;
 
-import com.caved_in.commons.utilities.NumberUtil;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Root;
+
+import com.devsteady.onyx.utilities.NumberUtil;
+import com.devsteady.onyx.yml.Path;
+import com.devsteady.onyx.yml.YamlConfig;
 
 import java.util.Optional;
 
-@Root(name = "chanced-name")
-public class ChancedName {
-	@Attribute(name = "chance")
+public class ChancedName extends YamlConfig{
+	@Path("chance")
 	private int chance = 100;
 
-	@Attribute(name = "name")
+	@Path("name")
 	private String name;
 
-	private NameSlot preventSlot = null;
+	@Path("prevent-slot")
+	private String slot;
 
 	public static ChancedName of(int chance, String name) {
 		return new ChancedName(chance,name);
 	}
 
-	public ChancedName(@Attribute(name = "chance")int chance, @Attribute(name = "name")String name) {
+	public ChancedName(int chance, String name) {
 		this.chance = chance;
 		this.name = name;
 	}
@@ -34,12 +35,12 @@ public class ChancedName {
 	}
 
 	public ChancedName prevent(NameSlot slot) {
-		this.preventSlot = slot;
+		this.slot = slot.getName();
 		return this;
 	}
 
 	public NameSlot getPreventSlot() {
-		return preventSlot;
+		return NameSlot.getSlot(this.slot);
 	}
 
 	public Optional<String> getChancedName() {

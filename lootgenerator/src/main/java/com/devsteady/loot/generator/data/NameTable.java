@@ -1,31 +1,30 @@
 package com.devsteady.loot.generator.data;
 
 import com.devsteady.loot.generator.settings.LootSettings;
-import com.caved_in.commons.utilities.ListUtils;
+import com.devsteady.onyx.utilities.ListUtils;
+import com.devsteady.onyx.yml.Path;
+import com.devsteady.onyx.yml.Skip;
+import com.devsteady.onyx.yml.YamlConfig;
 import lombok.ToString;
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Root(name = "name-settings")
 @ToString(of = {"slot", "names"})
-public class NameTable {
+public class NameTable extends YamlConfig {
 
-	@Attribute(name = "slot")
-	private NameSlot slot;
+	@Path("slot")
+	private String slot;
 
-	@ElementList(name = "potential-names", entry = "name",type = ChancedName.class)
+	@Path("potential-names")
 	private List<ChancedName> names = new ArrayList<>();
 
+	@Skip
 	private LootSettings parent;
 
-	public NameTable(@Attribute(name = "slot") NameSlot slot, @ElementList(name = "potential-names", entry = "name",type = ChancedName.class) List<ChancedName> names) {
-		this.slot = slot;
+	public NameTable(NameSlot slot, List<ChancedName> names) {
+		this.slot = slot.getName();
 		this.names = names;
 	}
 
@@ -35,7 +34,7 @@ public class NameTable {
 	}
 
 	public NameTable(NameSlot slot) {
-		this.slot = slot;
+		this.slot = slot.getName();
 	}
 
 	public NameTable add(String name) {
@@ -62,7 +61,7 @@ public class NameTable {
 	}
 
 	public NameSlot getSlot() {
-		return slot;
+		return NameSlot.getSlot(slot);
 	}
 
 	public LootSettings parent() {

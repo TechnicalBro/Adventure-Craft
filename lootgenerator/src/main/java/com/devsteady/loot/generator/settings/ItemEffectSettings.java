@@ -2,23 +2,26 @@ package com.devsteady.loot.generator.settings;
 
 import com.devsteady.loot.effects.ItemEffect;
 import com.devsteady.loot.generator.data.ChancedItemEffect;
-import com.caved_in.commons.utilities.ListUtils;
-import com.caved_in.commons.utilities.NumberUtil;
-import org.simpleframework.xml.ElementList;
+import com.devsteady.onyx.utilities.ListUtils;
+import com.devsteady.onyx.utilities.NumberUtil;
+import com.devsteady.onyx.yml.Path;
+import com.devsteady.onyx.yml.Skip;
+import com.devsteady.onyx.yml.YamlConfig;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class ItemEffectSettings {
+public class ItemEffectSettings extends YamlConfig {
 
+    @Skip
     private LootSettings parent;
 
-    @ElementList(name = "effects",entry = "effect",type = ChancedItemEffect.class)
+    @Path("effects")
     private List<ChancedItemEffect> itemEffects = new ArrayList<>();
 
-    public ItemEffectSettings(@ElementList(name = "effects",entry = "effect",type = ChancedItemEffect.class)List<ChancedItemEffect> effects) {
+    public ItemEffectSettings(List<ChancedItemEffect> effects) {
         this.itemEffects = effects;
     }
 

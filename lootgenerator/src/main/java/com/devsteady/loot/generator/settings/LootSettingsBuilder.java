@@ -1,7 +1,6 @@
 package com.devsteady.loot.generator.settings;
 
 import com.devsteady.loot.effects.ItemEffect;
-import com.caved_in.adventurecraft.loot.generator.data.*;
 import com.devsteady.loot.generator.data.ChancedEnchantment;
 import com.devsteady.loot.generator.data.ChancedItemData;
 import com.devsteady.loot.generator.data.ChancedName;
