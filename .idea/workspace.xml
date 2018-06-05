@@ -2,266 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee746c4e-ffc8-4b06-92a0-1d5f31c0b593" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_devsteady_gaeacraft_gems_1_0_SNAPSHOT.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_devsteady_gaeacraft_homes_1_0_2_TEST.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_devsteady_gaeacraft_lootgenerator_1_3_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_devsteady_onyx_1_7_10.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_blizzard_1_0_4_JDK8144185.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_text_1_12_1_4_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Core/adventure-core.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/father-nature/adventure-brother.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/fishingplus/fishing-upgrade.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/fishingplus/libs/spigot-1.7.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/gaeahomes/adventure-homes.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/gaeashop/adventureshop.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/gems/gems.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/gems/lib/Towny.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/gems/lib/Vault.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/gems/lib/orefinder.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/gems/lib/spigot-1.8.7.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lootgenerator/libs/spigot-1.7.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lootgenerator/pom.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/NameSlot.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_caved_in_adventurecraft_lootgenerator_1_0_2.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_caved_in_commons_1_8_4.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_caved_in_commons_1_8_7.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_17_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_21_0.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_persistence_api_1_0.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_milkbowl_vault_Vault_1_5_2.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_1_7_0.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_avaje_ebean_2_8_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_bukkit_bukkit_1_8_R0_1_SNAPSHOT.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_18_2_GA.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javatuples_javatuples_1_2.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_all_1_10_8.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_api_mockito_1_6_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_api_support_1_6_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_core_1_6_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_module_junit4_1_6_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_module_junit4_common_1_6_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_reflect_1_6_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_1_8_7_R0_1_SNAPSHOT.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_1_8_8_R0_1_SNAPSHOT.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_14.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/TunnelsSurvival_12_.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/TunnelsSurvival_12___2_.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/Adventure Core.iml" afterPath="$PROJECT_DIR$/Core/Adventure Core.iml" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/lib/Towny.jar" afterPath="$PROJECT_DIR$/Core/lib/Towny.jar" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/lib/Vault.jar" afterPath="$PROJECT_DIR$/gaeahomes/lib/Vault.jar" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/lib/orefinder.jar" afterPath="$PROJECT_DIR$/Core/lib/orefinder.jar" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/lib/spigot-1.8.7.jar" afterPath="$PROJECT_DIR$/Core/lib/spigot-1.8.7.jar" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/pom.xml" afterPath="$PROJECT_DIR$/Core/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/AdventureCore.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/AdventureCore.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/command/AdventureCommand.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/command/AdventureCommand.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/command/AfkCommand.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/command/AfkCommand.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/command/ExchangeCommand.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/command/ExchangeCommand.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/debug/DebugCustomArrows.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/debug/DebugCustomArrows.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/debug/DebugHandCannon.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/debug/DebugHandCannon.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/debug/DebugMobSlayLoot.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/debug/DebugMobSlayLoot.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/debug/DebugProtoFinder.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/debug/DebugProtoFinder.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/AdventureArrow.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/AdventureArrow.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/CoalFinder.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/CoalFinder.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/DocileArrowGadget.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/DocileArrowGadget.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/EnderArrowGadget.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/EnderArrowGadget.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/ExplosiveArrowGadget.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/ExplosiveArrowGadget.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/GoldFinder.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/GoldFinder.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/GrapplingArrowGadget.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/GrapplingArrowGadget.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/HandheldTntCannon.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/HandheldTntCannon.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/HealingArrow.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/HealingArrow.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/IronOreFinder.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/IronOreFinder.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/KinArrowGadget.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/KinArrowGadget.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/MonsterExamineGadget.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/MonsterExamineGadget.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/PartyCrackerGadget.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/PartyCrackerGadget.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/gadget/SlowingArrowGadget.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/gadget/SlowingArrowGadget.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/listener/ItemHaloListener.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/listener/ItemHaloListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/listener/MobSlayListener.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/listener/MobSlayListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/listener/PlayerConnectionListener.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/listener/PlayerConnectionListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/listener/PlayerGiveCatMilkListener.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/listener/PlayerGiveCatMilkListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/listener/PlayerGivePlayerFlowerListener.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/listener/PlayerGivePlayerFlowerListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/listener/PlayerHandleBunnyListener.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/listener/PlayerHandleBunnyListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/listener/PlayerShootSelfListener.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/listener/PlayerShootSelfListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/listener/PremiumMobSpawnerListener.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/listener/PremiumMobSpawnerListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/loot/CreatureLootTable.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/loot/CreatureLootTable.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/menu/AdventureMenu.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/menu/AdventureMenu.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/user/AdventurePlayer.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/user/AdventurePlayer.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/java/com/caved_in/adventurecraft/core/user/AdventurerPlayerManager.java" afterPath="$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/user/AdventurerPlayerManager.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Core/src/main/resources/plugin.yml" afterPath="$PROJECT_DIR$/Core/src/main/resources/plugin.yml" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/Adventure Gems.iml" afterPath="$PROJECT_DIR$/gems/Adventure Gems.iml" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/pom.xml" afterPath="$PROJECT_DIR$/gems/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/AdventureGems.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/AdventureGems.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/debug/DebugGemGenerator.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/debug/DebugGemGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/event/GemCraftEvent.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/event/GemCraftEvent.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/gemcraft/GemCraftData.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/gemcraft/GemCraftData.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/gemcraft/GemCraftHandler.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/gemcraft/GemCraftHandler.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/item/ChancedEnchantment.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/item/ChancedEnchantment.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/item/ChancedItemEffect.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/item/ChancedItemEffect.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/item/GemGenerator.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/item/GemGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/item/GemPrefixSettings.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/item/GemPrefixSettings.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/item/GemSettings.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/item/GemSettings.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/item/GemSuffixSettings.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/item/GemSuffixSettings.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/item/GemType.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/item/GemType.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/item/ItemGenerator.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/item/ItemGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/item/LevelDescriptor.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/item/LevelDescriptor.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/listener/GemCraftListener.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/listener/GemCraftListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/java/com/caved_in/adventurecraft/gems/listener/PlayerInteractListener.java" afterPath="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/listener/PlayerInteractListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/main/resources/plugin.yml" afterPath="$PROJECT_DIR$/gems/src/main/resources/plugin.yml" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/test/java/ChancedEnchantmentTest.java" afterPath="$PROJECT_DIR$/gems/src/test/java/ChancedEnchantmentTest.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/test/java/GemGeneratorTest.java" afterPath="$PROJECT_DIR$/gems/src/test/java/GemGeneratorTest.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/test/java/GemSettingsTest.java" afterPath="$PROJECT_DIR$/gems/src/test/java/GemSettingsTest.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/test/java/GemSuffixSettingsTest.java" afterPath="$PROJECT_DIR$/gems/src/test/java/GemSuffixSettingsTest.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/src/test/java/LevelDescriptorTest.java" afterPath="$PROJECT_DIR$/gems/src/test/java/LevelDescriptorTest.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Gems/todo.txt" afterPath="$PROJECT_DIR$/gems/todo.txt" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/Adventure Homes.iml" afterPath="$PROJECT_DIR$/gaeahomes/Adventure Homes.iml" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/lib/Vault.jar" afterPath="$PROJECT_DIR$/Core/lib/Vault.jar" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/log.txt" afterPath="$PROJECT_DIR$/gaeahomes/log.txt" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/pom.xml" afterPath="$PROJECT_DIR$/gaeahomes/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/src/main/java/com/caved_in/adventurecraft/homes/AdventureHomes.java" afterPath="$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/AdventureHomes.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/src/main/java/com/caved_in/adventurecraft/homes/HomeMessages.java" afterPath="$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/HomeMessages.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/src/main/java/com/caved_in/adventurecraft/homes/command/HomeCommands.java" afterPath="$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/command/HomeCommands.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/src/main/java/com/caved_in/adventurecraft/homes/config/HomeConfig.java" afterPath="$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/config/HomeConfig.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/src/main/java/com/caved_in/adventurecraft/homes/event/PlayerTeleportHomeEvent.java" afterPath="$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/event/PlayerTeleportHomeEvent.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/src/main/java/com/caved_in/adventurecraft/homes/listener/PlayerConnectionListener.java" afterPath="$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/listener/PlayerConnectionListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/src/main/java/com/caved_in/adventurecraft/homes/listener/PlayerTeleportHomeListener.java" afterPath="$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/listener/PlayerTeleportHomeListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/src/main/java/com/caved_in/adventurecraft/homes/menu/HomeMenu.java" afterPath="$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/menu/HomeMenu.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/src/main/java/com/caved_in/adventurecraft/homes/users/HomePlayer.java" afterPath="$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/users/HomePlayer.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/src/main/java/com/caved_in/adventurecraft/homes/users/HomePlayerManager.java" afterPath="$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/users/HomePlayerManager.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/src/main/java/com/caved_in/adventurecraft/homes/users/PlayerHomeAction.java" afterPath="$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/users/PlayerHomeAction.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Homes/src/main/resources/plugin.yml" afterPath="$PROJECT_DIR$/gaeahomes/src/main/resources/plugin.yml" />
-      <change beforePath="$PROJECT_DIR$/Adventure Shop/Adventure Shop.iml" afterPath="$PROJECT_DIR$/gaeashop/Adventure Shop.iml" />
-      <change beforePath="$PROJECT_DIR$/Adventure Shop/lib/GUIShop_2.1.jar" afterPath="$PROJECT_DIR$/gaeashop/lib/GUIShop_2.1.jar" />
-      <change beforePath="$PROJECT_DIR$/Adventure Shop/pom.xml" afterPath="$PROJECT_DIR$/gaeashop/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/Adventure Shop/src/main/java/com/caved_in/adventurecraft/shop/AdventureShop.java" afterPath="$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/AdventureShop.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Shop/src/main/java/com/caved_in/adventurecraft/shop/command/ShopCommand.java" afterPath="$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/command/ShopCommand.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Shop/src/main/java/com/caved_in/adventurecraft/shop/debug/DebugShopMenu.java" afterPath="$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/debug/DebugShopMenu.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Shop/src/main/java/com/caved_in/adventurecraft/shop/menu/ShopCategoryMenuItem.java" afterPath="$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/menu/ShopCategoryMenuItem.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Shop/src/main/java/com/caved_in/adventurecraft/shop/menu/ShopMainMenu.java" afterPath="$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/menu/ShopMainMenu.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Shop/src/main/java/com/caved_in/adventurecraft/shop/menu/ShopMenuItem.java" afterPath="$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/menu/ShopMenuItem.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Shop/src/main/java/com/caved_in/adventurecraft/shop/shop/ShopCategory.java" afterPath="$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/shop/ShopCategory.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Shop/src/main/java/com/caved_in/adventurecraft/shop/shop/ShopItem.java" afterPath="$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/shop/ShopItem.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure Shop/src/main/resources/plugin.yml" afterPath="$PROJECT_DIR$/gaeashop/src/main/resources/plugin.yml" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Armor/Adventure-Armor.iml" afterPath="$PROJECT_DIR$/heroarmor/Adventure-Armor.iml" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/Adventure-Brother.iml" afterPath="$PROJECT_DIR$/father-nature/Adventure-Brother.iml" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/ideas.txt" afterPath="$PROJECT_DIR$/father-nature/ideas.txt" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/pom.xml" afterPath="$PROJECT_DIR$/father-nature/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/BigBrother.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/BigBrother.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/action/ActionLog.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/action/ActionLog.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/action/ActionLogManager.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/action/ActionLogManager.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/action/MinionAction.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/action/MinionAction.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/action/MinionActionCollection.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/action/MinionActionCollection.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/command/BigBrotherCommands.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/command/BigBrotherCommands.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/config/CustomMessage.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/config/CustomMessage.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/config/CustomMessageCollection.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/config/CustomMessageCollection.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/config/CustomMessageConfig.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/config/CustomMessageConfig.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/config/GameActionConvertor.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/config/GameActionConvertor.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/config/SwearFilterConfig.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/config/SwearFilterConfig.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/debug/DebugActionLogManagerContents.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/debug/DebugActionLogManagerContents.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/event/MinionLogActionEvent.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/event/MinionLogActionEvent.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/states/ActiveState.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/states/ActiveState.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/states/GameAction.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/states/GameAction.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/states/InactiveState.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/states/InactiveState.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/user/Minion.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/user/Minion.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/java/com/caved_in/adventurecraft/adventurebrother/user/MinionManager.java" afterPath="$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/user/MinionManager.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Brother/src/main/resources/plugin.yml" afterPath="$PROJECT_DIR$/father-nature/src/main/resources/plugin.yml" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/lib/BossBarAPI_v1.0.6.jar" afterPath="$PROJECT_DIR$/skills/lib/BossBarAPI_v1.0.6.jar" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/lib/NametagEdit.jar" afterPath="$PROJECT_DIR$/skills/lib/NametagEdit.jar" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/log.txt" afterPath="$PROJECT_DIR$/skills/log.txt" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/pom.xml" afterPath="$PROJECT_DIR$/skills/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/AdventureSkills.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/AdventureSkills.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/command/SkillsCommand.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/command/SkillsCommand.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/config/SkillsConfig.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/config/SkillsConfig.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/event/PlayerGainSkillExpEvent.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/event/PlayerGainSkillExpEvent.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/event/PlayerLevelSkillEvent.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/event/PlayerLevelSkillEvent.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/listener/EntityModifyListener.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/listener/EntityModifyListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/listener/MobDamageDeathListener.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/listener/MobDamageDeathListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/listener/PlayerConnectionListener.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/listener/PlayerConnectionListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/listener/PlayerMineListener.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/listener/PlayerMineListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/listener/PlayerSkillsListener.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/listener/PlayerSkillsListener.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/menu/skills/SkillsMenu.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/menu/skills/SkillsMenu.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/menu/skills/SkillsMenuItem.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/menu/skills/SkillsMenuItem.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/menu/skilltree/SkillTreeMenu.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/menu/skilltree/SkillTreeMenu.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/menu/skilltree/SkillTreeMenuItem.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/menu/skilltree/SkillTreeMenuItem.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/nms/NMS.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/nms/NMS.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/nms/NativeActionHandler.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/nms/NativeActionHandler.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/nms/minecraft_1_8_R3/NativeHandler_1_8_R3.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/nms/minecraft_1_8_R3/NativeHandler_1_8_R3.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/nms/no_implementation/DefaultHandler.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/nms/no_implementation/DefaultHandler.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/skills/Combat.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/skills/Combat.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/skills/Mining.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/skills/Mining.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/skills/SkillPerk.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/skills/SkillPerk.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/skills/SkillType.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/skills/SkillType.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/skills/Stealth.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/skills/Stealth.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/states/EmptyServerState.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/states/EmptyServerState.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/states/PlayingState.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/states/PlayingState.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/users/SkillsUser.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/users/SkillsUser.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/users/SkillsUserManager.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/users/SkillsUserManager.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/users/data/SkillEntry.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/users/data/SkillEntry.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/users/data/SkillPerkData.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/users/data/SkillPerkData.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/java/com/caved_in/adventurecraft/skills/util/ExpTables.java" afterPath="$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/util/ExpTables.java" />
-      <change beforePath="$PROJECT_DIR$/Adventure-Skills/src/main/resources/plugin.yml" afterPath="$PROJECT_DIR$/skills/src/main/resources/plugin.yml" />
-      <change beforePath="$PROJECT_DIR$/Fishing Upgrade/Fishing.iml" afterPath="$PROJECT_DIR$/fishingplus/Fishing.iml" />
-      <change beforePath="$PROJECT_DIR$/Fishing Upgrade/pom.xml" afterPath="$PROJECT_DIR$/fishingplus/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/Fishing Upgrade/src/main/java/com/caved_in/adventurecraft/fishing/AdventureFishing.java" afterPath="$PROJECT_DIR$/fishingplus/src/main/java/com/caved_in/adventurecraft/fishing/AdventureFishing.java" />
-      <change beforePath="$PROJECT_DIR$/Fishing Upgrade/src/main/java/com/caved_in/adventurecraft/fishing/config/BiomeConfig.java" afterPath="$PROJECT_DIR$/fishingplus/src/main/java/com/caved_in/adventurecraft/fishing/config/BiomeConfig.java" />
-      <change beforePath="$PROJECT_DIR$/Fishing Upgrade/src/main/java/com/caved_in/adventurecraft/fishing/config/FishingLoot.java" afterPath="$PROJECT_DIR$/fishingplus/src/main/java/com/caved_in/adventurecraft/fishing/config/FishingLoot.java" />
-      <change beforePath="$PROJECT_DIR$/Fishing Upgrade/src/main/java/com/caved_in/adventurecraft/fishing/config/PluginConfig.java" afterPath="$PROJECT_DIR$/fishingplus/src/main/java/com/caved_in/adventurecraft/fishing/config/PluginConfig.java" />
-      <change beforePath="$PROJECT_DIR$/Fishing Upgrade/src/main/java/com/caved_in/adventurecraft/fishing/listeners/FishingListener.java" afterPath="$PROJECT_DIR$/fishingplus/src/main/java/com/caved_in/adventurecraft/fishing/listeners/FishingListener.java" />
-      <change beforePath="$PROJECT_DIR$/Fishing Upgrade/src/main/java/com/caved_in/adventurecraft/fishing/loot/LootGeneratorSettings.java" afterPath="$PROJECT_DIR$/fishingplus/src/main/java/com/caved_in/adventurecraft/fishing/loot/LootGeneratorSettings.java" />
-      <change beforePath="$PROJECT_DIR$/Fishing Upgrade/src/main/java/com/caved_in/adventurecraft/fishing/todo.txt" afterPath="$PROJECT_DIR$/fishingplus/src/main/java/com/caved_in/adventurecraft/fishing/todo.txt" />
-      <change beforePath="$PROJECT_DIR$/Fishing Upgrade/src/main/resources/plugin.yml" afterPath="$PROJECT_DIR$/fishingplus/src/main/resources/plugin.yml" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/Loot Generator.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/log.txt" afterPath="$PROJECT_DIR$/lootgenerator/log.txt" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/pom.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/AdventureLoot.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/AdventureLoot.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/command/LootCommand.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/command/LootCommand.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/debug/DebugGenerateWithItemEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugGenerateWithItemEffect.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/debug/DebugItemEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugItemEffect.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/debug/DebugLootGenerator.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugLootGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/debug/DebugLootTableSerialization.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugLootTableSerialization.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/effects/BackstabEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/effects/BackstabEffect.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/effects/BleedEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/effects/BleedEffect.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/effects/CriticalStrikeEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/effects/CriticalStrikeEffect.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/effects/FlameStrikeEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/effects/FlameStrikeEffect.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/effects/ItemEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/effects/ItemEffect.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/effects/LifeLeechEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/effects/LifeLeechEffect.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/effects/PhaseEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/effects/PhaseEffect.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/effects/PoisonEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/effects/PoisonEffect.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/event/LootGenerateEvent.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/event/LootGenerateEvent.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/event/PlayerUseItemEffectEvent.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/event/PlayerUseItemEffectEvent.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/LootGenerator.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/LootGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/data/ChancedEnchantment.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/ChancedEnchantment.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/data/ChancedItemData.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/ChancedItemData.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/data/ChancedItemEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/ChancedItemEffect.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/data/ChancedItemStack.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/ChancedItemStack.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/data/ChancedName.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/ChancedName.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/data/LootTable.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/LootTable.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/data/MaterialTable.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/MaterialTable.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/data/NameSlot.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/data/NameTable.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/NameTable.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/data/RandomizedAttribute.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/RandomizedAttribute.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/settings/ItemEffectSettings.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/settings/ItemEffectSettings.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/settings/ItemEnchantmentSettings.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/settings/ItemEnchantmentSettings.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/settings/ItemLoreSettings.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/settings/ItemLoreSettings.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/settings/LootSettings.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/settings/LootSettings.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/generator/settings/LootSettingsBuilder.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/settings/LootSettingsBuilder.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/listener/ItemEffectListener.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/listener/ItemEffectListener.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/listener/LootGenerateListener.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/listener/LootGenerateListener.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/users/ItemUser.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/users/ItemUser.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/users/ItemUserManager.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/users/ItemUserManager.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/java/com/caved_in/adventurecraft/loot/util/ItemHandler.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/util/ItemHandler.java" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/src/main/resources/plugin.yml" afterPath="$PROJECT_DIR$/lootgenerator/src/main/resources/plugin.yml" />
-      <change beforePath="$PROJECT_DIR$/Loot Generator/todo.txt" afterPath="$PROJECT_DIR$/lootgenerator/todo.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_nodep_3_2_5.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_comphenix_executors_BukkitExecutors_1_1_SNAPSHOT.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_comphenix_protocol_ProtocolLib_4_4_0_SNAPSHOT.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_comphenix_protocol_ProtocolLib_API_4_4_0_SNAPSHOT.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_devsteady_onyx_1_8_8.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_github_github_maven_core_0_9.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_github_site_maven_plugin_0_9.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_2_2.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_1_7_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_utils_3_0_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_mylyn_github_org_eclipse_egit_github_core_2_1_5.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_18_2_GA.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jooq_joor_0_9_5.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_all_1_10_8.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_api_mockito_1_6_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_api_support_1_6_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_core_1_6_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_module_junit4_1_6_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_module_junit4_common_1_6_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_powermock_powermock_reflect_1_6_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_6.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_devsteady_gaeacraft_gems_1_0_SNAPSHOT.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_devsteady_gaeacraft_homes_1_0_2_TEST.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_devsteady_gaeacraft_lootgenerator_1_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_devsteady_gaeacraft_lootgenerator_1_3_0.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Core/adventure-core.iml" afterPath="$PROJECT_DIR$/Core/adventure-core.iml" />
+      <change beforePath="$PROJECT_DIR$/Core/pom.xml" afterPath="$PROJECT_DIR$/Core/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/father-nature/pom.xml" afterPath="$PROJECT_DIR$/father-nature/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/fishingplus/fishing-upgrade.iml" afterPath="$PROJECT_DIR$/fishingplus/fishing-upgrade.iml" />
+      <change beforePath="$PROJECT_DIR$/gaeacraft.iml" afterPath="$PROJECT_DIR$/gaeacraft.iml" />
+      <change beforePath="$PROJECT_DIR$/gaeashop/pom.xml" afterPath="$PROJECT_DIR$/gaeashop/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/shop/ShopItem.java" afterPath="$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/shop/ShopItem.java" />
+      <change beforePath="$PROJECT_DIR$/gems/gems.iml" afterPath="$PROJECT_DIR$/gems/gems.iml" />
+      <change beforePath="$PROJECT_DIR$/gems/pom.xml" afterPath="$PROJECT_DIR$/gems/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/lootgenerator/pom.xml" afterPath="$PROJECT_DIR$/lootgenerator/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/AdventureLoot.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/AdventureLoot.java" />
+      <change beforePath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/command/LootCommand.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/command/LootCommand.java" />
+      <change beforePath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugGenerateWithItemEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugGenerateWithItemEffect.java" />
+      <change beforePath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugItemEffect.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugItemEffect.java" />
+      <change beforePath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugLootGenerator.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugLootGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugLootTableSerialization.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugLootTableSerialization.java" />
+      <change beforePath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/ChancedEnchantment.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/ChancedEnchantment.java" />
+      <change beforePath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/LootTable.java" afterPath="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/LootTable.java" />
       <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/skills/adventure-skills.iml" afterPath="$PROJECT_DIR$/skills/adventure-skills.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/Adventure Core/target/" />
     <ignored path="$PROJECT_DIR$/Loot Generator/target/" />
@@ -287,41 +78,89 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lootgenerator/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-928">
-              <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            <state relative-caret-position="-903">
+              <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gems/pom.xml">
+      <file leaf-file-name="LootCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/command/LootCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            <state relative-caret-position="778">
+              <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DebugGenerateWithItemEffect.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugGenerateWithItemEffect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="79" column="50" lean-forward="true" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DebugItemEffect.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugItemEffect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-78">
+              <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DebugLootTableSerialization.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugLootTableSerialization.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="96" column="40" lean-forward="false" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="ChancedEnchantment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/ChancedEnchantment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="253">
+              <caret line="86" column="13" lean-forward="false" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdventureLoot.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/AdventureLoot.java">
+      <file leaf-file-name="LootTable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/LootTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="58" column="24" lean-forward="false" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
+            <state relative-caret-position="150">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DebugLootGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugLootGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="70" column="13" lean-forward="false" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -330,61 +169,25 @@
         </entry>
       </file>
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Core/pom.xml">
+        <entry file="file://$PROJECT_DIR$/gems/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="95" column="21" lean-forward="false" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
+            <state relative-caret-position="105">
+              <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gaeahomes/pom.xml">
+      <file leaf-file-name="AdventureLoot.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/AdventureLoot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/father-nature/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gaeashop/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1303">
-              <caret line="6" column="40" lean-forward="false" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdventureGems.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/AdventureGems.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fishingplus/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1155">
-              <caret line="77" column="35" lean-forward="false" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="60">
+              <caret line="61" column="10" lean-forward="true" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4077#4078#0" expanded="true" />
+                <element signature="e#4138#4139#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -409,16 +212,24 @@
         <option value="$PROJECT_DIR$/Adventure Gems/pom.xml" />
         <option value="$PROJECT_DIR$/Loot Generator/pom.xml" />
         <option value="$PROJECT_DIR$/Loot Generator/src/main/java/com/devsteady/loot/util/ItemHandler.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/AdventureLoot.java" />
         <option value="$PROJECT_DIR$/fishingplus/pom.xml" />
-        <option value="$PROJECT_DIR$/Core/pom.xml" />
         <option value="$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/AdventureGems.java" />
         <option value="$PROJECT_DIR$/gaeahomes/pom.xml" />
-        <option value="$PROJECT_DIR$/gems/pom.xml" />
-        <option value="$PROJECT_DIR$/father-nature/pom.xml" />
         <option value="$PROJECT_DIR$/gaeashop/pom.xml" />
+        <option value="$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/shop/ShopItem.java" />
+        <option value="$PROJECT_DIR$/father-nature/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/Core/pom.xml" />
+        <option value="$PROJECT_DIR$/gems/pom.xml" />
         <option value="$PROJECT_DIR$/lootgenerator/pom.xml" />
+        <option value="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/command/LootCommand.java" />
+        <option value="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugGenerateWithItemEffect.java" />
+        <option value="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/AdventureLoot.java" />
+        <option value="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugItemEffect.java" />
+        <option value="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugLootGenerator.java" />
+        <option value="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugLootTableSerialization.java" />
+        <option value="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/LootTable.java" />
+        <option value="$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/ChancedEnchantment.java" />
       </list>
     </option>
   </component>
@@ -431,7 +242,12 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="gaeacore" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
@@ -469,21 +285,65 @@
             <path>
               <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
               <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
               <item name="father-nature" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
               <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
-              <item name="gaeahomes" type="462c0819:PsiDirectoryNode" />
+              <item name="gems" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
               <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
-              <item name="gaeashop" type="462c0819:PsiDirectoryNode" />
+              <item name="gems" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
               <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
+              <item name="gems" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
+              <item name="gems" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
+              <item name="gems" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
+              <item name="gems" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="gems" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -521,6 +381,58 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="loot" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
+              <item name="lootgenerator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="loot" type="462c0819:PsiDirectoryNode" />
+              <item name="command" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
+              <item name="lootgenerator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="loot" type="462c0819:PsiDirectoryNode" />
+              <item name="debug" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
+              <item name="lootgenerator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="loot" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
+              <item name="lootgenerator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="loot" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Adventure-Craft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Adventure-Craft" type="462c0819:PsiDirectoryNode" />
+              <item name="lootgenerator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="loot" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+              <item name="settings" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -532,6 +444,9 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -668,22 +583,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1366" height="738" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27954546" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2840909" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -700,83 +616,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/users/SkillsUserManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/nms/minecraft_1_8_R3/NativeHandler_1_8_R3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/skills/Mining.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/skills/Combat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/skills/Stealth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/states/EmptyServerState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/menu/skilltree/SkillTreeMenuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-435">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/menu/skilltree/SkillTreeMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/menu/skills/SkillsMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/listener/PlayerSkillsListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/listener/PlayerMineListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/skills/src/main/java/com/caved_in/adventurecraft/skills/listener/PlayerConnectionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -833,13 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/shop/ShopItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/shop/ShopCategory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -868,13 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/AdventureHomes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1615">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/users/PlayerHomeAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -889,24 +714,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/users/HomePlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1226">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/menu/HomeMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/action/ActionLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-731">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -988,24 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/AdventureLoot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="58" column="24" lean-forward="false" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fishingplus/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
@@ -1014,18 +807,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/AdventureGems.java">
+    <entry file="file://$PROJECT_DIR$/Core/src/main/java/com/devsteady/gaeacraft/AdventureCore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="95" column="21" lean-forward="false" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
+        <state relative-caret-position="-1110">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1038,10 +823,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/father-nature/pom.xml">
+    <entry file="file://$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/AdventureHomes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1677">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/config/HomeConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-792">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/listener/PlayerTeleportHomeListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/users/HomePlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-792">
+          <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+          <folding>
+            <element signature="e#1901#1902#0" expanded="false" />
+            <element signature="e#1973#1974#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gaeahomes/src/main/java/com/caved_in/adventurecraft/homes/listener/PlayerConnectionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/father-nature/src/main/java/com/caved_in/adventurecraft/adventurebrother/action/ActionLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gaeashop/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="71" column="40" lean-forward="false" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gaeashop/src/main/java/com/caved_in/adventurecraft/shop/shop/ShopItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/father-nature/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gems/src/main/java/com/caved_in/adventurecraft/gems/AdventureGems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="69" column="33" lean-forward="false" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1049,26 +925,172 @@
     <entry file="file://$PROJECT_DIR$/gems/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gaeashop/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1303">
-          <caret line="6" column="40" lean-forward="false" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lootgenerator/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-928">
-          <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        <state relative-caret-position="-903">
+          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/command/LootCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="778">
+          <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/AdventureLoot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="61" column="10" lean-forward="true" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4077#4078#0" expanded="true" />
+            <element signature="e#4138#4139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugGenerateWithItemEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="79" column="50" lean-forward="true" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugItemEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78">
+          <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugLootGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="70" column="13" lean-forward="false" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/debug/DebugLootTableSerialization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="96" column="40" lean-forward="false" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/LootTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lootgenerator/src/main/java/com/devsteady/loot/generator/data/ChancedEnchantment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="86" column="13" lean-forward="false" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>adventure-core</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.45046082" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: cglib:cglib-nodep:3.2.5</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

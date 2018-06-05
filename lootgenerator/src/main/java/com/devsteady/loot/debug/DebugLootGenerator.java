@@ -1,13 +1,12 @@
 package com.devsteady.loot.debug;
 
 import com.devsteady.loot.AdventureLoot;
-import com.caved_in.adventurecraft.loot.generator.data.*;
 import com.devsteady.loot.generator.data.*;
 import com.devsteady.loot.generator.settings.LootSettings;
-import com.caved_in.commons.debug.DebugAction;
-import com.caved_in.commons.item.Attributes;
-import com.caved_in.commons.player.Players;
-import com.caved_in.commons.utilities.StringUtil;
+import com.devsteady.onyx.debug.DebugAction;
+import com.devsteady.onyx.item.Attributes;
+import com.devsteady.onyx.player.Players;
+import com.devsteady.onyx.utilities.StringUtil;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -22,21 +21,9 @@ public class DebugLootGenerator implements DebugAction {
             .addLoot(
                     new ChancedItemData(40, Material.STONE_SWORD)
                             .damageRange(1.0, 1.9, 2.4, 4.5)
-                            .attribute(new RandomizedAttribute()
-                                            .name("Attack")
-                                            .addOperation(10, Attributes.Operation.ADD_PERCENTAGE)
-                                            .addOperation(50, Attributes.Operation.ADD_NUMBER)
-                                            .addOperation(10, Attributes.Operation.MULTIPLY_PERCENTAGE)
-                                            .type(Attributes.AttributeType.GENERIC_ATTACK_DAMAGE)
-                                            .amountRange(1.0, 3.8)
-                            )
             )
             .addLoot(new ChancedItemData(1, Material.DIAMOND_SWORD)
                             .damageRange(5.5, 7.5, 8.0, 14.54)
-                            .attribute(new RandomizedAttribute()
-                                    .name("Attack").addOperation(30, Attributes.Operation.ADD_NUMBER)
-                                    .type(Attributes.AttributeType.GENERIC_ATTACK_DAMAGE)
-                                    .amountRange(2, 5))
             )
             .addLoot(new ChancedItemData(20, Material.IRON_SWORD).damageRange(3.5, 5.5, 6.9, 9.2))
             .addLoot(new ChancedItemData(15, Material.GOLD_SWORD).damageRange(5.1, 5.5, 6.0, 10.1))

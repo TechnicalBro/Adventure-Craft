@@ -15,6 +15,8 @@ import com.caved_in.commons.menu.ItemMenu;
 import com.caved_in.commons.menu.menus.confirmation.ConfirmationMenu;
 import com.caved_in.commons.player.Players;
 import com.caved_in.commons.utilities.StringUtil;
+import com.devsteady.onyx.debug.DebugAction;
+import com.devsteady.onyx.item.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -82,7 +84,7 @@ public class DebugLootTableSerialization implements DebugAction {
     public DebugLootTableSerialization() {
         table.add(TIER_1_BOW_SETTINGS)
                 .add(new LootTable().add(TIER_1_SWORD_SETTINGS))
-                .add(10,ItemBuilder.of(Material.CHAINMAIL_LEGGINGS).item())
+                .add(10, ItemBuilder.of(Material.CHAINMAIL_LEGGINGS).item())
                 .add(1,ItemBuilder.of(Material.DIAMOND_SWORD).item());
     }
 

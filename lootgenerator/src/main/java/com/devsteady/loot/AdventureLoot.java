@@ -14,6 +14,11 @@ import com.devsteady.loot.listener.ItemEffectListener;
 import com.devsteady.loot.listener.LootGenerateListener;
 import com.devsteady.loot.users.ItemUserManager;
 import com.devsteady.loot.util.ItemHandler;
+import com.devsteady.onyx.game.CraftGame;
+import com.devsteady.onyx.game.listener.UserManagerListener;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Optional;
 import java.util.Set;
 
 public class AdventureLoot extends CraftGame<ItemUserManager> {

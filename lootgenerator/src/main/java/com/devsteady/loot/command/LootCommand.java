@@ -1,17 +1,21 @@
 package com.devsteady.loot.command;
 
-import com.caved_in.commons.Messages;
-import com.caved_in.commons.chat.Chat;
-import com.caved_in.commons.command.Arg;
-import com.caved_in.commons.command.Command;
-import com.caved_in.commons.item.Items;
-import com.caved_in.commons.menu.*;
-import com.caved_in.commons.menu.menus.confirmation.ConfirmationMenu;
-import com.caved_in.commons.player.Players;
-import com.caved_in.commons.utilities.NumberUtil;
+import com.devsteady.onyx.Messages;
+import com.devsteady.onyx.chat.Chat;
+import com.devsteady.onyx.chat.menu.HelpScreen;
+import com.devsteady.onyx.chat.menu.ItemFormat;
+import com.devsteady.onyx.chat.menu.PageDisplay;
+import com.devsteady.onyx.command.Arg;
+import com.devsteady.onyx.command.Command;
+import com.devsteady.onyx.inventory.menu.ItemMenu;
+import com.devsteady.onyx.inventory.menu.Menu;
+import com.devsteady.onyx.inventory.menu.Menus;
+import com.devsteady.onyx.item.Items;
+import com.devsteady.onyx.menus.confirmation.ConfirmationMenu;
+import com.devsteady.onyx.player.Players;
+import com.devsteady.onyx.utilities.NumberUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 public class LootCommand {
     private String damageFormat = "&cDeals &e%s&c to &e%s&c damage!";
@@ -51,7 +55,7 @@ public class LootCommand {
                             Chat.actionMessage(player, "&aDamage range added to the item in your hand");
                         }
                 )
-                .onDeny(ItemMenu::closeMenu)
+                .onDeny(Menu::closeMenu)
                 .openMenu(player);
     }
 }

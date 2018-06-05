@@ -1,13 +1,9 @@
 package com.caved_in.adventurecraft.shop.shop;
 
-import com.caved_in.commons.config.XmlItemStack;
-import org.bukkit.inventory.ItemStack;
-import org.simpleframework.xml.Element;
 
 public class ShopItem {
 
-	@Element(name = "item",type = XmlItemStack.class)
-	private XmlItemStack item;
+	private ItemStack item;
 
 	@Element(name = "store-price")
 	private double storeSellPrice;

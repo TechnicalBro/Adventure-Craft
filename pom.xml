@@ -7,17 +7,20 @@
     <groupId>com.devsteady.gaeacraft</groupId>
     <artifactId>gaeacraft-parent</artifactId>
     <version>1.1.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.devsteady</groupId>
+            <artifactId>onyx</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+    </dependencies>
     <packaging>pom</packaging>
     
     <modules>
 
         <module>Core</module>
-        <module>fishingplus</module>
         <module>lootgenerator</module>
         <module>gems</module>
-        <module>gaeashop</module>
-        <module>gaeahomes</module>
-        <module>father-nature</module>
         <!--<module>Adventure Shop</module>-->
     </modules>
 

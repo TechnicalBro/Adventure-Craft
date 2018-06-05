@@ -1,11 +1,11 @@
 package com.devsteady.loot.debug;
 
 import com.devsteady.loot.AdventureLoot;
-import com.caved_in.commons.chat.Chat;
-import com.caved_in.commons.debug.DebugAction;
-import com.caved_in.commons.item.ItemBuilder;
-import com.caved_in.commons.player.Players;
-import com.caved_in.commons.utilities.StringUtil;
+import com.devsteady.onyx.chat.Chat;
+import com.devsteady.onyx.debug.DebugAction;
+import com.devsteady.onyx.item.ItemBuilder;
+import com.devsteady.onyx.player.Players;
+import com.devsteady.onyx.utilities.StringUtil;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 

@@ -10,11 +10,22 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/spigot-1.8.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" name="Maven: com.devsteady:onyx:1.7.10" level="project" />
-    <orderEntry type="library" name="Maven: com.devsteady.gaeacraft:homes:1.0.2-TEST" level="project" />
     <orderEntry type="library" name="Maven: com.devsteady.gaeacraft:lootgenerator:1.3.0" level="project" />
-    <orderEntry type="library" name="Maven: com.devsteady.gaeacraft:gems:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.2" level="project" />
+    <orderEntry type="library" name="Maven: net.kyori:text:1.12-1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:21.0" level="project" />
+    <orderEntry type="library" name="Maven: net.kyori:blizzard:1.0.4-JDK8144185" level="project" />
+    <orderEntry type="module" module-name="gems" />
     <orderEntry type="module-library">
       <library name="Maven: net.milkbowl.vault:Vault:LATEST">
         <CLASSES>

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/father-nature/adventure-brother.iml" filepath="$PROJECT_DIR$/father-nature/adventure-brother.iml" />
       <module fileurl="file://$PROJECT_DIR$/Core/adventure-core.iml" filepath="$PROJECT_DIR$/Core/adventure-core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gaeahomes/adventure-homes.iml" filepath="$PROJECT_DIR$/gaeahomes/adventure-homes.iml" />
       <module fileurl="file://$PROJECT_DIR$/skills/adventure-skills.iml" filepath="$PROJECT_DIR$/skills/adventure-skills.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gaeashop/adventureshop.iml" filepath="$PROJECT_DIR$/gaeashop/adventureshop.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fishingplus/fishing-upgrade.iml" filepath="$PROJECT_DIR$/fishingplus/fishing-upgrade.iml" />
       <module fileurl="file://$PROJECT_DIR$/gaeacraft.iml" filepath="$PROJECT_DIR$/gaeacraft.iml" />
       <module fileurl="file://$PROJECT_DIR$/gems/gems.iml" filepath="$PROJECT_DIR$/gems/gems.iml" />
     </modules>

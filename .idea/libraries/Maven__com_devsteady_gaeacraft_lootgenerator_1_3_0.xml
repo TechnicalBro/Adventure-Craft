@@ -4,9 +4,11 @@
       <root url="jar://$MAVEN_REPOSITORY$/com/devsteady/gaeacraft/lootgenerator/1.3.0/lootgenerator-1.3.0.jar!/" />
     </CLASSES>
     <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lootgenerator/lootgenerator-1.3.0-javadoc.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/com/devsteady/gaeacraft/lootgenerator/1.3.0/lootgenerator-1.3.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lootgenerator/lootgenerator-1.3.0-sources.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/com/devsteady/gaeacraft/lootgenerator/1.3.0/lootgenerator-1.3.0-sources.jar!/" />
     </SOURCES>
   </library>

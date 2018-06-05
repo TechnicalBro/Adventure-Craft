@@ -5,7 +5,7 @@
     <parent>
         <artifactId>gaeacraft-parent</artifactId>
         <groupId>com.devsteady.gaeacraft</groupId>
-        <version>LATEST</version>
+        <version>1.1.0</version>
     </parent>
 
     <properties>
@@ -70,12 +70,14 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <version>1.8.8</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/spigot-1.8.8.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.devsteady</groupId>
             <artifactId>onyx</artifactId>
-            <version>1.7.10</version>
+            <version>1.8.8</version>
         </dependency>
         <dependency>
             <groupId>com.devsteady.gaeacraft</groupId>
@@ -113,11 +115,6 @@
             <artifactId>powermock-api-mockito</artifactId>
             <version>${powermock.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.devsteady</groupId>
-            <artifactId>onyx</artifactId>
-            <version>RELEASE</version>
         </dependency>
     </dependencies>
 

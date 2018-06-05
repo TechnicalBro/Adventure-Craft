@@ -2,6 +2,7 @@ package com.devsteady.loot.generator.data;
 
 import com.devsteady.loot.generator.settings.LootSettings;
 import com.caved_in.commons.utilities.ListUtils;
+import com.devsteady.onyx.yml.YamlConfig;
 import org.bukkit.inventory.ItemStack;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
@@ -9,16 +10,12 @@ import org.simpleframework.xml.Root;
 import java.util.ArrayList;
 import java.util.List;
 
-@Root(name = "loot-table")
-public class LootTable {
+public class LootTable extends YamlConfig {
 
-	@ElementList(name = "loot-settings",entry = "settings",type = LootSettings.class, required = false)
 	private List<LootSettings> lootSettings = new ArrayList<>();
 
-	@ElementList(name = "chanced-items",entry = "item",type = ChancedItemStack.class,required = false)
 	private List<ChancedItemStack> chancedItems = new ArrayList<>();
 
-	@ElementList(name = "children",entry = "table",type = LootTable.class,required = false)
 	private List<LootTable> childTables = new ArrayList<>();
 
 	public LootTable(

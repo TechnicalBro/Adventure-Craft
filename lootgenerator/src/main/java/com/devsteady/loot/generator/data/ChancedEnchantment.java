@@ -5,7 +5,6 @@ import org.javatuples.Pair;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;
 
-@Root(name = "enchantment")
 public class ChancedEnchantment {
     @Attribute(name = "name")
     private String enchantName;
